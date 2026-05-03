@@ -47,20 +47,20 @@ function renderSpecItem(item) {
     rows.push(row(label, val));
   }
 
-  return `<div class="bg-white rounded-xl border border-gray-200 p-4 hover:border-gray-300 transition-colors">
-  <h3 class="font-semibold text-gray-800 mb-3">${escapeHtml(item.name)}</h3>
-  <table class="w-full"><tbody class="divide-y divide-gray-50">${rows.join('')}</tbody></table>
+  return `<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+  <h3 class="font-semibold text-gray-800 dark:text-gray-100 mb-3">${escapeHtml(item.name)}</h3>
+  <table class="w-full"><tbody class="divide-y divide-gray-100 dark:divide-gray-700">${rows.join('')}</tbody></table>
 </div>`;
 }
 
 function row(label, value) {
-  return `<tr><th class="text-left py-1.5 pr-4 text-gray-400 font-normal whitespace-nowrap text-sm">${label}</th><td class="py-1.5 font-mono text-gray-800 text-sm">${value}</td></tr>`;
+  return `<tr><th class="text-left py-1.5 pr-4 text-gray-400 dark:text-gray-500 font-normal whitespace-nowrap text-sm">${label}</th><td class="py-1.5 font-mono text-gray-800 dark:text-gray-200 text-sm">${value}</td></tr>`;
 }
 
 function renderSection(section, platformColor, insertAdAfter) {
   const items = section.items.map(renderSpecItem).join('\n');
   const ad = insertAdAfter
-    ? `\n<div class="ad-slot my-6 h-28 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-xs" data-ad-format="mid-content">[Ad]</div>`
+    ? `\n<div class="ad-slot my-6 h-28 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 dark:text-gray-600 text-xs" data-ad-format="mid-content">[Ad]</div>`
     : '';
 
   return `<section id="${section.category}" class="mb-10">
@@ -102,7 +102,7 @@ function buildNavLinks(allPlatforms, currentSlug) {
 function buildOtherPlatforms(allPlatforms, currentSlug) {
   return allPlatforms
     .filter(p => p.slug !== currentSlug)
-    .map(p => `<a href="/${p.slug}" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: ${p.color}"></span>${escapeHtml(p.name)}</a>`)
+    .map(p => `<a href="/${p.slug}" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: ${p.color}"></span>${escapeHtml(p.name)}</a>`)
     .join('');
 }
 
@@ -110,7 +110,7 @@ function buildSources(sources) {
   return sources
     .map(s => {
       const safeUrl = /^https?:\/\//.test(s.url) ? s.url : '#';
-      return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">${escapeHtml(s.label)} ↗</a>`;
+      return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">${escapeHtml(s.label)} ↗</a>`;
     })
     .join('');
 }
@@ -167,13 +167,13 @@ function buildHomePage(allPlatforms, template) {
       return escapeHtml(section.label);
     });
 
-    return `<a href="/${p.slug}" class="block bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-blue-200 transition-all group" data-platform="${p.slug}">
+    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-blue-200 dark:hover:border-blue-700 transition-all group" data-platform="${p.slug}">
   <div class="flex items-center gap-3 mb-3">
     <div class="w-1 h-10 rounded flex-shrink-0" style="background-color: ${p.color}"></div>
-    <h2 class="font-bold text-lg text-gray-800 group-hover:text-blue-600 transition-colors">${escapeHtml(p.name)}</h2>
+    <h2 class="font-bold text-lg text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">${escapeHtml(p.name)}</h2>
   </div>
-  <p class="text-sm text-gray-500 mb-3">${escapeHtml(p.description)}</p>
-  <ul class="text-xs text-gray-400 space-y-0.5">${teasers.map(t => `<li>→ ${t}</li>`).join('')}</ul>
+  <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">${escapeHtml(p.description)}</p>
+  <ul class="text-xs text-gray-400 dark:text-gray-500 space-y-0.5">${teasers.map(t => `<li>→ ${t}</li>`).join('')}</ul>
 </a>`;
   }).join('\n');
 

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var t=localStorage.getItem('ap-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
   <title>{{META_TITLE}}</title>
   <meta name="description" content="{{META_DESCRIPTION}}">
   <link rel="canonical" href="https://allplatforms.io/">
@@ -12,11 +13,12 @@
   <meta property="og:url" content="https://allplatforms.io/">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
 
   <!-- Navigation -->
-  <nav class="bg-gray-900 border-b border-gray-700">
+  <nav class="bg-gray-900 dark:bg-gray-950 border-b border-gray-700 dark:border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
       <a href="/" class="flex items-center gap-2" aria-label="allplatforms.io">
         <svg width="28" height="28" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -54,27 +56,43 @@
 
   <!-- Platform grid -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-    <p class="text-sm text-gray-500 mb-4">{{PLATFORM_COUNT}} platforms</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">{{PLATFORM_COUNT}} platforms</p>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="platform-grid">
       {{PLATFORM_CARDS}}
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-500 text-sm mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between gap-2">
+  <footer class="bg-gray-900 dark:bg-gray-950 text-gray-500 text-sm mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between gap-3">
       <p style="font-family:'DM Sans',sans-serif;font-weight:500;color:#fff;">allplatforms<span style="font-family:'Space Mono',monospace;font-weight:400;font-size:0.8em;color:#A78BFA;">.io</span></p>
-      <p>Spec data verified against official platform documentation. Updated regularly.</p>
+      <p class="flex-1">Spec data verified against official platform documentation. Updated regularly.</p>
+      <button id="theme-toggle" onclick="toggleTheme()" class="self-start sm:self-auto inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-200 bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap" aria-label="Toggle color theme">
+        <span id="theme-icon"></span>
+        <span id="theme-label"></span>
+      </button>
     </div>
   </footer>
 
   <script>
     function filterPlatforms(query) {
-      const q = query.toLowerCase();
+      var q = query.toLowerCase();
       document.querySelectorAll('#platform-grid > a').forEach(function(card) {
         card.style.display = (card.dataset.platform || '').includes(q) || q === '' ? '' : 'none';
       });
     }
+    function toggleTheme() {
+      var dark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('ap-theme', dark ? 'dark' : 'light');
+      updateThemeToggle(dark);
+    }
+    function updateThemeToggle(dark) {
+      var icon = document.getElementById('theme-icon');
+      var label = document.getElementById('theme-label');
+      if (icon) icon.textContent = dark ? '☀' : '🌙';
+      if (label) label.textContent = dark ? 'Light mode' : 'Dark mode';
+    }
+    updateThemeToggle(document.documentElement.classList.contains('dark'));
   </script>
 
 </body>
