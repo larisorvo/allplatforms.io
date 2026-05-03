@@ -1,0 +1,12 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="allplatforms.io icon">
+  <title>allplatforms.io</title>
+  <rect x="0" y="0" width="14" height="14" rx="2" fill="#4F46E5"/>
+  <rect x="17" y="0" width="14" height="14" rx="2" fill="#7C3AED"/>
+  <rect x="34" y="0" width="14" height="14" rx="2" fill="#A78BFA"/>
+  <rect x="0" y="17" width="14" height="14" rx="2" fill="#EC4899"/>
+  <rect x="17" y="17" width="14" height="14" rx="2" fill="rgba(255,255,255,0.13)"/>
+  <rect x="34" y="17" width="14" height="14" rx="2" fill="rgba(255,255,255,0.06)"/>
+  <rect x="0" y="34" width="14" height="14" rx="2" fill="rgba(255,255,255,0.06)"/>
+  <rect x="17" y="34" width="14" height="14" rx="2" fill="rgba(255,255,255,0.04)"/>
+  <rect x="34" y="34" width="14" height="14" rx="2" fill="rgba(255,255,255,0.02)"/>
+</svg>
