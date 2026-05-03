@@ -1,0 +1,13 @@
+{
+  "name": "allplatforms-io",
+  "version": "1.0.0",
+  "description": "Social media specs and size guide",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node --test tests/build.test.js",
+    "check-sources": "node scripts/check-sources.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
