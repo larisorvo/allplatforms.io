@@ -1,0 +1,168 @@
+{
+  "name": "Instagram",
+  "slug": "instagram",
+  "color": "#E1306C",
+  "description": "Specs and technical requirements for all Instagram content formats.",
+  "lastUpdated": "2026-05-03",
+  "sources": [
+    { "label": "Instagram Help Center", "url": "https://help.instagram.com/1631821640426723" },
+    { "label": "Instagram Ad Specs", "url": "https://www.facebook.com/business/ads-guide/image/instagram-feed" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Feed — Square",
+          "dimensions": "1080 × 1080 px",
+          "aspectRatio": "1:1",
+          "maxFileSize": "30 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Feed — Portrait",
+          "dimensions": "1080 × 1350 px",
+          "aspectRatio": "4:5",
+          "maxFileSize": "30 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Maximum vertical crop in feed"
+        },
+        {
+          "name": "Feed — Landscape",
+          "dimensions": "1080 × 566 px",
+          "aspectRatio": "1.91:1",
+          "maxFileSize": "30 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Story / Reel Cover",
+          "dimensions": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "maxFileSize": "30 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Feed Video",
+          "resolution": "1080 × 1080 px (square) or 1080 × 1350 px",
+          "duration": "3 seconds – 60 seconds",
+          "maxFileSize": "650 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264 codec, 30fps recommended"
+        },
+        {
+          "name": "Reel",
+          "resolution": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "duration": "Up to 90 seconds",
+          "maxFileSize": "1 GB",
+          "formats": ["MP4"],
+          "notes": "Vertical format only; keep key content within centre safe zone"
+        },
+        {
+          "name": "Story Video",
+          "resolution": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "duration": "Up to 60 seconds",
+          "formats": ["MP4", "MOV"]
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Caption",
+          "limit": "2,200",
+          "unit": "characters",
+          "notes": "Only first ~125 characters visible without tapping 'more'"
+        },
+        {
+          "name": "Bio",
+          "limit": "150",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "30",
+          "unit": "characters"
+        },
+        {
+          "name": "Comment",
+          "limit": "2,200",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "320 × 320 px",
+          "displayedAs": "110 × 110 px in-app",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle; upload at 320×320 for best quality"
+        },
+        {
+          "name": "Story Highlight Cover",
+          "dimensions": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "formats": ["JPG", "PNG"],
+          "notes": "Only the centre circle is visible on the profile"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Feed Single Image Ad",
+          "dimensions": "1080 × 1080 px (square) or 1080 × 1350 px (portrait)",
+          "formats": ["JPG", "PNG"],
+          "maxFileSize": "30 MB"
+        },
+        {
+          "name": "Carousel Ad",
+          "dimensions": "1080 × 1080 px per card",
+          "notes": "2–10 cards per carousel"
+        },
+        {
+          "name": "Stories Ad",
+          "dimensions": "1080 × 1920 px",
+          "formats": ["JPG", "PNG", "MP4"]
+        },
+        {
+          "name": "Reels Ad",
+          "dimensions": "1080 × 1920 px",
+          "duration": "Up to 30 seconds",
+          "formats": ["MP4"]
+        },
+        {
+          "name": "Ad Primary Text",
+          "limit": "125",
+          "unit": "characters"
+        },
+        {
+          "name": "Ad Headline",
+          "limit": "40",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}
