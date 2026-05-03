@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="0" y="0" width="14" height="14" rx="2" fill="#4F46E5"/>
+  <rect x="17" y="0" width="14" height="14" rx="2" fill="#7C3AED"/>
+  <rect x="34" y="0" width="14" height="14" rx="2" fill="#A78BFA"/>
+  <rect x="0" y="17" width="14" height="14" rx="2" fill="#EC4899"/>
+  <style>
+    .f { fill: rgba(0,0,0,0.09) }
+    .g { fill: rgba(0,0,0,0.05) }
+    .h { fill: rgba(0,0,0,0.03) }
+    .i { fill: rgba(0,0,0,0.015) }
+    @media (prefers-color-scheme: dark) {
+      .f { fill: rgba(255,255,255,0.13) }
+      .g { fill: rgba(255,255,255,0.06) }
+      .h { fill: rgba(255,255,255,0.04) }
+      .i { fill: rgba(255,255,255,0.02) }
+    }
+  </style>
+  <rect x="17" y="17" width="14" height="14" rx="2" class="f"/>
+  <rect x="34" y="17" width="14" height="14" rx="2" class="g"/>
+  <rect x="0" y="34" width="14" height="14" rx="2" class="g"/>
+  <rect x="17" y="34" width="14" height="14" rx="2" class="h"/>
+  <rect x="34" y="34" width="14" height="14" rx="2" class="i"/>
+</svg>
