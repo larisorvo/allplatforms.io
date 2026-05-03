@@ -1,0 +1,154 @@
+{
+  "name": "X (Twitter)",
+  "slug": "x",
+  "color": "#000000",
+  "description": "Specs and technical requirements for all X (formerly Twitter) content formats.",
+  "lastUpdated": "2026-05-03",
+  "sources": [
+    { "label": "X Help Center — Media", "url": "https://help.twitter.com/en/using-x/how-to-tweet#types-of-tweets" },
+    { "label": "X Ads Specifications", "url": "https://business.twitter.com/en/help/campaign-setup/advertiser-card-specifications.html" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Tweet Image",
+          "dimensions": "1600 × 900 px recommended",
+          "displayedAs": "Cropped to ~600 × 335 px in feed",
+          "maxFileSize": "5 MB (JPG/PNG) or 15 MB (GIF)",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Up to 4 images per tweet"
+        },
+        {
+          "name": "Header / Banner",
+          "dimensions": "1500 × 500 px",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG", "GIF"]
+        },
+        {
+          "name": "Summary Card (Large Image)",
+          "dimensions": "800 × 418 px minimum",
+          "aspectRatio": "2:1",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"]
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Tweet Video",
+          "resolution": "1280 × 720 px maximum",
+          "duration": "Up to 2 minutes 20 seconds",
+          "maxFileSize": "512 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264, AAC audio; 30fps or 60fps"
+        },
+        {
+          "name": "GIF",
+          "maxFileSize": "15 MB",
+          "formats": ["GIF"],
+          "notes": "Converted to MP4 for playback; looping"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Tweet",
+          "limit": "280",
+          "unit": "characters",
+          "notes": "URLs always count as 23 characters regardless of actual length"
+        },
+        {
+          "name": "Bio",
+          "limit": "160",
+          "unit": "characters"
+        },
+        {
+          "name": "Display Name",
+          "limit": "50",
+          "unit": "characters"
+        },
+        {
+          "name": "Username / Handle",
+          "limit": "15",
+          "unit": "characters"
+        },
+        {
+          "name": "Direct Message",
+          "limit": "10,000",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px",
+          "displayedAs": "200 × 200 px on profile",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Header / Banner",
+          "dimensions": "1500 × 500 px",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG", "GIF"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Promoted Post Image",
+          "dimensions": "1600 × 900 px recommended",
+          "formats": ["JPG", "PNG"],
+          "maxFileSize": "5 MB"
+        },
+        {
+          "name": "Website Card Image",
+          "dimensions": "800 × 418 px or 800 × 800 px",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Video Ad",
+          "resolution": "1280 × 720 px",
+          "duration": "15–30 seconds recommended",
+          "formats": ["MP4", "MOV"]
+        },
+        {
+          "name": "Carousel Ad",
+          "dimensions": "800 × 800 px per card",
+          "notes": "2–6 cards per carousel"
+        },
+        {
+          "name": "Ad Headline",
+          "limit": "70",
+          "unit": "characters"
+        },
+        {
+          "name": "Ad Body Copy",
+          "limit": "280",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}
