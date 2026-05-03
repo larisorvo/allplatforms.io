@@ -92,8 +92,8 @@ function buildNavLinks(allPlatforms, currentSlug) {
     .map(p => {
       const active = p.slug === currentSlug;
       const cls = active
-        ? 'px-3 py-1.5 rounded text-sm bg-blue-600 text-white'
-        : 'px-3 py-1.5 rounded text-sm text-gray-300 hover:text-white hover:bg-gray-700 transition-colors';
+        ? 'px-3 py-1.5 rounded text-sm bg-indigo-100 dark:bg-indigo-600 text-indigo-700 dark:text-white'
+        : 'px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors';
       return `<a href="/${p.slug}" class="${cls}">${p.name}</a>`;
     })
     .join('');
@@ -102,7 +102,7 @@ function buildNavLinks(allPlatforms, currentSlug) {
 function buildOtherPlatforms(allPlatforms, currentSlug) {
   return allPlatforms
     .filter(p => p.slug !== currentSlug)
-    .map(p => `<a href="/${p.slug}" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: ${p.color}"></span>${escapeHtml(p.name)}</a>`)
+    .map(p => `<a href="/${p.slug}" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: ${p.color}"></span>${escapeHtml(p.name)}</a>`)
     .join('');
 }
 
@@ -110,7 +110,7 @@ function buildSources(sources) {
   return sources
     .map(s => {
       const safeUrl = /^https?:\/\//.test(s.url) ? s.url : '#';
-      return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">${escapeHtml(s.label)} ↗</a>`;
+      return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">${escapeHtml(s.label)} ↗</a>`;
     })
     .join('');
 }
@@ -167,10 +167,10 @@ function buildHomePage(allPlatforms, template) {
       return escapeHtml(section.label);
     });
 
-    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-blue-200 dark:hover:border-blue-700 transition-all group" data-platform="${p.slug}">
+    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="${p.slug}">
   <div class="flex items-center gap-3 mb-3">
     <div class="w-1 h-10 rounded flex-shrink-0" style="background-color: ${p.color}"></div>
-    <h2 class="font-bold text-lg text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">${escapeHtml(p.name)}</h2>
+    <h2 class="font-bold text-lg text-gray-800 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">${escapeHtml(p.name)}</h2>
   </div>
   <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">${escapeHtml(p.description)}</p>
   <ul class="text-xs text-gray-400 dark:text-gray-500 space-y-0.5">${teasers.map(t => `<li>→ ${t}</li>`).join('')}</ul>

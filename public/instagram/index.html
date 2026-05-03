@@ -15,12 +15,22 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { darkMode: 'class' }</script>
-  <style>html.dark .dark-hero { background: linear-gradient(135deg, var(--hero-color, rgba(51,51,51,0.25)) 0%, #111827 60%) !important; }</style>
+  <style>
+    .icon-fade-1 { fill: rgba(0,0,0,0.09); }
+    .icon-fade-2 { fill: rgba(0,0,0,0.05); }
+    .icon-fade-3 { fill: rgba(0,0,0,0.03); }
+    .icon-fade-4 { fill: rgba(0,0,0,0.015); }
+    html.dark .icon-fade-1 { fill: rgba(255,255,255,0.13); }
+    html.dark .icon-fade-2 { fill: rgba(255,255,255,0.06); }
+    html.dark .icon-fade-3 { fill: rgba(255,255,255,0.04); }
+    html.dark .icon-fade-4 { fill: rgba(255,255,255,0.02); }
+    html.dark .dark-hero { background: linear-gradient(135deg, var(--hero-color, rgba(51,51,51,0.25)) 0%, #111827 60%) !important; }
+  </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
 
   <!-- Navigation -->
-  <nav class="bg-gray-900 dark:bg-gray-950 border-b border-gray-700 dark:border-gray-800">
+  <nav class="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2" aria-label="allplatforms.io">
         <svg width="28" height="28" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -28,15 +38,15 @@
           <rect x="17" y="0" width="14" height="14" rx="2" fill="#7C3AED"/>
           <rect x="34" y="0" width="14" height="14" rx="2" fill="#A78BFA"/>
           <rect x="0" y="17" width="14" height="14" rx="2" fill="#EC4899"/>
-          <rect x="17" y="17" width="14" height="14" rx="2" fill="rgba(255,255,255,0.13)"/>
-          <rect x="34" y="17" width="14" height="14" rx="2" fill="rgba(255,255,255,0.06)"/>
-          <rect x="0" y="34" width="14" height="14" rx="2" fill="rgba(255,255,255,0.06)"/>
-          <rect x="17" y="34" width="14" height="14" rx="2" fill="rgba(255,255,255,0.04)"/>
-          <rect x="34" y="34" width="14" height="14" rx="2" fill="rgba(255,255,255,0.02)"/>
+          <rect x="17" y="17" width="14" height="14" rx="2" class="icon-fade-1"/>
+          <rect x="34" y="17" width="14" height="14" rx="2" class="icon-fade-2"/>
+          <rect x="0" y="34" width="14" height="14" rx="2" class="icon-fade-2"/>
+          <rect x="17" y="34" width="14" height="14" rx="2" class="icon-fade-3"/>
+          <rect x="34" y="34" width="14" height="14" rx="2" class="icon-fade-4"/>
         </svg>
-        <span style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:18px;color:#fff;letter-spacing:-0.02em;">allplatforms<span style="font-family:'Space Mono',monospace;font-weight:400;font-size:13px;color:#A78BFA;letter-spacing:0.01em;">.io</span></span>
+        <span class="text-gray-900 dark:text-white" style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:18px;letter-spacing:-0.02em;">allplatforms<span class="text-violet-600 dark:text-violet-400" style="font-family:'Space Mono',monospace;font-weight:400;font-size:13px;letter-spacing:0.01em;">.io</span></span>
       </a>
-      <div class="hidden md:flex items-center gap-1 text-sm"><a href="/facebook" class="px-3 py-1.5 rounded text-sm text-gray-300 hover:text-white hover:bg-gray-700 transition-colors">Facebook</a><a href="/instagram" class="px-3 py-1.5 rounded text-sm bg-blue-600 text-white">Instagram</a><a href="/linkedin" class="px-3 py-1.5 rounded text-sm text-gray-300 hover:text-white hover:bg-gray-700 transition-colors">LinkedIn</a><a href="/tiktok" class="px-3 py-1.5 rounded text-sm text-gray-300 hover:text-white hover:bg-gray-700 transition-colors">TikTok</a><a href="/x" class="px-3 py-1.5 rounded text-sm text-gray-300 hover:text-white hover:bg-gray-700 transition-colors">X (Twitter)</a><a href="/youtube" class="px-3 py-1.5 rounded text-sm text-gray-300 hover:text-white hover:bg-gray-700 transition-colors">YouTube</a></div>
+      <div class="hidden md:flex items-center gap-1 text-sm"><a href="/facebook" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Facebook</a><a href="/instagram" class="px-3 py-1.5 rounded text-sm bg-indigo-100 dark:bg-indigo-600 text-indigo-700 dark:text-white">Instagram</a><a href="/linkedin" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">LinkedIn</a><a href="/tiktok" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">TikTok</a><a href="/x" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">X (Twitter)</a><a href="/youtube" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">YouTube</a></div>
     </div>
   </nav>
 
@@ -176,7 +186,7 @@
         <div class="ad-slot h-[600px] bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 dark:text-gray-600 text-xs" data-ad-format="sidebar-300x600">[Ad]</div>
         <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
           <h4 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">Other Platforms</h4>
-          <nav class="space-y-1"><a href="/facebook" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #1877F2"></span>Facebook</a><a href="/linkedin" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #0A66C2"></span>LinkedIn</a><a href="/tiktok" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #010101"></span>TikTok</a><a href="/x" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #000000"></span>X (Twitter)</a><a href="/youtube" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #FF0000"></span>YouTube</a></nav>
+          <nav class="space-y-1"><a href="/facebook" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #1877F2"></span>Facebook</a><a href="/linkedin" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #0A66C2"></span>LinkedIn</a><a href="/tiktok" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #010101"></span>TikTok</a><a href="/x" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #000000"></span>X (Twitter)</a><a href="/youtube" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #FF0000"></span>YouTube</a></nav>
         </div>
       </div>
     </aside>
@@ -187,17 +197,17 @@
   <div class="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 mt-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
       <h4 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Sources</h4>
-      <div class="flex flex-wrap gap-3 text-sm"><a href="https://help.instagram.com/1631821640426723" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Instagram Help Center ↗</a><a href="https://www.facebook.com/business/ads-guide/image/instagram-feed" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Instagram Ad Specs ↗</a></div>
+      <div class="flex flex-wrap gap-3 text-sm"><a href="https://help.instagram.com/1631821640426723" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">Instagram Help Center ↗</a><a href="https://www.facebook.com/business/ads-guide/image/instagram-feed" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">Instagram Ad Specs ↗</a></div>
       <p class="text-xs text-gray-400 dark:text-gray-500 mt-3">Last verified: <time datetime="2026-05-03">2026-05-03</time></p>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 dark:bg-gray-950 text-gray-500 text-sm">
+  <footer class="bg-indigo-900 dark:bg-gray-950 text-indigo-300 dark:text-gray-500 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between gap-3">
-      <p style="font-family:'DM Sans',sans-serif;font-weight:500;color:#fff;">allplatforms<span style="font-family:'Space Mono',monospace;font-weight:400;font-size:0.8em;color:#A78BFA;">.io</span></p>
+      <p class="text-white" style="font-family:'DM Sans',sans-serif;font-weight:500;">allplatforms<span class="text-violet-400" style="font-family:'Space Mono',monospace;font-weight:400;font-size:0.8em;">.io</span></p>
       <p class="flex-1">Spec data verified against official platform documentation. Always check platform help centers for the latest updates.</p>
-      <button id="theme-toggle" onclick="toggleTheme()" class="self-start sm:self-auto inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-200 bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap" aria-label="Toggle color theme">
+      <button id="theme-toggle" onclick="toggleTheme()" class="self-start sm:self-auto inline-flex items-center gap-1.5 text-xs text-indigo-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 bg-indigo-800 dark:bg-gray-800 hover:bg-indigo-700 dark:hover:bg-gray-700 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap" aria-label="Toggle color theme">
         <span id="theme-icon"></span>
         <span id="theme-label"></span>
       </button>
