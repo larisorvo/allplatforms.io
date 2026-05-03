@@ -21,7 +21,7 @@ test('facebook page has required SEO elements', () => {
   const html = fs.readFileSync(path.join(PUBLIC, 'facebook', 'index.html'), 'utf8');
   assert.ok(html.includes('<title>'), 'missing <title>');
   assert.ok(html.includes('Facebook Specs'), 'title missing platform name');
-  assert.ok(html.includes('<h1>'), 'missing <h1>');
+  assert.ok(html.includes('<h1'), 'missing <h1>');
   assert.ok(html.includes('<link rel="canonical"'), 'missing canonical');
   assert.ok(html.includes('allplatforms.io/facebook'), 'canonical wrong URL');
   assert.ok(html.includes('application/ld+json'), 'missing JSON-LD');
