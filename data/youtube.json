@@ -1,0 +1,159 @@
+{
+  "name": "YouTube",
+  "slug": "youtube",
+  "color": "#FF0000",
+  "description": "Specs and technical requirements for all YouTube content formats.",
+  "lastUpdated": "2026-05-03",
+  "sources": [
+    { "label": "YouTube Creator Academy", "url": "https://support.google.com/youtube/answer/4603579" },
+    { "label": "YouTube Help — Upload Videos", "url": "https://support.google.com/youtube/answer/1722171" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Video Thumbnail",
+          "dimensions": "1280 × 720 px",
+          "aspectRatio": "16:9",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG", "GIF", "BMP"],
+          "notes": "Minimum width 640 px; 16:9 is the most common aspect ratio on YouTube"
+        },
+        {
+          "name": "Channel Art (Banner)",
+          "dimensions": "2560 × 1440 px",
+          "displayedAs": "Safe area: 1546 × 423 px",
+          "maxFileSize": "6 MB",
+          "formats": ["JPG", "PNG", "GIF", "BMP"],
+          "notes": "Design within the 1546×423 safe area — it's visible on all devices"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Standard Upload",
+          "resolution": "1920 × 1080 px recommended (1080p)",
+          "maxFileSize": "256 GB or 12 hours (whichever is less)",
+          "formats": ["MP4", "MOV", "AVI", "WMV", "FLV", "MKV", "WEBM"],
+          "notes": "H.264 + AAC audio recommended for best compatibility"
+        },
+        {
+          "name": "YouTube Shorts",
+          "resolution": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "duration": "Up to 3 minutes",
+          "formats": ["MP4", "MOV"],
+          "notes": "Vertical format required; keep text within the safe zone to avoid UI overlap"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Video Title",
+          "limit": "100",
+          "unit": "characters",
+          "notes": "Titles are truncated in search results at around 70 characters"
+        },
+        {
+          "name": "Video Description",
+          "limit": "5,000",
+          "unit": "characters",
+          "notes": "Only the first 2–3 lines are shown without expanding"
+        },
+        {
+          "name": "Tags",
+          "limit": "500",
+          "unit": "characters total across all tags"
+        },
+        {
+          "name": "Channel Description",
+          "limit": "1,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Channel Name",
+          "limit": "100",
+          "unit": "characters"
+        },
+        {
+          "name": "Comment",
+          "limit": "10,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Playlist Title",
+          "limit": "150",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Channel Icon",
+          "dimensions": "800 × 800 px",
+          "displayedAs": "98 × 98 px on channel page",
+          "formats": ["JPG", "PNG", "GIF", "BMP"],
+          "notes": "Displayed as a circle; upload at 800×800 for best quality"
+        },
+        {
+          "name": "Channel Art / Banner",
+          "dimensions": "2560 × 1440 px",
+          "displayedAs": "Safe area 1546 × 423 px",
+          "maxFileSize": "6 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Skippable In-Stream Ad",
+          "resolution": "1920 × 1080 px recommended",
+          "duration": "Minimum 12 seconds; skippable after 5 seconds",
+          "formats": ["MP4", "MOV", "AVI"]
+        },
+        {
+          "name": "Non-Skippable In-Stream Ad",
+          "resolution": "1920 × 1080 px",
+          "duration": "15–20 seconds",
+          "formats": ["MP4", "MOV"]
+        },
+        {
+          "name": "Bumper Ad",
+          "resolution": "1920 × 1080 px",
+          "duration": "Maximum 6 seconds",
+          "formats": ["MP4", "MOV"],
+          "notes": "Non-skippable"
+        },
+        {
+          "name": "Display Ad",
+          "dimensions": "300 × 250 px",
+          "formats": ["JPG", "PNG", "GIF"]
+        },
+        {
+          "name": "Companion Banner",
+          "dimensions": "300 × 60 px",
+          "formats": ["JPG", "PNG", "GIF"]
+        }
+      ]
+    }
+  ]
+}
