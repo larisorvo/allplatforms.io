@@ -10,13 +10,20 @@ const crypto = require('crypto');
 const DATA_DIR   = path.join(__dirname, '..', 'data');
 const HASHES_FILE = path.join(__dirname, '.source-hashes.json');
 
-function fetchUrl(url) {
+function fetchUrl(url, depth = 0) {
   return new Promise((resolve, reject) => {
+    if (depth > 1) {
+      reject(new Error('Too many redirects'));
+      return;
+    }
     const client = url.startsWith('https') ? https : http;
     const req = client.get(url, { headers: { 'User-Agent': 'AllPlatforms.io/1.0 spec-checker' } }, res => {
-      // Follow one redirect
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        resolve(fetchUrl(res.headers.location));
+        fetchUrl(res.headers.location, depth + 1).then(resolve, reject);
+        return;
+      }
+      if (res.statusCode < 200 || res.statusCode >= 300) {
+        reject(new Error(`HTTP ${res.statusCode}`));
         return;
       }
       let data = '';
@@ -62,7 +69,9 @@ async function main() {
     }
   }
 
-  fs.writeFileSync(HASHES_FILE, JSON.stringify(updated, null, 2));
+  const tempFile = HASHES_FILE + '.tmp';
+  fs.writeFileSync(tempFile, JSON.stringify(updated, null, 2));
+  fs.renameSync(tempFile, HASHES_FILE);
 
   console.log('\n--- Source Check Report ---');
   const icons = { CHANGED: '⚠️ ', ERROR: '❌', NEW: '🆕', OK: '✅' };
