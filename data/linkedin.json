@@ -1,0 +1,175 @@
+{
+  "name": "LinkedIn",
+  "slug": "linkedin",
+  "color": "#0A66C2",
+  "description": "Specs and technical requirements for all LinkedIn content formats.",
+  "lastUpdated": "2026-05-03",
+  "sources": [
+    { "label": "LinkedIn Help — Image Posts", "url": "https://www.linkedin.com/help/linkedin/answer/a521928" },
+    { "label": "LinkedIn Marketing Solutions", "url": "https://business.linkedin.com/marketing-solutions/ad-specs" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Post Image",
+          "dimensions": "1200 × 627 px",
+          "aspectRatio": "1.91:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Recommended for link shares and updates"
+        },
+        {
+          "name": "Article Cover",
+          "dimensions": "744 × 400 px",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Company Logo",
+          "dimensions": "300 × 300 px",
+          "maxFileSize": "4 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square format required"
+        },
+        {
+          "name": "Company Cover / Banner",
+          "dimensions": "1128 × 191 px",
+          "maxFileSize": "4 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Post Video",
+          "resolution": "1920 × 1080 px recommended",
+          "duration": "3 seconds – 10 minutes",
+          "maxFileSize": "5 GB",
+          "formats": ["MP4"],
+          "notes": "H.264, AAC audio; aspect ratios 1:2.4 to 2.4:1 supported"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post",
+          "limit": "3,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Article Body",
+          "limit": "110,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Article Title",
+          "limit": "100",
+          "unit": "characters"
+        },
+        {
+          "name": "Profile Headline",
+          "limit": "220",
+          "unit": "characters"
+        },
+        {
+          "name": "Profile Summary / About",
+          "limit": "2,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Comment",
+          "limit": "1,250",
+          "unit": "characters"
+        },
+        {
+          "name": "Direct Message",
+          "limit": "8,000",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "maxFileSize": "8 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Minimum 200×200 px; displayed as a circle"
+        },
+        {
+          "name": "Background / Banner",
+          "dimensions": "1584 × 396 px",
+          "maxFileSize": "8 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Company Logo",
+          "dimensions": "300 × 300 px",
+          "maxFileSize": "4 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Company Banner",
+          "dimensions": "1128 × 191 px",
+          "maxFileSize": "4 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Single Image Ad",
+          "dimensions": "1200 × 627 px",
+          "formats": ["JPG", "PNG"],
+          "maxFileSize": "5 MB"
+        },
+        {
+          "name": "Carousel Ad",
+          "dimensions": "1080 × 1080 px per card",
+          "notes": "2–10 cards per carousel; square format required"
+        },
+        {
+          "name": "Video Ad",
+          "resolution": "1920 × 1080 px or 1080 × 1080 px",
+          "maxFileSize": "200 MB",
+          "formats": ["MP4"]
+        },
+        {
+          "name": "Ad Headline",
+          "limit": "70",
+          "unit": "characters"
+        },
+        {
+          "name": "Ad Intro Text",
+          "limit": "150",
+          "unit": "characters"
+        },
+        {
+          "name": "Ad Description",
+          "limit": "70",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}
