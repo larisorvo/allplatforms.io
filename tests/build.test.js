@@ -1,4 +1,3 @@
-// tests/build.test.js
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -7,6 +6,11 @@ const { execSync } = require('node:child_process');
 
 const ROOT = path.join(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
+
+const ALL_SLUGS = [
+  'facebook','instagram','youtube','tiktok','linkedin','x',
+  'pinterest','snapchat','threads','reddit','twitch','discord',
+];
 
 test('build runs without error', () => {
   execSync('node build.js', { cwd: ROOT, stdio: 'pipe' });
@@ -46,14 +50,14 @@ test('homepage exists', () => {
 
 test('homepage lists all platforms', () => {
   const html = fs.readFileSync(path.join(PUBLIC, 'index.html'), 'utf8');
-  for (const slug of ['facebook', 'instagram', 'youtube', 'tiktok', 'linkedin', 'x']) {
+  for (const slug of ALL_SLUGS) {
     assert.ok(html.includes(`href="/${slug}"`), `homepage missing link to ${slug}`);
   }
 });
 
 test('sitemap.xml contains all platform URLs', () => {
   const sitemap = fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8');
-  for (const slug of ['facebook', 'instagram', 'youtube', 'tiktok', 'linkedin', 'x']) {
+  for (const slug of ALL_SLUGS) {
     assert.ok(sitemap.includes(`allplatforms.io/${slug}`), `sitemap missing ${slug}`);
   }
 });
@@ -63,3 +67,16 @@ test('robots.txt exists and references sitemap', () => {
   assert.ok(robots.includes('Sitemap:'), 'robots.txt missing Sitemap directive');
   assert.ok(robots.includes('allplatforms.io/sitemap.xml'), 'robots.txt wrong sitemap URL');
 });
+
+for (const slug of ['pinterest','snapchat','threads','reddit','twitch','discord']) {
+  test(`${slug} page exists`, () => {
+    assert.ok(fs.existsSync(path.join(PUBLIC, slug, 'index.html')), `public/${slug}/index.html missing`);
+  });
+
+  test(`${slug} page has required SEO elements`, () => {
+    const html = fs.readFileSync(path.join(PUBLIC, slug, 'index.html'), 'utf8');
+    assert.ok(html.includes('<title>'), `${slug}: missing <title>`);
+    assert.ok(html.includes('<link rel="canonical"'), `${slug}: missing canonical`);
+    assert.ok(html.includes('application/ld+json'), `${slug}: missing JSON-LD`);
+  });
+}

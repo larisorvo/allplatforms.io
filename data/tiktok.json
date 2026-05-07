@@ -2,6 +2,7 @@
   "name": "TikTok",
   "slug": "tiktok",
   "color": "#010101",
+  "category": "Video",
   "description": "Specs and technical requirements for all TikTok content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [

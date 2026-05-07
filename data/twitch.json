@@ -1,0 +1,159 @@
+{
+  "name": "Twitch",
+  "slug": "twitch",
+  "color": "#9146FF",
+  "category": "Streaming",
+  "description": "Specs and technical requirements for all Twitch content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Twitch Help — Broadcasting", "url": "https://help.twitch.tv/s/article/broadcasting-guidelines" },
+    { "label": "Twitch Partner Image Specs", "url": "https://help.twitch.tv/s/article/channel-points-guide" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Stream Preview / Thumbnail",
+          "dimensions": "1920 × 1080 px",
+          "aspectRatio": "16:9",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Auto-generated during stream; custom thumbnails available for VODs"
+        },
+        {
+          "name": "Offline Banner",
+          "dimensions": "1920 × 1080 px",
+          "aspectRatio": "16:9",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Shown in place of the stream when channel is offline"
+        },
+        {
+          "name": "Panel Image",
+          "dimensions": "320 × 160 px",
+          "maxFileSize": "2.9 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Panels appear below the stream; animated GIFs supported for Partners/Affiliates"
+        },
+        {
+          "name": "Emote",
+          "dimensions": "112 × 112 px (recommended)",
+          "formats": ["PNG"],
+          "notes": "Submit at 112×112, 56×56, and 28×28 px; must have transparent background"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video & Stream Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Live Stream",
+          "resolution": "1920 × 1080 px (1080p60) maximum",
+          "aspectRatio": "16:9",
+          "duration": "Unlimited",
+          "notes": "Max bitrate: 6000 kbps (video) + 320 kbps (audio); H.264 + AAC"
+        },
+        {
+          "name": "VOD / Past Broadcast",
+          "resolution": "Up to 1920 × 1080 px",
+          "notes": "Stored automatically for 14 days (60 days for Partners/Prime)"
+        },
+        {
+          "name": "Clip",
+          "resolution": "Up to 1920 × 1080 px",
+          "duration": "5 – 60 seconds",
+          "notes": "Created from live stream or VOD; shared as a short highlight"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Stream Title",
+          "limit": "140",
+          "unit": "characters"
+        },
+        {
+          "name": "Channel Description / Bio",
+          "limit": "300",
+          "unit": "characters"
+        },
+        {
+          "name": "Panel Text",
+          "limit": "500",
+          "unit": "characters per panel"
+        },
+        {
+          "name": "Username",
+          "limit": "25",
+          "unit": "characters",
+          "notes": "Letters, numbers, and underscores only"
+        },
+        {
+          "name": "Chat Message",
+          "limit": "500",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Channel Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "70 × 70 px minimum",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle; upload at 256×256 or larger for best quality"
+        },
+        {
+          "name": "Channel Banner",
+          "dimensions": "1200 × 480 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Offline Banner",
+          "dimensions": "1920 × 1080 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Channel Monetisation Assets",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Subscription Badge",
+          "dimensions": "72 × 72 px",
+          "formats": ["PNG"],
+          "notes": "Transparent background required; shown next to username in chat"
+        },
+        {
+          "name": "Channel Points Icon",
+          "dimensions": "112 × 112 px",
+          "formats": ["PNG"],
+          "notes": "Transparent background; displayed in Channel Points redemption panel"
+        },
+        {
+          "name": "Bit Badge",
+          "dimensions": "72 × 72 px",
+          "formats": ["PNG"],
+          "notes": "Available to Twitch Partners and Affiliates"
+        }
+      ]
+    }
+  ]
+}

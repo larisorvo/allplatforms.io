@@ -2,6 +2,7 @@
   "name": "LinkedIn",
   "slug": "linkedin",
   "color": "#0A66C2",
+  "category": "Professional",
   "description": "Specs and technical requirements for all LinkedIn content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [

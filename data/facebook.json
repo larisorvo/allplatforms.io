@@ -2,6 +2,7 @@
   "name": "Facebook",
   "slug": "facebook",
   "color": "#1877F2",
+  "category": "Social",
   "description": "Specs and technical requirements for all Facebook content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [

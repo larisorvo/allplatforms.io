@@ -2,6 +2,7 @@
   "name": "X (Twitter)",
   "slug": "x",
   "color": "#000000",
+  "category": "Social",
   "description": "Specs and technical requirements for all X (formerly Twitter) content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [

@@ -2,6 +2,7 @@
   "name": "YouTube",
   "slug": "youtube",
   "color": "#FF0000",
+  "category": "Video",
   "description": "Specs and technical requirements for all YouTube content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [

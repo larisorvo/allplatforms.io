@@ -1,0 +1,160 @@
+{
+  "name": "Reddit",
+  "slug": "reddit",
+  "color": "#FF4500",
+  "category": "Community",
+  "description": "Specs and technical requirements for all Reddit content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Reddit Help — Posting", "url": "https://support.reddithelp.com/hc/en-us/articles/204533569" },
+    { "label": "Reddit Ads Specs", "url": "https://ads.reddit.com/resources/ad-specs" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Post Image",
+          "dimensions": "Up to 4000 × 4000 px",
+          "aspectRatio": "Any (1.91:1 recommended for feed display)",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Gallery posts support up to 20 images"
+        },
+        {
+          "name": "Gallery Post",
+          "dimensions": "Up to 4000 × 4000 px per image",
+          "maxFileSize": "20 MB per image",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Up to 20 images; each can have its own caption (180 characters)"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Post Video",
+          "resolution": "1920 × 1080 px recommended",
+          "aspectRatio": "Any; 16:9 displays best",
+          "duration": "Up to 15 minutes",
+          "maxFileSize": "1 GB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264 codec; audio optional but supported; GIF-style looping also available"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post Title",
+          "limit": "300",
+          "unit": "characters",
+          "notes": "Required; shown in feed and search results"
+        },
+        {
+          "name": "Post Body (Text)",
+          "limit": "40,000",
+          "unit": "characters",
+          "notes": "Rich text editor; supports Markdown formatting"
+        },
+        {
+          "name": "Comment",
+          "limit": "10,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Profile Bio",
+          "limit": "200",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "20",
+          "unit": "characters",
+          "notes": "Cannot be changed after creation"
+        },
+        {
+          "name": "Subreddit Name",
+          "limit": "21",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Avatar",
+          "dimensions": "256 × 256 px minimum",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Profile Banner",
+          "dimensions": "1600 × 600 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Subreddit Icon",
+          "dimensions": "256 × 256 px",
+          "maxFileSize": "500 KB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Subreddit Banner",
+          "dimensions": "4000 × 640 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Promoted Post (Image)",
+          "dimensions": "1200 × 628 px or 1080 × 1080 px",
+          "maxFileSize": "30 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Promoted Post (Video)",
+          "resolution": "1920 × 1080 px or 1080 × 1080 px",
+          "duration": "Up to 30 minutes",
+          "maxFileSize": "1 GB",
+          "formats": ["MP4", "MOV"]
+        },
+        {
+          "name": "Carousel Ad",
+          "dimensions": "1080 × 1080 px per card",
+          "notes": "2–6 cards per carousel"
+        },
+        {
+          "name": "Ad Headline",
+          "limit": "300",
+          "unit": "characters"
+        },
+        {
+          "name": "Ad Body",
+          "limit": "500",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}

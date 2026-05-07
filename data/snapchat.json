@@ -1,0 +1,148 @@
+{
+  "name": "Snapchat",
+  "slug": "snapchat",
+  "color": "#FFFC00",
+  "category": "Social",
+  "description": "Specs and technical requirements for all Snapchat content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Snapchat Help Center", "url": "https://help.snapchat.com/hc/en-us/articles/7012390517652" },
+    { "label": "Snapchat Ad Specs", "url": "https://businesshelp.snapchat.com/s/article/ad-format-video-specs" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Snap / Story Image",
+          "dimensions": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Full-screen vertical format; keep key content away from top and bottom UI bars"
+        },
+        {
+          "name": "Spotlight Image",
+          "dimensions": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Submitted via Spotlight; vertical only"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Snap / Story Video",
+          "resolution": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "duration": "Up to 60 seconds",
+          "maxFileSize": "1 GB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264 codec; stories auto-split at 10 seconds per segment"
+        },
+        {
+          "name": "Spotlight Video",
+          "resolution": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "duration": "3 seconds – 3 minutes",
+          "maxFileSize": "1 GB",
+          "formats": ["MP4", "MOV"],
+          "notes": "Shown in the Spotlight discovery feed"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Snap Caption",
+          "limit": "250",
+          "unit": "characters"
+        },
+        {
+          "name": "Display Name",
+          "limit": "30",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "15",
+          "unit": "characters",
+          "notes": "Cannot be changed after set; lowercase letters, numbers, underscores, hyphens"
+        },
+        {
+          "name": "Bio",
+          "limit": "150",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo / Bitmoji",
+          "dimensions": "1080 × 1080 px",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle; Bitmoji avatars are used by default for most users"
+        },
+        {
+          "name": "Story Tile / Preview",
+          "dimensions": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "formats": ["JPG", "PNG"],
+          "notes": "First frame of your Story shown as the preview tile"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Single Image / Video Ad",
+          "dimensions": "1080 × 1920 px",
+          "aspectRatio": "9:16",
+          "duration": "3 seconds – 3 minutes",
+          "maxFileSize": "1 GB",
+          "formats": ["MP4", "MOV", "JPG", "PNG"],
+          "notes": "Appears between friends' Stories"
+        },
+        {
+          "name": "Collection Ad",
+          "dimensions": "1080 × 1920 px (main)",
+          "notes": "Main creative + 4 product tiles; tiles are 160 × 160 px"
+        },
+        {
+          "name": "Story Ad",
+          "dimensions": "1080 × 1920 px",
+          "duration": "3 seconds – 3 minutes per tile",
+          "formats": ["MP4", "MOV", "JPG", "PNG"],
+          "notes": "Up to 20 tiles"
+        },
+        {
+          "name": "Ad Headline",
+          "limit": "34",
+          "unit": "characters"
+        },
+        {
+          "name": "Ad Brand Name",
+          "limit": "25",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}

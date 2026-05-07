@@ -2,6 +2,7 @@
   "name": "Instagram",
   "slug": "instagram",
   "color": "#E1306C",
+  "category": "Social",
   "description": "Specs and technical requirements for all Instagram content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [

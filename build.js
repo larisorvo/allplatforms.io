@@ -7,6 +7,7 @@ const path = require('path');
 const DATA_DIR   = path.join(__dirname, 'data');
 const SRC_DIR    = path.join(__dirname, 'src');
 const PUBLIC_DIR = path.join(__dirname, 'public');
+const LOGOS_DIR  = path.join(PUBLIC_DIR, 'logos');
 const BASE_URL   = 'https://allplatforms.io';
 
 // Fields rendered in spec item tables, in display order.
@@ -30,6 +31,41 @@ function escapeHtml(s) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+// Load all logo SVGs from public/logos/ into a map keyed by slug.
+// Returns the inner SVG content (strips outer <svg> tag so we can re-wrap at inject time).
+function loadLogos(allPlatforms) {
+  const logos = {};
+  for (const platform of allPlatforms) {
+    const logoPath = path.join(LOGOS_DIR, `${platform.slug}.svg`);
+    if (fs.existsSync(logoPath)) {
+      logos[platform.slug] = fs.readFileSync(logoPath, 'utf8').trim();
+    } else {
+      console.warn(`  ⚠ No logo found for ${platform.slug} (${logoPath})`);
+      logos[platform.slug] = '';
+    }
+  }
+  return logos;
+}
+
+// Re-wrap a stored SVG string with specific dimensions.
+function injectLogo(svgString, width, height) {
+  if (!svgString) return '';
+  // Extract inner content and viewBox from stored SVG
+  const viewBoxMatch = svgString.match(/viewBox="([^"]*)"/);
+  const viewBox = viewBoxMatch ? viewBoxMatch[1] : '0 0 24 24';
+  const inner = svgString
+    .replace(/<svg[^>]*>/, '')
+    .replace(/<\/svg>/, '')
+    .trim();
+  return `<svg width="${width}" height="${height}" viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+}
+
+// Build the colored badge wrapper + logo SVG at a given size.
+function buildLogoBadge(platform, logos, size, iconSize, radius) {
+  const logo = injectLogo(logos[platform.slug] || '', iconSize, iconSize);
+  return `<div style="width:${size}px;height:${size}px;border-radius:${radius}px;background:${platform.color};display:flex;align-items:center;justify-content:center;flex-shrink:0;">${logo}</div>`;
 }
 
 function renderSpecItem(item) {
@@ -94,15 +130,18 @@ function buildNavLinks(allPlatforms, currentSlug) {
       const cls = active
         ? 'px-3 py-1.5 rounded text-sm bg-indigo-100 dark:bg-indigo-600 text-indigo-700 dark:text-white'
         : 'px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors';
-      return `<a href="/${p.slug}" class="${cls}">${p.name}</a>`;
+      return `<a href="/${p.slug}" class="${cls}">${escapeHtml(p.name)}</a>`;
     })
     .join('');
 }
 
-function buildOtherPlatforms(allPlatforms, currentSlug) {
+function buildOtherPlatforms(allPlatforms, currentSlug, logos) {
   return allPlatforms
     .filter(p => p.slug !== currentSlug)
-    .map(p => `<a href="/${p.slug}" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: ${p.color}"></span>${escapeHtml(p.name)}</a>`)
+    .map(p => {
+      const badge = buildLogoBadge(p, logos, 16, 9, 4);
+      return `<a href="/${p.slug}" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors">${badge}${escapeHtml(p.name)}</a>`;
+    })
     .join('');
 }
 
@@ -115,7 +154,7 @@ function buildSources(sources) {
     .join('');
 }
 
-function buildPlatformPage(platform, template, allPlatforms) {
+function buildPlatformPage(platform, template, allPlatforms, logos) {
   const sorted = [...platform.specs].sort((a, b) => a.priority - b.priority);
   const specSections = sorted
     .map((section, i) => renderSection(section, platform.color, i === 0))
@@ -136,17 +175,19 @@ function buildPlatformPage(platform, template, allPlatforms) {
 
   const quickStats      = buildQuickStats(platform.specs);
   const navLinks        = buildNavLinks(allPlatforms, platform.slug);
-  const otherPlatforms  = buildOtherPlatforms(allPlatforms, platform.slug);
+  const otherPlatforms  = buildOtherPlatforms(allPlatforms, platform.slug, logos);
   const sources         = buildSources(platform.sources);
+  const platformLogo    = buildLogoBadge(platform, logos, 48, 26, 12);
 
   return template
     .replace(/\{\{META_TITLE\}\}/g,          () => metaTitle)
     .replace(/\{\{META_DESCRIPTION\}\}/g,    () => metaDesc)
     .replace(/\{\{CANONICAL_URL\}\}/g,       () => canonical)
     .replace(/\{\{JSON_LD\}\}/g,             () => jsonLd)
-    .replace(/\{\{PLATFORM_NAME\}\}/g,       () => platform.name)
+    .replace(/\{\{PLATFORM_NAME\}\}/g,       () => escapeHtml(platform.name))
     .replace(/\{\{PLATFORM_COLOR\}\}/g,      () => platform.color)
-    .replace(/\{\{PLATFORM_DESCRIPTION\}\}/g, () => platform.description)
+    .replace(/\{\{PLATFORM_LOGO\}\}/g,       () => platformLogo)
+    .replace(/\{\{PLATFORM_DESCRIPTION\}\}/g, () => escapeHtml(platform.description))
     .replace(/\{\{QUICK_STATS\}\}/g,         () => quickStats)
     .replace(/\{\{NAV_LINKS\}\}/g,           () => navLinks)
     .replace(/\{\{SPEC_SECTIONS\}\}/g,       () => specSections)
@@ -155,7 +196,7 @@ function buildPlatformPage(platform, template, allPlatforms) {
     .replace(/\{\{LAST_UPDATED\}\}/g,        () => platform.lastUpdated);
 }
 
-function buildHomePage(allPlatforms, template) {
+function buildHomePage(allPlatforms, template, logos) {
   const cards = allPlatforms.map(p => {
     const sorted = [...p.specs].sort((a, b) => a.priority - b.priority);
     const teasers = sorted.slice(0, 3).map(section => {
@@ -167,18 +208,26 @@ function buildHomePage(allPlatforms, template) {
       return escapeHtml(section.label);
     });
 
-    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="${p.slug}">
-  <div class="flex items-center gap-3 mb-3">
-    <div class="w-1 h-10 rounded flex-shrink-0" style="background-color: ${p.color}"></div>
-    <h2 class="font-bold text-lg text-gray-800 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">${escapeHtml(p.name)}</h2>
+    const iconBadge = buildLogoBadge(p, logos, 36, 20, 8);
+    const category  = escapeHtml(p.category || 'Social');
+
+    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="${p.slug}">
+  <div class="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-700" style="background:linear-gradient(135deg,${p.color}18,transparent);">
+    ${iconBadge}
+    <div>
+      <div class="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">${escapeHtml(p.name)}</div>
+      <div class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide" style="font-size:10px;letter-spacing:0.05em;">${category}</div>
+    </div>
   </div>
-  <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">${escapeHtml(p.description)}</p>
-  <ul class="text-xs text-gray-400 dark:text-gray-500 space-y-0.5">${teasers.map(t => `<li>→ ${t}</li>`).join('')}</ul>
+  <div class="p-4">
+    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">${escapeHtml(p.description)}</p>
+    <ul class="text-xs text-gray-400 dark:text-gray-500 space-y-0.5">${teasers.map(t => `<li>→ ${t}</li>`).join('')}</ul>
+  </div>
 </a>`;
   }).join('\n');
 
   const metaTitle = 'Social Media Specs & Size Guide 2026 | AllPlatforms.io';
-  const metaDesc  = 'Complete specs for Facebook, Instagram, YouTube, TikTok, LinkedIn, and X. Image sizes, video requirements, character limits, and ad specs — all in one place.';
+  const metaDesc  = 'Complete specs for Facebook, Instagram, YouTube, TikTok, LinkedIn, X, Pinterest, Snapchat, Threads, Reddit, Twitch, and Discord. Image sizes, video requirements, character limits, and ad specs — all in one place.';
   const platformCount = String(allPlatforms.length);
 
   return template
@@ -213,6 +262,8 @@ function main() {
     JSON.parse(fs.readFileSync(path.join(DATA_DIR, `${slug}.json`), 'utf8'))
   );
 
+  const logos = loadLogos(allPlatforms);
+
   const platformTemplate = fs.readFileSync(path.join(SRC_DIR, 'template-platform.html'), 'utf8');
   const indexTemplate    = fs.readFileSync(path.join(SRC_DIR, 'template-index.html'),    'utf8');
 
@@ -224,12 +275,12 @@ function main() {
     }
     const dir = path.join(PUBLIC_DIR, platform.slug);
     fs.mkdirSync(dir, { recursive: true });
-    const html = buildPlatformPage(platform, platformTemplate, allPlatforms);
+    const html = buildPlatformPage(platform, platformTemplate, allPlatforms, logos);
     fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
     console.log(`  ✓ /${platform.slug}/index.html`);
   }
 
-  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), buildHomePage(allPlatforms, indexTemplate), 'utf8');
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), buildHomePage(allPlatforms, indexTemplate, logos), 'utf8');
   console.log('  ✓ /index.html');
 
   const sitemap = buildSitemap(allPlatforms);
