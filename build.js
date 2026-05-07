@@ -160,7 +160,7 @@ function buildPlatformPage(platform, template, allPlatforms, logos) {
     .map((section, i) => renderSection(section, platform.color, i === 0))
     .join('\n');
 
-  const metaTitle = `${platform.name} Specs & Size Guide 2026 | AllPlatforms.io`;
+  const metaTitle = `${platform.name} Specs & Size Guide | AllPlatforms.io`;
   const metaDesc  = `Complete ${platform.name} specs: image sizes, video requirements, character limits, and ad specs. Last verified ${platform.lastUpdated}.`;
   const canonical = `${BASE_URL}/${platform.slug}`;
 
@@ -211,7 +211,7 @@ function buildHomePage(allPlatforms, template, logos) {
     const iconBadge = buildLogoBadge(p, logos, 36, 20, 8);
     const category  = escapeHtml(p.category || 'Social');
 
-    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="${p.slug}">
+    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="${p.slug}" data-color="${p.color}" data-category="${category}">
   <div class="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-700" style="background:linear-gradient(135deg,${p.color}18,transparent);">
     ${iconBadge}
     <div>
@@ -226,8 +226,8 @@ function buildHomePage(allPlatforms, template, logos) {
 </a>`;
   }).join('\n');
 
-  const metaTitle = 'Social Media Specs & Size Guide 2026 | AllPlatforms.io';
-  const metaDesc  = 'Complete specs for Facebook, Instagram, YouTube, TikTok, LinkedIn, X, Pinterest, Snapchat, Threads, Reddit, Twitch, and Discord. Image sizes, video requirements, character limits, and ad specs — all in one place.';
+  const metaTitle = 'Social Media Specs & Size Guide | AllPlatforms.io';
+  const metaDesc  = 'Complete specs for every major platform — image sizes, video requirements, character limits, and ad specs, all in one place. Verified against official documentation.';
   const platformCount = String(allPlatforms.length);
 
   return template

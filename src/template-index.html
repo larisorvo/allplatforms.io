@@ -33,7 +33,6 @@
       --font-mono:    'DM Mono', monospace;
       --font-body:    'DM Sans', sans-serif;
     }
-    /* Light mode overrides */
     html:not(.dark) {
       --bg:        #f5f5f7;
       --surface:   #ffffff;
@@ -55,7 +54,6 @@
       min-height: 100vh;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -104,20 +102,28 @@
       color: var(--accent);
       letter-spacing: 0.02em;
     }
-    .nav-badge {
+    #theme-toggle {
       font-family: var(--font-mono);
       font-size: 11px;
       color: var(--muted);
+      background: transparent;
       border: 1px solid var(--border);
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    #theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     /* HERO */
     .hero {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 72px 24px 56px;
+      padding: 72px 24px 48px;
       position: relative;
     }
     .hero-eyebrow {
@@ -156,36 +162,36 @@
       color: var(--muted);
       max-width: 520px;
       line-height: 1.65;
-      margin-bottom: 36px;
     }
 
-    /* FILTER */
-    .filter-wrap {
-      position: relative;
-      max-width: 360px;
+    /* CATEGORY FILTER */
+    .cat-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
     }
-    .filter-icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      pointer-events: none;
-    }
-    #platform-filter {
-      width: 100%;
-      background: var(--surface);
-      border: 1px solid var(--border-hi);
-      color: var(--text);
+    .cat-btn {
       font-family: var(--font-mono);
-      font-size: 13px;
-      padding: 11px 16px 11px 40px;
-      border-radius: 8px;
-      outline: none;
-      transition: border-color 0.2s;
+      font-size: 11px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      border: 1px solid var(--border-hi);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      letter-spacing: 0.04em;
     }
-    #platform-filter::placeholder { color: var(--muted); }
-    #platform-filter:focus { border-color: var(--accent); }
+    .cat-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+    .cat-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
 
     /* GRID */
     .grid-wrap {
@@ -220,7 +226,7 @@
       overflow: hidden;
     }
 
-    /* CARDS — injected by build.js, styles applied here */
+    /* CARDS */
     #platform-grid > a {
       display: block;
       background: var(--surface);
@@ -232,7 +238,6 @@
       background: var(--bg);
       z-index: 1;
     }
-    /* Override build.js inline card styles via cascade */
     #platform-grid > a .card-header {
       display: flex;
       align-items: center;
@@ -287,7 +292,6 @@
       color: var(--accent);
       font-size: 10px;
     }
-    /* Arrow indicator */
     #platform-grid > a::after {
       content: '↗';
       position: absolute;
@@ -310,7 +314,7 @@
     .footer-inner {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 20px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -333,29 +337,9 @@
     .footer-note {
       font-size: 12px;
       color: var(--muted);
-      flex: 1;
-    }
-    #theme-toggle {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--muted);
-      background: transparent;
-      border: 1px solid var(--border-hi);
-      padding: 6px 14px;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    #theme-toggle:hover {
-      border-color: var(--accent);
-      color: var(--accent);
     }
 
-    /* Page-load stagger */
+    /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -363,8 +347,7 @@
     .hero-eyebrow { animation: fadeUp 0.5s ease both; }
     h1            { animation: fadeUp 0.5s 0.08s ease both; }
     .hero-sub     { animation: fadeUp 0.5s 0.16s ease both; }
-    .filter-wrap  { animation: fadeUp 0.5s 0.22s ease both; }
-    .grid-wrap    { animation: fadeUp 0.5s 0.3s ease both; }
+    .grid-wrap    { animation: fadeUp 0.5s 0.24s ease both; }
   </style>
 </head>
 <body>
@@ -386,7 +369,9 @@
         </svg>
         <span class="logo-wordmark">allplatforms<span>.io</span></span>
       </a>
-      <span class="nav-badge">2026 Edition</span>
+      <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
+        <span id="theme-label"></span>
+      </button>
     </div>
   </nav>
 
@@ -395,22 +380,12 @@
     <div class="hero-eyebrow">Social Media Specs</div>
     <h1>Every platform.<br><em>Every spec.</em></h1>
     <p class="hero-sub">Image sizes, video requirements, character limits, and ad specs for every major platform — verified against official documentation.</p>
-    <div class="filter-wrap">
-      <svg class="filter-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input
-        type="text"
-        id="platform-filter"
-        placeholder="Filter platforms..."
-        oninput="filterPlatforms(this.value)"
-        autocomplete="off"
-        spellcheck="false"
-      >
-    </div>
   </div>
 
   <!-- Platform grid -->
   <div class="grid-wrap">
-    <p class="grid-label">{{PLATFORM_COUNT}} platforms</p>
+    <div id="cat-filter" class="cat-filter"></div>
+    <p class="grid-label" id="grid-label">{{PLATFORM_COUNT}} platforms</p>
     <div id="platform-grid">
       {{PLATFORM_CARDS}}
     </div>
@@ -421,26 +396,20 @@
     <div class="footer-inner">
       <span class="footer-logo">allplatforms<span>.io</span></span>
       <p class="footer-note">Spec data verified against official platform documentation. Updated regularly.</p>
-      <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
-        <span id="theme-icon"></span>
-        <span id="theme-label"></span>
-      </button>
     </div>
   </footer>
 
   <script>
-    // Restyle cards injected by build.js
     function styleCards() {
       document.querySelectorAll('#platform-grid > a').forEach(function(card) {
-        // build.js creates its own inner structure; rewrite it cleanly
-        var slug = card.dataset.platform || '';
+        var slug     = card.dataset.platform || '';
+        var color    = card.dataset.color    || '';
 
-        // Extract existing data from build.js markup
         var headerDiv = card.querySelector('div:first-child');
         var bodyDiv   = card.querySelector('div:last-child');
         if (!headerDiv || !bodyDiv) return;
 
-        var badge  = headerDiv.querySelector('div'); // the colored logo badge
+        var badge  = headerDiv.querySelector('div');
         var nameEl = headerDiv.querySelector('div > div:first-child');
         var catEl  = headerDiv.querySelector('div > div:last-child');
         var descEl = bodyDiv.querySelector('p');
@@ -452,8 +421,10 @@
         var desc  = descEl ? descEl.textContent  : '';
         var items = listEl ? Array.from(listEl.querySelectorAll('li')).map(function(li){ return li.textContent.replace(/^→\s*/,''); }) : [];
 
+        var headerBg = color ? 'background:linear-gradient(135deg,' + color + '28,transparent)' : '';
+
         card.innerHTML =
-          '<div class="card-header">' +
+          '<div class="card-header" style="' + headerBg + '">' +
             badgeHtml +
             '<div>' +
               '<div class="card-name">' + escHtml(name) + '</div>' +
@@ -471,14 +442,40 @@
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    function filterPlatforms(query) {
-      var q = query.toLowerCase();
+    var activeCategory = '';
+
+    function buildCategoryFilter() {
+      var cats = [];
       document.querySelectorAll('#platform-grid > a').forEach(function(card) {
-        var match = (card.dataset.platform || '').includes(q) ||
-                    card.textContent.toLowerCase().includes(q) ||
-                    q === '';
-        card.style.display = match ? '' : 'none';
+        var cat = card.dataset.category;
+        if (cat && cats.indexOf(cat) === -1) cats.push(cat);
       });
+      cats.sort();
+
+      var wrap = document.getElementById('cat-filter');
+      if (!wrap) return;
+
+      var html = '<button class="cat-btn active" onclick="filterByCategory(this,\'\')">All</button>';
+      cats.forEach(function(cat) {
+        html += '<button class="cat-btn" onclick="filterByCategory(this,\'' + escHtml(cat) + '\')">' + escHtml(cat) + '</button>';
+      });
+      wrap.innerHTML = html;
+    }
+
+    function filterByCategory(btn, cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var visible = 0;
+      document.querySelectorAll('#platform-grid > a').forEach(function(card) {
+        var show = !cat || card.dataset.category === cat;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      var label = document.getElementById('grid-label');
+      if (label) label.textContent = visible + ' platform' + (visible !== 1 ? 's' : '') + (cat ? ' · ' + cat : '');
     }
 
     function toggleTheme() {
@@ -488,13 +485,12 @@
     }
 
     function updateThemeToggle(dark) {
-      var icon  = document.getElementById('theme-icon');
       var label = document.getElementById('theme-label');
-      if (icon)  icon.textContent  = dark ? '☀' : '🌙';
-      if (label) label.textContent = dark ? 'Light mode' : 'Dark mode';
+      if (label) label.textContent = dark ? 'Light' : 'Dark';
     }
 
     styleCards();
+    buildCategoryFilter();
     updateThemeToggle(document.documentElement.classList.contains('dark'));
   </script>
 
