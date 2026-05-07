@@ -1,0 +1,126 @@
+{
+  "name": "Clubhouse",
+  "slug": "clubhouse",
+  "color": "#483F38",
+  "category": "Audio",
+  "description": "Specs and technical requirements for Clubhouse audio social assets.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Clubhouse Help Center", "url": "https://www.clubhouse.com/support" },
+    { "label": "Clubhouse — About", "url": "https://www.clubhouse.com/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in rooms and the member directory"
+        },
+        {
+          "name": "Club Photo",
+          "dimensions": "400 × 400 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Avatar for a Clubhouse Club; displayed as a circle"
+        },
+        {
+          "name": "Room Background",
+          "dimensions": "1500 × 500 px recommended",
+          "aspectRatio": "3:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Optional background image for a scheduled or live audio room"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Audio Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Live Audio Room",
+          "notes": "Real-time audio; up to 5000 listeners per room; compressed with Opus codec"
+        },
+        {
+          "name": "Replay / Recording",
+          "maxFileSize": "500 MB",
+          "formats": ["MP3", "M4A"],
+          "notes": "Recordings of rooms can be saved and shared; exported as audio files"
+        },
+        {
+          "name": "House (Group Chat Audio)",
+          "notes": "Persistent audio group with up to 100 members; compressed audio chat"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Display Name",
+          "limit": "30",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "20",
+          "unit": "characters",
+          "notes": "Unique handle; letters, numbers, underscores"
+        },
+        {
+          "name": "Bio",
+          "limit": "3000",
+          "unit": "characters",
+          "notes": "Plain text bio shown on your profile; first ~150 characters appear in the preview"
+        },
+        {
+          "name": "Room Title",
+          "limit": "60",
+          "unit": "characters"
+        },
+        {
+          "name": "Club Name",
+          "limit": "32",
+          "unit": "characters"
+        },
+        {
+          "name": "Club Description",
+          "limit": "1500",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Club Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square; displayed as a circle"
+        },
+        {
+          "name": "Club Photo",
+          "dimensions": "400 × 400 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square; displayed as a circle"
+        }
+      ]
+    }
+  ]
+}

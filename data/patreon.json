@@ -1,0 +1,134 @@
+{
+  "name": "Patreon",
+  "slug": "patreon",
+  "color": "#FF424D",
+  "category": "Creator",
+  "description": "Specs and technical requirements for Patreon creator pages and posts.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Patreon Help Center", "url": "https://support.patreon.com/hc/en-us" },
+    { "label": "Patreon — Creator Guide", "url": "https://www.patreon.com/c/creator" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Creator Profile Image",
+          "dimensions": "400 × 400 px minimum",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Displayed as a circle in the creator header and across Patreon"
+        },
+        {
+          "name": "Creator Cover Image",
+          "dimensions": "1600 × 400 px recommended",
+          "aspectRatio": "4:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner shown at the top of your Patreon page"
+        },
+        {
+          "name": "Post Image",
+          "dimensions": "1200 × 675 px recommended",
+          "aspectRatio": "16:9",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Thumbnail shown on post cards in the creator feed"
+        },
+        {
+          "name": "Tier Benefit Image",
+          "dimensions": "1600 × 900 px recommended",
+          "aspectRatio": "16:9",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Image associated with a membership tier"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Video Post",
+          "resolution": "Up to 1080p (1920 × 1080 px)",
+          "maxFileSize": "4 GB",
+          "formats": ["MP4", "MOV", "AVI"],
+          "notes": "Hosted directly on Patreon; H.264 codec recommended"
+        },
+        {
+          "name": "Audio Post",
+          "maxFileSize": "1 GB",
+          "formats": ["MP3", "WAV", "M4A", "FLAC"],
+          "notes": "Audio posts with waveform player for patrons"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post Title",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Post Body",
+          "limit": "No hard limit",
+          "unit": "",
+          "notes": "Rich text editor with formatting support"
+        },
+        {
+          "name": "Creator Page Tagline",
+          "limit": "120",
+          "unit": "characters",
+          "notes": "Short description displayed under the creator name"
+        },
+        {
+          "name": "Creator About Section",
+          "limit": "No hard limit",
+          "unit": "",
+          "notes": "Rich-text about section on the creator's page"
+        },
+        {
+          "name": "Tier Title",
+          "limit": "40",
+          "unit": "characters"
+        },
+        {
+          "name": "Tier Description",
+          "limit": "500",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Page Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px minimum",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Square; displayed as a circle"
+        },
+        {
+          "name": "Cover Banner",
+          "dimensions": "1600 × 400 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "4:1 aspect ratio header banner"
+        }
+      ]
+    }
+  ]
+}

@@ -12,6 +12,7 @@ const ALL_SLUGS = [
   'pinterest','snapchat','threads','reddit','twitch','discord',
   'whatsapp','telegram','vimeo','bluesky','mastodon','medium',
   'tumblr','behance','spotify','wechat',
+  'bereal','substack','patreon','lemon8','kick','signal','line','messenger','rumble','clubhouse',
 ];
 
 test('build runs without error', () => {
@@ -26,7 +27,7 @@ test('facebook page exists', () => {
 test('facebook page has required SEO elements', () => {
   const html = fs.readFileSync(path.join(PUBLIC, 'facebook', 'index.html'), 'utf8');
   assert.ok(html.includes('<title>'), 'missing <title>');
-  assert.ok(html.includes('Facebook Specs'), 'title missing platform name');
+  assert.ok(html.includes('Facebook Specifications'), 'title missing platform name');
   assert.ok(html.includes('<h1'), 'missing <h1>');
   assert.ok(html.includes('<link rel="canonical"'), 'missing canonical');
   assert.ok(html.includes('allplatforms.io/facebook'), 'canonical wrong URL');
@@ -70,7 +71,7 @@ test('robots.txt exists and references sitemap', () => {
   assert.ok(robots.includes('allplatforms.io/sitemap.xml'), 'robots.txt wrong sitemap URL');
 });
 
-for (const slug of ['pinterest','snapchat','threads','reddit','twitch','discord','whatsapp','telegram','vimeo','bluesky','mastodon','medium','tumblr','behance','spotify','wechat']) {
+for (const slug of ['pinterest','snapchat','threads','reddit','twitch','discord','whatsapp','telegram','vimeo','bluesky','mastodon','medium','tumblr','behance','spotify','wechat','bereal','substack','patreon','lemon8','kick','signal','line','messenger','rumble','clubhouse']) {
   test(`${slug} page exists`, () => {
     assert.ok(fs.existsSync(path.join(PUBLIC, slug, 'index.html')), `public/${slug}/index.html missing`);
   });

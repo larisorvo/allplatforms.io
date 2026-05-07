@@ -1,0 +1,112 @@
+{
+  "name": "Lemon8",
+  "slug": "lemon8",
+  "color": "#FFB300",
+  "category": "Visual",
+  "description": "Specs and technical requirements for Lemon8 lifestyle photo and video posts.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Lemon8 Help Center", "url": "https://help.lemon8-app.com/" },
+    { "label": "Lemon8 Creator Hub", "url": "https://www.lemon8-app.com/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Post Image",
+          "dimensions": "1080 × 1080 px or 1080 × 1350 px",
+          "aspectRatio": "1:1 or 4:5",
+          "maxFileSize": "50 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Up to 18 images per carousel post; square and portrait both supported"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "200 × 200 px minimum",
+          "aspectRatio": "1:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in the app"
+        },
+        {
+          "name": "Post Cover",
+          "dimensions": "1080 × 1350 px recommended",
+          "aspectRatio": "4:5",
+          "notes": "First image in a post; used as the feed thumbnail"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Short Video",
+          "resolution": "1080 × 1920 px recommended",
+          "aspectRatio": "9:16",
+          "duration": "Up to 5 minutes",
+          "maxFileSize": "500 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "Vertical short-form video; supports music overlay"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post Title",
+          "limit": "50",
+          "unit": "characters",
+          "notes": "Bold headline displayed on the post card"
+        },
+        {
+          "name": "Post Caption / Body",
+          "limit": "2000",
+          "unit": "characters",
+          "notes": "Supports hashtags and mentions"
+        },
+        {
+          "name": "Hashtags per Post",
+          "limit": "20",
+          "unit": "hashtags"
+        },
+        {
+          "name": "Username",
+          "limit": "30",
+          "unit": "characters"
+        },
+        {
+          "name": "Bio",
+          "limit": "150",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "200 × 200 px minimum",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Cover / Header Image",
+          "dimensions": "1125 × 375 px recommended",
+          "aspectRatio": "3:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner at the top of your profile page"
+        }
+      ]
+    }
+  ]
+}

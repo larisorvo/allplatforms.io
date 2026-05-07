@@ -1,0 +1,119 @@
+{
+  "name": "BeReal",
+  "slug": "bereal",
+  "color": "#1C1C1E",
+  "category": "Social",
+  "description": "Specs and technical requirements for BeReal's authentic dual-camera format.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "BeReal Help Center", "url": "https://help.bereal.com/hc/en-us" },
+    { "label": "BeReal — How It Works", "url": "https://bereal.com/en/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "BeReal Photo (Front + Back)",
+          "dimensions": "1500 × 2000 px per lens (3:4)",
+          "aspectRatio": "3:4 each side",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG"],
+          "notes": "Both cameras capture simultaneously; front camera (selfie) overlays the back camera photo in the corner"
+        },
+        {
+          "name": "Front Camera Overlay",
+          "dimensions": "375 × 500 px (displayed at ~25% of full image)",
+          "aspectRatio": "3:4",
+          "notes": "Selfie thumbnail positioned in top-left corner of the back camera image"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "formats": ["JPG"],
+          "notes": "Taken directly in-app using the BeReal camera"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "BeReal Video (BTS)",
+          "resolution": "1080 × 1440 px (back) + 750 × 1000 px (front overlay)",
+          "duration": "Up to 10 seconds",
+          "formats": ["MP4"],
+          "notes": "Behind-the-scenes mode; dual-camera video captured simultaneously"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Caption",
+          "limit": "200",
+          "unit": "characters",
+          "notes": "Added to a BeReal post after capture"
+        },
+        {
+          "name": "Username",
+          "limit": "30",
+          "unit": "characters",
+          "notes": "Unique handle; lowercase letters, numbers, underscores"
+        },
+        {
+          "name": "Bio / Profile Note",
+          "limit": "150",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px",
+          "formats": ["JPG"],
+          "notes": "Captured in-app; displayed as a circle"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "RealAds",
+      "priority": 5,
+      "items": [
+        {
+          "name": "RealAd (Image)",
+          "dimensions": "1170 × 2532 px (full-screen, iPhone 14 Pro reference)",
+          "aspectRatio": "9:19.5",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Native full-screen ads appear in the discovery feed between organic BeReals; must look authentic"
+        },
+        {
+          "name": "RealAd (Video)",
+          "resolution": "1080 × 1920 px",
+          "duration": "Up to 10 seconds",
+          "formats": ["MP4"],
+          "notes": "Short-form video ads in the discovery feed; autoplay, no sound by default"
+        },
+        {
+          "name": "RealAd Headline",
+          "limit": "50",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}

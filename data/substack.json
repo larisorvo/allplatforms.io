@@ -1,0 +1,157 @@
+{
+  "name": "Substack",
+  "slug": "substack",
+  "color": "#FF6719",
+  "category": "Publishing",
+  "description": "Specs and technical requirements for all Substack content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Substack Help Center", "url": "https://support.substack.com/hc/en-us" },
+    { "label": "Substack — Writer Guide", "url": "https://on.substack.com/p/guide-to-substack" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Post Cover Image",
+          "dimensions": "1200 × 630 px recommended",
+          "aspectRatio": "1.91:1",
+          "maxFileSize": "25 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Shown at top of post and in email preview; also used for Open Graph social sharing"
+        },
+        {
+          "name": "Publication Logo",
+          "dimensions": "256 × 256 px recommended (square)",
+          "aspectRatio": "1:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed in subscriber inboxes and the publication header"
+        },
+        {
+          "name": "Publication Cover Photo",
+          "dimensions": "1920 × 1080 px recommended",
+          "aspectRatio": "16:9",
+          "maxFileSize": "25 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner image shown on your Substack publication homepage"
+        },
+        {
+          "name": "Inline Post Image",
+          "dimensions": "Up to 1200 px wide",
+          "maxFileSize": "25 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Images embedded in the body of a post or newsletter"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Video Post",
+          "resolution": "Up to 1920 × 1080 px",
+          "maxFileSize": "4 GB",
+          "formats": ["MP4", "MOV", "AVI", "WEBM"],
+          "notes": "Hosted video for paid subscribers; H.264 + AAC recommended"
+        },
+        {
+          "name": "Podcast / Audio Post",
+          "maxFileSize": "4 GB",
+          "formats": ["MP3", "AAC", "M4A", "WAV"],
+          "notes": "Audio-first posts with waveform player; 192 kbps MP3 recommended"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post / Newsletter Title",
+          "limit": "100",
+          "unit": "characters",
+          "notes": "Used as email subject line when sent to subscribers"
+        },
+        {
+          "name": "Post Subtitle",
+          "limit": "250",
+          "unit": "characters",
+          "notes": "Appears under the title in the post header"
+        },
+        {
+          "name": "Post Body",
+          "limit": "No hard limit",
+          "unit": "",
+          "notes": "Rich text editor with Markdown; no character cap"
+        },
+        {
+          "name": "Publication Name",
+          "limit": "50",
+          "unit": "characters"
+        },
+        {
+          "name": "Publication Description",
+          "limit": "250",
+          "unit": "characters",
+          "notes": "Shown on the publication page and in the Substack directory"
+        },
+        {
+          "name": "Author Bio",
+          "limit": "500",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Publication Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Author Photo",
+          "dimensions": "256 × 256 px minimum",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in posts and author bylines"
+        },
+        {
+          "name": "Publication Logo",
+          "dimensions": "256 × 256 px",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square format; appears in subscriber email clients"
+        },
+        {
+          "name": "Publication Cover",
+          "dimensions": "1920 × 1080 px",
+          "maxFileSize": "25 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Subscription & Monetisation",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Pledge / Paid Post Preview",
+          "notes": "Free preview shown to non-subscribers before paywall; no specific image size requirement"
+        },
+        {
+          "name": "Referral Programme Image",
+          "dimensions": "1200 × 630 px",
+          "formats": ["JPG", "PNG"],
+          "notes": "Promotional image shared when readers refer new subscribers"
+        }
+      ]
+    }
+  ]
+}

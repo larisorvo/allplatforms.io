@@ -1,0 +1,109 @@
+{
+  "name": "Messenger",
+  "slug": "messenger",
+  "color": "#0078FF",
+  "category": "Messaging",
+  "description": "Specs and technical requirements for Facebook Messenger media and ads.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Messenger Help Center", "url": "https://www.facebook.com/help/messenger-app/" },
+    { "label": "Meta Ads — Messenger Specs", "url": "https://www.facebook.com/business/ads/messenger-ad-format" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Shared Image",
+          "maxFileSize": "25 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Images sent in chats; animated GIFs play inline"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "180 × 180 px minimum",
+          "aspectRatio": "1:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Synced from Facebook profile; displayed as a circle"
+        },
+        {
+          "name": "Stories Image",
+          "dimensions": "1080 × 1920 px recommended",
+          "aspectRatio": "9:16",
+          "maxFileSize": "30 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Full-screen ephemeral story; disappears after 24 hours"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Shared Video",
+          "maxFileSize": "2.3 GB",
+          "duration": "Up to 2 hours",
+          "formats": ["MP4", "MOV", "AVI"],
+          "notes": "Videos shared in chats"
+        },
+        {
+          "name": "Stories Video",
+          "resolution": "1080 × 1920 px recommended",
+          "aspectRatio": "9:16",
+          "duration": "Up to 15 seconds",
+          "formats": ["MP4", "MOV"],
+          "notes": "Vertical full-screen Stories video"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Chat Message",
+          "limit": "10000",
+          "unit": "characters"
+        },
+        {
+          "name": "Group Chat Name",
+          "limit": "50",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Messenger Ads",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Messenger Inbox Ad (Image)",
+          "dimensions": "1200 × 628 px",
+          "aspectRatio": "1.91:1",
+          "maxFileSize": "30 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Appears in the Messenger inbox; clicks open a conversation or link"
+        },
+        {
+          "name": "Messenger Inbox Ad (Video)",
+          "resolution": "1080 × 1080 px or 1080 × 1920 px",
+          "duration": "Up to 240 minutes",
+          "maxFileSize": "4 GB",
+          "formats": ["MP4", "MOV"],
+          "notes": "Video ad in Messenger inbox; 1:1 or 9:16 aspect ratio"
+        },
+        {
+          "name": "Sponsored Message (Headline)",
+          "limit": "125",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}

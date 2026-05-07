@@ -1,0 +1,120 @@
+{
+  "name": "LINE",
+  "slug": "line",
+  "color": "#00B900",
+  "category": "Messaging",
+  "description": "Specs and technical requirements for LINE messaging, posts, and channel assets.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "LINE Help Center", "url": "https://help.line.me/line/" },
+    { "label": "LINE for Business", "url": "https://www.linebiz.com/en/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Chat Image",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Images shared in chats; animated GIFs supported"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "640 × 640 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in chats and the contact list"
+        },
+        {
+          "name": "Timeline Post Image",
+          "dimensions": "1040 × 780 px recommended",
+          "aspectRatio": "4:3",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Images shared to your LINE Timeline (social feed)"
+        },
+        {
+          "name": "Sticker",
+          "dimensions": "370 × 320 px per sticker",
+          "maxFileSize": "1 MB per sticker",
+          "formats": ["PNG", "APNG"],
+          "notes": "Sold on LINE Creators Market; main image per sticker"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Chat Video",
+          "maxFileSize": "300 MB",
+          "duration": "Up to 5 minutes",
+          "formats": ["MP4", "MOV"],
+          "notes": "Video shared in a chat thread"
+        },
+        {
+          "name": "Timeline Video",
+          "maxFileSize": "300 MB",
+          "duration": "Up to 5 minutes",
+          "formats": ["MP4", "MOV"],
+          "notes": "Video posted to your public LINE Timeline"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Chat Message",
+          "limit": "10000",
+          "unit": "characters"
+        },
+        {
+          "name": "Timeline Post",
+          "limit": "10000",
+          "unit": "characters"
+        },
+        {
+          "name": "Display Name",
+          "limit": "20",
+          "unit": "characters"
+        },
+        {
+          "name": "Status Message",
+          "limit": "500",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "640 × 640 px",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square; displayed as a circle"
+        },
+        {
+          "name": "Cover Image",
+          "dimensions": "1440 × 960 px recommended",
+          "aspectRatio": "3:2",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Background banner on your profile"
+        }
+      ]
+    }
+  ]
+}

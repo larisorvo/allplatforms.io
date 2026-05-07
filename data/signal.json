@@ -1,0 +1,109 @@
+{
+  "name": "Signal",
+  "slug": "signal",
+  "color": "#3A76F0",
+  "category": "Messaging",
+  "description": "Specs and technical requirements for Signal private messaging media.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Signal Support", "url": "https://support.signal.org/" },
+    { "label": "Signal — About", "url": "https://signal.org/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Shared Image",
+          "maxFileSize": "100 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Images shared in chats are compressed by default; original quality option available"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "256 × 256 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "50 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle; visible only to your contacts"
+        },
+        {
+          "name": "Sticker Pack",
+          "dimensions": "512 × 512 px per sticker",
+          "maxFileSize": "1 MB per sticker",
+          "formats": ["PNG", "WebP", "APNG"],
+          "notes": "Custom sticker packs can be created and shared; max 200 stickers per pack"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video & Audio Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Shared Video",
+          "maxFileSize": "100 MB",
+          "formats": ["MP4", "MOV", "AVI"],
+          "notes": "Videos are end-to-end encrypted; compressed for delivery"
+        },
+        {
+          "name": "Voice Message",
+          "duration": "Up to 5 minutes per clip",
+          "formats": ["AAC", "MP3"],
+          "notes": "In-app recorded voice note; plays directly in chat"
+        },
+        {
+          "name": "Video Call",
+          "resolution": "Up to 720p",
+          "notes": "End-to-end encrypted 1:1 and group video calls; up to 40 participants"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Message",
+          "limit": "No practical limit",
+          "unit": "",
+          "notes": "Signal supports very long text messages; no documented hard cap"
+        },
+        {
+          "name": "Profile Name",
+          "limit": "26",
+          "unit": "characters",
+          "notes": "First and last name combined"
+        },
+        {
+          "name": "Profile About",
+          "limit": "140",
+          "unit": "characters"
+        },
+        {
+          "name": "Group Name",
+          "limit": "32",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "256 × 256 px",
+          "maxFileSize": "50 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Visible to contacts; displayed as a circle"
+        }
+      ]
+    }
+  ]
+}
