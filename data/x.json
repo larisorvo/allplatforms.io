@@ -6,8 +6,8 @@
   "description": "Specs and technical requirements for all X (formerly Twitter) content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [
-    { "label": "X Help Center — Media", "url": "https://help.twitter.com/en/using-x/how-to-tweet#types-of-tweets" },
-    { "label": "X Ads Specifications", "url": "https://business.twitter.com/en/help/campaign-setup/advertiser-card-specifications.html" }
+    { "label": "X Help Center — Media", "url": "https://help.x.com/en/using-x/how-to-tweet" },
+    { "label": "X Ads Specifications", "url": "https://ads.x.com/resources/ad-specs" }
   ],
   "specs": [
     {

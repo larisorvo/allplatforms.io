@@ -1,0 +1,168 @@
+{
+  "name": "WeChat",
+  "slug": "wechat",
+  "color": "#07C160",
+  "category": "Messaging",
+  "description": "Specs and technical requirements for all WeChat content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "WeChat Official Account Admin", "url": "https://mp.weixin.qq.com/" },
+    { "label": "WeChat Open Platform", "url": "https://open.weixin.qq.com/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Moments Photo",
+          "dimensions": "1080 × 1080 px recommended",
+          "maxFileSize": "5 MB per image",
+          "formats": ["JPG", "PNG"],
+          "notes": "Up to 9 photos per Moments post; square format displays best"
+        },
+        {
+          "name": "Official Account Article Cover",
+          "dimensions": "900 × 500 px (main) or 200 × 200 px (multi-article list)",
+          "formats": ["JPG", "PNG"],
+          "maxFileSize": "2 MB",
+          "notes": "Main article: 900×500 required; secondary articles in a push: 200×200"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "480 × 480 px minimum",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Official Account Avatar",
+          "dimensions": "300 × 300 px",
+          "maxFileSize": "1 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square format; displayed at small sizes in feeds"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Moments Video",
+          "resolution": "1080 × 1920 px (vertical) or 1920 × 1080 px (horizontal)",
+          "duration": "Up to 30 seconds",
+          "maxFileSize": "100 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264 recommended; videos autoplay silently in feed"
+        },
+        {
+          "name": "Video Channel (Shipinhao) Post",
+          "resolution": "1080 × 1920 px (vertical preferred)",
+          "duration": "Up to 20 minutes",
+          "maxFileSize": "500 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "WeChat's short video platform; H.264 + AAC"
+        },
+        {
+          "name": "Official Account Article Video",
+          "duration": "Up to 15 minutes",
+          "maxFileSize": "100 MB",
+          "formats": ["MP4"],
+          "notes": "Embedded inline in WeChat official account articles"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Moments Text Post",
+          "limit": "1,500",
+          "unit": "characters"
+        },
+        {
+          "name": "Official Account Article",
+          "limit": "20,000",
+          "unit": "characters per article",
+          "notes": "Rich HTML article; supports images, video, audio embeds"
+        },
+        {
+          "name": "Nickname",
+          "limit": "20",
+          "unit": "characters"
+        },
+        {
+          "name": "Bio",
+          "limit": "140",
+          "unit": "characters"
+        },
+        {
+          "name": "Chat Message",
+          "limit": "10,000",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Account Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "480 × 480 px minimum",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Official Account Cover",
+          "dimensions": "900 × 500 px",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Shown on the Official Account profile page"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "WeChat Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Moments Ad (Image)",
+          "dimensions": "1080 × 1080 px (square) or 1080 × 720 px (horizontal)",
+          "maxFileSize": "6 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Appears in Moments feed; up to 6 images per ad unit"
+        },
+        {
+          "name": "Moments Ad (Video)",
+          "resolution": "1280 × 720 px or 720 × 1280 px",
+          "duration": "6 – 15 seconds",
+          "maxFileSize": "100 MB",
+          "formats": ["MP4"],
+          "notes": "Autoplays silently in Moments"
+        },
+        {
+          "name": "Banner Ad",
+          "dimensions": "640 × 100 px",
+          "maxFileSize": "200 KB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed at bottom of Official Account articles"
+        },
+        {
+          "name": "Ad Headline",
+          "limit": "14",
+          "unit": "characters",
+          "notes": "Moments ad brand name / title"
+        }
+      ]
+    }
+  ]
+}

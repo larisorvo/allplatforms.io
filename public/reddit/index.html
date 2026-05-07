@@ -15,68 +15,530 @@
   <meta property="og:description" content="Complete Reddit specs: image sizes, video requirements, character limits, and ad specs. Last verified 2026-05-07.">
   <meta property="og:url" content="https://allplatforms.io/reddit">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Reddit Specs & Size Guide 2026 | AllPlatforms.io","description":"Complete Reddit specs: image sizes, video requirements, character limits, and ad specs. Last verified 2026-05-07.","url":"https://allplatforms.io/reddit","dateModified":"2026-05-07"}</script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { darkMode: 'class' }</script>
   <style>
-    .icon-fade-1 { fill: rgba(0,0,0,0.09); }
-    .icon-fade-2 { fill: rgba(0,0,0,0.05); }
-    .icon-fade-3 { fill: rgba(0,0,0,0.03); }
-    .icon-fade-4 { fill: rgba(0,0,0,0.015); }
-    html.dark .icon-fade-1 { fill: rgba(255,255,255,0.13); }
-    html.dark .icon-fade-2 { fill: rgba(255,255,255,0.06); }
-    html.dark .icon-fade-3 { fill: rgba(255,255,255,0.04); }
-    html.dark .icon-fade-4 { fill: rgba(255,255,255,0.02); }
-    html.dark .dark-hero { background: linear-gradient(135deg, var(--hero-color, rgba(51,51,51,0.25)) 0%, #111827 60%) !important; }
+    :root {
+      --bg:        #0c0c0f;
+      --surface:   #141418;
+      --surface2:  #1a1a20;
+      --border:    #222228;
+      --border-hi: #2e2e38;
+      --text:      #e8e8f0;
+      --muted:     #6b6b80;
+      --accent:    #c8f557;
+      --platform:  #FF4500;
+      --font-display: 'Syne', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+      --font-body:    'DM Sans', sans-serif;
+    }
+    html:not(.dark) {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --surface2:  #f0f0f4;
+      --border:    #e0e0e8;
+      --border-hi: #c8c8d8;
+      --text:      #18181e;
+      --muted:     #888898;
+      --accent:    #5a3af7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 300;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-wordmark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .logo-wordmark span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .nav-platforms {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .nav-platforms::-webkit-scrollbar { display: none; }
+    .nav-platforms a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-platforms a:hover {
+      color: var(--text);
+      background: var(--surface);
+    }
+    .nav-platforms a.active {
+      color: var(--platform);
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+    }
+
+    /* HERO */
+    .hero {
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--platform) 12%, transparent) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    html:not(.dark) .hero-bg {
+      background: radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--platform) 8%, transparent) 0%, transparent 60%);
+    }
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 40px;
+      position: relative;
+    }
+    .hero-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .hero-breadcrumb a:hover { color: var(--text); }
+    .hero-breadcrumb .sep { opacity: 0.4; }
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .platform-logo-wrap {
+      flex-shrink: 0;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: var(--text);
+    }
+    h1 .platform-accent {
+      color: var(--platform);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+    .quick-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .quick-stats span {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+    .quick-stats span strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    /* dots between quick stats spans */
+    .quick-stats .sep {
+      background: none;
+      border: none;
+      color: var(--border-hi);
+      padding: 5px 0;
+    }
+
+    /* AD LEADERBOARD */
+    .ad-leaderboard {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .ad-leaderboard-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .ad-slot {
+      background: var(--surface2);
+      border: 1px dashed var(--border-hi);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--border-hi);
+      letter-spacing: 0.08em;
+    }
+
+    /* LAYOUT */
+    .content-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    main { flex: 1; min-width: 0; }
+    aside {
+      width: 280px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 72px;
+    }
+    @media (max-width: 1024px) { aside { display: none; } }
+
+    /* SECTION HEADERS */
+    .spec-section { margin-bottom: 48px; }
+    .spec-section h2 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-bar {
+      width: 3px;
+      height: 20px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      background: var(--platform);
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* SPEC CARDS — override build.js output */
+    .spec-grid > div {
+      background: var(--surface) !important;
+      border-radius: 0 !important;
+      border: none !important;
+      padding: 20px !important;
+      transition: background 0.15s;
+    }
+    .spec-grid > div:hover {
+      background: var(--surface2) !important;
+    }
+    .spec-grid > div h3 {
+      font-family: var(--font-display) !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.02em !important;
+      color: var(--muted) !important;
+      text-transform: uppercase !important;
+      margin-bottom: 14px !important;
+    }
+    .spec-grid > div table { width: 100%; border-collapse: collapse; }
+    .spec-grid > div tbody tr { border: none !important; }
+    .spec-grid > div tbody tr + tr { border-top: 1px solid var(--border) !important; }
+    .spec-grid > div th {
+      font-family: var(--font-mono) !important;
+      font-size: 11px !important;
+      font-weight: 400 !important;
+      color: var(--muted) !important;
+      text-align: left;
+      padding: 7px 12px 7px 0 !important;
+      white-space: nowrap;
+      width: 1%;
+    }
+    .spec-grid > div td {
+      font-family: var(--font-mono) !important;
+      font-size: 12px !important;
+      color: var(--text) !important;
+      padding: 7px 0 !important;
+    }
+
+    /* MID-CONTENT AD */
+    .ad-mid {
+      margin: 24px 0;
+      height: 90px;
+    }
+
+    /* SIDEBAR */
+    .sidebar-ad {
+      height: 400px;
+      margin-bottom: 16px;
+    }
+    .sidebar-platforms {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .sidebar-platforms h4 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sidebar-platforms nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sidebar-platforms a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+    }
+    .sidebar-platforms a:hover {
+      color: var(--text);
+      background: var(--surface2);
+    }
+
+    /* SOURCES */
+    .sources-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .sources-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 24px;
+    }
+    .sources-inner h4 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sources-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .sources-links a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--platform);
+      text-decoration: none;
+      border: 1px solid color-mix(in srgb, var(--platform) 30%, transparent);
+      padding: 5px 12px;
+      border-radius: 100px;
+      transition: background 0.15s;
+    }
+    .sources-links a:hover {
+      background: color-mix(in srgb, var(--platform) 10%, transparent);
+    }
+    .sources-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .footer-logo span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--accent);
+    }
+    .footer-note {
+      font-size: 12px;
+      color: var(--muted);
+      flex: 1;
+    }
+    #theme-toggle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--border-hi);
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    #theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Rewrite build.js section structure */
+    section.mb-10 { margin-bottom: 0 !important; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner { animation: fadeUp 0.45s ease both; }
+    main        { animation: fadeUp 0.45s 0.1s ease both; }
   </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
+<body>
 
   <!-- Navigation -->
-  <nav class="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2" aria-label="allplatforms.io">
-        <svg width="28" height="28" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="0" y="0" width="14" height="14" rx="2" fill="#4F46E5"/>
-          <rect x="17" y="0" width="14" height="14" rx="2" fill="#7C3AED"/>
-          <rect x="34" y="0" width="14" height="14" rx="2" fill="#A78BFA"/>
-          <rect x="0" y="17" width="14" height="14" rx="2" fill="#EC4899"/>
-          <rect x="17" y="17" width="14" height="14" rx="2" class="icon-fade-1"/>
-          <rect x="34" y="17" width="14" height="14" rx="2" class="icon-fade-2"/>
-          <rect x="0" y="34" width="14" height="14" rx="2" class="icon-fade-2"/>
-          <rect x="17" y="34" width="14" height="14" rx="2" class="icon-fade-3"/>
-          <rect x="34" y="34" width="14" height="14" rx="2" class="icon-fade-4"/>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="allplatforms.io">
+        <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="0"  y="0"  width="14" height="14" rx="2.5" fill="var(--accent)"/>
+          <rect x="17" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.6"/>
+          <rect x="34" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.3"/>
+          <rect x="0"  y="17" width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.5"/>
+          <rect x="17" y="17" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="34" y="17" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="0"  y="34" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="17" y="34" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="34" y="34" width="14" height="14" rx="2.5" fill="var(--border)" opacity="0.5"/>
         </svg>
-        <span class="text-gray-900 dark:text-white" style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:18px;letter-spacing:-0.02em;">allplatforms<span class="text-violet-600 dark:text-violet-400" style="font-family:'Space Mono',monospace;font-weight:400;font-size:13px;letter-spacing:0.01em;">.io</span></span>
+        <span class="logo-wordmark">allplatforms<span>.io</span></span>
       </a>
-      <div class="hidden md:flex items-center gap-1 text-sm"><a href="/discord" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Discord</a><a href="/facebook" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Facebook</a><a href="/instagram" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Instagram</a><a href="/linkedin" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">LinkedIn</a><a href="/pinterest" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Pinterest</a><a href="/reddit" class="px-3 py-1.5 rounded text-sm bg-indigo-100 dark:bg-indigo-600 text-indigo-700 dark:text-white">Reddit</a><a href="/snapchat" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Snapchat</a><a href="/threads" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Threads</a><a href="/tiktok" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">TikTok</a><a href="/twitch" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Twitch</a><a href="/x" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">X (Twitter)</a><a href="/youtube" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">YouTube</a></div>
+      <div class="nav-platforms hidden md:flex"><a href="/behance" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Behance</a><a href="/bluesky" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Bluesky</a><a href="/discord" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Discord</a><a href="/facebook" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Facebook</a><a href="/instagram" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Instagram</a><a href="/linkedin" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">LinkedIn</a><a href="/mastodon" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Mastodon</a><a href="/medium" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Medium</a><a href="/pinterest" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Pinterest</a><a href="/reddit" class="px-3 py-1.5 rounded text-sm bg-indigo-100 dark:bg-indigo-600 text-indigo-700 dark:text-white">Reddit</a><a href="/snapchat" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Snapchat</a><a href="/spotify" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Spotify</a><a href="/telegram" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Telegram</a><a href="/threads" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Threads</a><a href="/tiktok" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">TikTok</a><a href="/tumblr" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Tumblr</a><a href="/twitch" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Twitch</a><a href="/vimeo" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">Vimeo</a><a href="/wechat" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">WeChat</a><a href="/whatsapp" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">WhatsApp</a><a href="/x" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">X (Twitter)</a><a href="/youtube" class="px-3 py-1.5 rounded text-sm text-gray-600 dark:text-gray-300 hover:text-indigo-700 dark:hover:text-white hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors">YouTube</a></div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <div class="dark-hero border-b border-gray-200 dark:border-gray-700" style="background: linear-gradient(135deg, #FF450018 0%, white 60%); --hero-color: #FF450040">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      <div class="flex items-center gap-4 mb-2">
-        <div style="width:48px;height:48px;border-radius:12px;background:#FF4500;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></div>
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight" style="color: #FF4500">Reddit Specs</h1>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="/">allplatforms.io</a>
+        <span class="sep">/</span>
+        <span style="color:var(--platform);">Reddit</span>
       </div>
-      <p class="text-gray-600 dark:text-gray-300 mt-1 text-lg">Specs and technical requirements for all Reddit content formats.</p>
-      <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400"><span><strong>Post Image:</strong> Up to 4000 × 4000 px</span><span class="text-gray-300 mx-1">·</span><span><strong>Post Video:</strong> Up to 15 minutes</span><span class="text-gray-300 mx-1">·</span><span><strong>Post Title:</strong> 300 characters</span></div>
+      <div class="hero-title-row">
+        <div class="platform-logo-wrap"><div style="width:48px;height:48px;border-radius:12px;background:#FF4500;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></div></div>
+        <h1><span class="platform-accent">Reddit</span> Specs</h1>
+      </div>
+      <p class="hero-desc">Specs and technical requirements for all Reddit content formats.</p>
+      <div class="quick-stats"><span><strong>Post Image:</strong> Up to 4000 × 4000 px</span><span class="text-gray-300 mx-1">·</span><span><strong>Post Video:</strong> Up to 15 minutes</span><span class="text-gray-300 mx-1">·</span><span><strong>Post Title:</strong> 300 characters</span></div>
     </div>
   </div>
 
   <!-- Ad: Leaderboard -->
-  <div class="bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex justify-center">
-      <div class="ad-slot w-full max-w-3xl h-16 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-gray-400 dark:text-gray-600 text-xs" data-ad-format="leaderboard">[Ad]</div>
+  <div class="ad-leaderboard">
+    <div class="ad-leaderboard-inner">
+      <div class="ad-slot" style="width:100%;max-width:728px;height:60px;" data-ad-format="leaderboard">[Ad]</div>
     </div>
   </div>
 
   <!-- Content -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 lg:flex lg:gap-8">
-
-    <!-- Main -->
-    <main class="flex-1 min-w-0">
+  <div class="content-wrap">
+    <main id="main-content">
       <section id="images" class="mb-10">
   <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
     <span class="w-1 h-6 rounded flex-shrink-0" style="background-color: #FF4500"></span>
@@ -182,34 +644,30 @@
 </section>
     </main>
 
-    <!-- Sidebar -->
-    <aside class="w-72 flex-shrink-0 hidden lg:block">
-      <div class="sticky top-4 space-y-4">
-        <div class="ad-slot h-[600px] bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 dark:text-gray-600 text-xs" data-ad-format="sidebar-300x600">[Ad]</div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
-          <h4 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">Other Platforms</h4>
-          <nav class="space-y-1"><a href="/discord" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#5865F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/></svg></div>Discord</a><a href="/facebook" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#1877F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>Facebook</a><a href="/instagram" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#E1306C;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>Instagram</a><a href="/linkedin" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#0A66C2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>LinkedIn</a><a href="/pinterest" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#E60023;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>Pinterest</a><a href="/snapchat" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#FFFC00;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.166.006C7.456-.026 3.25 2.618 1.25 6.72c-.9 1.85-1.16 3.79-1.25 5.73v.7c.04 1.14.1 2.39.56 3.46-.23.12-.46.27-.65.44-.48.41-.73.93-.65 1.45.16 1.01 1.36 1.61 2.22 1.85.13.04.27.08.42.13.44.15.91.33 1.17.71.41.59.61 1.3.93 1.94.38.74 1.01 1.15 1.79 1.15.4 0 .82-.11 1.29-.34.52-.25 1.02-.37 1.5-.37.54 0 1.01.15 1.49.47.63.42 1.17.62 1.7.62.75 0 1.38-.37 1.82-1.07.31-.49.53-1.08.84-1.58.22-.36.65-.55 1.07-.69.14-.05.28-.09.41-.13.86-.24 2.06-.84 2.22-1.85.08-.52-.17-1.04-.65-1.45-.19-.17-.42-.32-.66-.44.47-1.07.52-2.32.56-3.46v-.7c-.09-1.95-.35-3.87-1.25-5.73C21.05 2.62 16.87-.02 12.17.006h-.004z"/></svg></div>Snapchat</a><a href="/threads" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#101010;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"><path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.206 17.11 97.015 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 9.986 15.908 12.787 26.396l16.137-4.304c-3.412-12.586-8.766-23.441-16.036-32.411C147.844 9.781 126.113.294 97.1.007h-.199C68.001.294 46.487 9.798 31.95 28.24 18.785 44.911 12.01 68.376 11.804 96.009l-.001.072.001.072c.205 27.633 6.98 51.098 20.145 67.769C46.487 182.202 68 191.706 96.9 191.993h.2c26.106-.264 44.428-7.047 59.522-22.139 19.715-19.702 19.117-44.39 12.636-59.548-4.462-10.403-13.033-18.811-27.72-23.318Zm-48.32 47.43c-10.438.588-21.286-4.098-21.82-14.135-.401-7.544 5.34-15.959 22.574-16.977 1.976-.114 3.918-.169 5.824-.169 6.404 0 12.4.619 17.868 1.812-2.032 25.357-14.654 28.871-24.446 29.47z"/></svg></div>Threads</a><a href="/tiktok" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#010101;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.02-.08z"/></svg></div>TikTok</a><a href="/twitch" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#9146FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg></div>Twitch</a><a href="/x" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#000000;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>X (Twitter)</a><a href="/youtube" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#FF0000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>YouTube</a></nav>
-        </div>
+    <aside>
+      <div class="ad-slot sidebar-ad" data-ad-format="sidebar-300x400">[Ad]</div>
+      <div class="sidebar-platforms">
+        <h4>Other Platforms</h4>
+        <nav><a href="/behance" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#1769FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.598.414.27.739.623.97 1.061.23.44.345.962.345 1.57 0 .674-.151 1.234-.456 1.68-.304.446-.756.812-1.36 1.1.82.233 1.43.657 1.832 1.27.404.616.606 1.365.606 2.246 0 .664-.127 1.248-.38 1.752-.254.504-.601.924-1.04 1.258-.44.334-.95.586-1.53.756-.581.17-1.19.256-1.83.256H0V4.503h6.938zm-.495 5.82c.44 0 .795-.108 1.065-.326.27-.217.405-.55.405-1 0-.26-.05-.48-.15-.658-.101-.18-.234-.322-.4-.428-.165-.107-.35-.183-.556-.23-.207-.044-.42-.064-.648-.064H3.13v2.706h3.313zm.19 6.063c.252 0 .49-.028.716-.082.226-.055.42-.14.59-.253.168-.114.302-.264.4-.452.1-.188.15-.42.15-.697 0-.55-.153-.96-.458-1.23-.304-.27-.724-.404-1.258-.404H3.13v3.118h3.503zm8.768-.188c.29.283.71.424 1.258.424.39 0 .727-.098 1.01-.296.284-.198.457-.41.52-.636h2.256c-.36 1.118-.913 1.914-1.658 2.39-.745.476-1.645.714-2.7.714-.734 0-1.395-.117-1.984-.352-.59-.234-1.09-.567-1.502-.995-.413-.428-.73-.942-.95-1.54-.22-.6-.33-1.25-.33-1.95 0-.68.11-1.32.336-1.92.224-.6.546-1.115.966-1.547.42-.433.924-.772 1.51-1.018.588-.244 1.234-.366 1.94-.366.79 0 1.49.152 2.1.455.608.3 1.108.715 1.5 1.24.39.524.67 1.124.84 1.798.17.676.22 1.386.15 2.13H14.27c0 .637.165 1.094.448 1.368h.003zm2.276-4.24c-.23-.252-.603-.378-1.12-.378-.332 0-.606.055-.824.167-.218.11-.393.248-.523.41-.13.163-.22.34-.272.527-.05.19-.08.36-.09.522h3.347c-.06-.565-.29-.998-.518-1.248zm-4.016-5.034h4.826V5.66h-4.826v1.264z"/></svg></div>Behance</a><a href="/bluesky" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#0085FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></div>Bluesky</a><a href="/discord" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#5865F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/></svg></div>Discord</a><a href="/facebook" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#1877F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>Facebook</a><a href="/instagram" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#E1306C;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>Instagram</a><a href="/linkedin" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#0A66C2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>LinkedIn</a><a href="/mastodon" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#6364FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg></div>Mastodon</a><a href="/medium" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#02B875;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></div>Medium</a><a href="/pinterest" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#E60023;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>Pinterest</a><a href="/snapchat" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#FFFC00;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.166.006C7.456-.026 3.25 2.618 1.25 6.72c-.9 1.85-1.16 3.79-1.25 5.73v.7c.04 1.14.1 2.39.56 3.46-.23.12-.46.27-.65.44-.48.41-.73.93-.65 1.45.16 1.01 1.36 1.61 2.22 1.85.13.04.27.08.42.13.44.15.91.33 1.17.71.41.59.61 1.3.93 1.94.38.74 1.01 1.15 1.79 1.15.4 0 .82-.11 1.29-.34.52-.25 1.02-.37 1.5-.37.54 0 1.01.15 1.49.47.63.42 1.17.62 1.7.62.75 0 1.38-.37 1.82-1.07.31-.49.53-1.08.84-1.58.22-.36.65-.55 1.07-.69.14-.05.28-.09.41-.13.86-.24 2.06-.84 2.22-1.85.08-.52-.17-1.04-.65-1.45-.19-.17-.42-.32-.66-.44.47-1.07.52-2.32.56-3.46v-.7c-.09-1.95-.35-3.87-1.25-5.73C21.05 2.62 16.87-.02 12.17.006h-.004z"/></svg></div>Snapchat</a><a href="/spotify" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></div>Spotify</a><a href="/telegram" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#26A5E4;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>Telegram</a><a href="/threads" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#101010;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"><path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.206 17.11 97.015 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 9.986 15.908 12.787 26.396l16.137-4.304c-3.412-12.586-8.766-23.441-16.036-32.411C147.844 9.781 126.113.294 97.1.007h-.199C68.001.294 46.487 9.798 31.95 28.24 18.785 44.911 12.01 68.376 11.804 96.009l-.001.072.001.072c.205 27.633 6.98 51.098 20.145 67.769C46.487 182.202 68 191.706 96.9 191.993h.2c26.106-.264 44.428-7.047 59.522-22.139 19.715-19.702 19.117-44.39 12.636-59.548-4.462-10.403-13.033-18.811-27.72-23.318Zm-48.32 47.43c-10.438.588-21.286-4.098-21.82-14.135-.401-7.544 5.34-15.959 22.574-16.977 1.976-.114 3.918-.169 5.824-.169 6.404 0 12.4.619 17.868 1.812-2.032 25.357-14.654 28.871-24.446 29.47z"/></svg></div>Threads</a><a href="/tiktok" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#010101;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.02-.08z"/></svg></div>TikTok</a><a href="/tumblr" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#35465C;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.304 1.406z"/></svg></div>Tumblr</a><a href="/twitch" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#9146FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg></div>Twitch</a><a href="/vimeo" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#1AB7EA;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.084 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.48 4.807z"/></svg></div>Vimeo</a><a href="/wechat" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#07C160;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-3.945-6.348-7.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.81-5.768-7.063-6.122zm-3.01 3.99a.967.967 0 0 1 .972.956.967.967 0 0 1-.972.956.967.967 0 0 1-.972-.956c0-.526.43-.956.972-.956zm4.952 0c.537 0 .972.43.972.956s-.435.956-.972.956a.967.967 0 0 1-.972-.956c0-.526.434-.956.972-.956z"/></svg></div>WeChat</a><a href="/whatsapp" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#25D366;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>WhatsApp</a><a href="/x" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#000000;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>X (Twitter)</a><a href="/youtube" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-700 dark:hover:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"><div style="width:16px;height:16px;border-radius:4px;background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#FF0000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>YouTube</a></nav>
       </div>
     </aside>
-
   </div>
 
   <!-- Sources -->
-  <div class="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 mt-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-      <h4 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Sources</h4>
-      <div class="flex flex-wrap gap-3 text-sm"><a href="https://support.reddithelp.com/hc/en-us/articles/204533569" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">Reddit Help — Posting ↗</a><a href="https://ads.reddit.com/resources/ad-specs" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">Reddit Ads Specs ↗</a></div>
-      <p class="text-xs text-gray-400 dark:text-gray-500 mt-3">Last verified: <time datetime="2026-05-07">2026-05-07</time></p>
+  <div class="sources-bar">
+    <div class="sources-inner">
+      <h4>Sources</h4>
+      <div class="sources-links"><a href="https://support.reddithelp.com/hc/en-us/articles/204533569" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">Reddit Help — Posting ↗</a><a href="https://ads.reddit.com/resources/ad-specs" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">Reddit Ads Specs ↗</a></div>
+      <p class="sources-date">Last verified: <time datetime="2026-05-07">2026-05-07</time></p>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-indigo-900 dark:bg-gray-950 text-indigo-300 dark:text-gray-500 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between gap-3">
-      <p class="whitespace-nowrap" style="font-family:'DM Sans',sans-serif;font-weight:500;"><span style="background:linear-gradient(to right,#A78BFA,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">allplatforms</span><span style="font-family:'Space Mono',monospace;font-weight:400;font-size:0.8em;color:#A78BFA;">.io</span></p>
-      <p class="flex-1 text-violet-300 dark:text-gray-500">Spec data verified against official platform documentation. Always check platform help centers for the latest updates.</p>
-      <button id="theme-toggle" onclick="toggleTheme()" class="self-start sm:self-auto inline-flex items-center gap-1.5 text-xs text-indigo-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 bg-indigo-800 dark:bg-gray-800 hover:bg-indigo-700 dark:hover:bg-gray-700 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap" aria-label="Toggle color theme">
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">allplatforms<span>.io</span></span>
+      <p class="footer-note">Spec data verified against official platform documentation. Always check platform help centers for the latest updates.</p>
+      <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
         <span id="theme-icon"></span>
         <span id="theme-label"></span>
       </button>
@@ -217,15 +675,41 @@
   </footer>
 
   <script>
+    // Rewrite section structure from build.js to match our CSS
+    document.querySelectorAll('main section').forEach(function(section) {
+      // section h2: extract bar + label
+      var h2 = section.querySelector('h2');
+      if (h2) {
+        var bar = h2.querySelector('span:first-child');
+        var label = h2.querySelector('span:last-child');
+        if (bar && label) {
+          bar.className = 'section-bar';
+          bar.removeAttribute('style');
+        }
+      }
+      // grid div
+      var grid = section.querySelector('.grid');
+      if (grid) {
+        grid.className = 'spec-grid';
+      }
+      section.className = 'spec-section';
+      section.removeAttribute('id');
+    });
+
+    // Mid-content ads: restyle
+    document.querySelectorAll('.ad-slot.my-6').forEach(function(el) {
+      el.className = 'ad-slot ad-mid';
+    });
+
     function toggleTheme() {
       var dark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('ap-theme', dark ? 'dark' : 'light');
       updateThemeToggle(dark);
     }
     function updateThemeToggle(dark) {
-      var icon = document.getElementById('theme-icon');
+      var icon  = document.getElementById('theme-icon');
       var label = document.getElementById('theme-label');
-      if (icon) icon.textContent = dark ? '☀' : '🌙';
+      if (icon)  icon.textContent  = dark ? '☀' : '🌙';
       if (label) label.textContent = dark ? 'Light mode' : 'Dark mode';
     }
     updateThemeToggle(document.documentElement.classList.contains('dark'));

@@ -1,0 +1,146 @@
+{
+  "name": "Behance",
+  "slug": "behance",
+  "color": "#1769FF",
+  "category": "Portfolio",
+  "description": "Specs and technical requirements for all Behance content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Behance Help Center", "url": "https://help.behance.net/hc/en-us" },
+    { "label": "Behance — Uploading Work", "url": "https://help.behance.net/hc/en-us/articles/204484634" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Project Module Image",
+          "dimensions": "1400 × any height (recommended max width)",
+          "maxFileSize": "50 MB per image",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Images are displayed at full width within the project; upload high-res for best quality"
+        },
+        {
+          "name": "Project Cover",
+          "dimensions": "1400 × 1050 px recommended (4:3)",
+          "aspectRatio": "4:3 (also supports 16:9)",
+          "maxFileSize": "50 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Shown in grid view on profile and in Behance feed"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "280 × 280 px minimum",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Profile Cover",
+          "dimensions": "1400 × 350 px recommended",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner shown at top of your Behance profile"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Project Video Module",
+          "resolution": "Up to 4K (3840 × 2160 px) recommended at 1920 × 1080",
+          "maxFileSize": "4 GB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264 + AAC recommended; videos embed in the project and play inline"
+        },
+        {
+          "name": "Embedded Video",
+          "notes": "YouTube, Vimeo, and other platform embeds are supported directly in projects"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Project Title",
+          "limit": "80",
+          "unit": "characters"
+        },
+        {
+          "name": "Project Description",
+          "limit": "1,500",
+          "unit": "characters",
+          "notes": "Shown in grid view and project detail; supports links and basic formatting"
+        },
+        {
+          "name": "Bio",
+          "limit": "1,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "36",
+          "unit": "characters",
+          "notes": "Becomes behance.net/yourname"
+        },
+        {
+          "name": "Tags",
+          "limit": "20",
+          "unit": "tags per project",
+          "notes": "Used for discovery in Behance search and Adobe tools"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Portfolio Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "280 × 280 px minimum",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Profile Cover",
+          "dimensions": "1400 × 350 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Project Grid Cover",
+          "dimensions": "1400 × 1050 px",
+          "aspectRatio": "4:3",
+          "maxFileSize": "50 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "The image shown in grid view; can differ from the project's first image"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Adobe & Discovery",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Adobe Portfolio Integration",
+          "notes": "Behance projects automatically sync to Adobe Portfolio; specs match Behance project requirements"
+        },
+        {
+          "name": "Feature on Behance",
+          "notes": "Projects featured by Behance curators must meet quality standards; no specific size requirement beyond standard project specs"
+        }
+      ]
+    }
+  ]
+}

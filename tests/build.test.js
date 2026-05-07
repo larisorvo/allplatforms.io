@@ -10,6 +10,8 @@ const PUBLIC = path.join(ROOT, 'public');
 const ALL_SLUGS = [
   'facebook','instagram','youtube','tiktok','linkedin','x',
   'pinterest','snapchat','threads','reddit','twitch','discord',
+  'whatsapp','telegram','vimeo','bluesky','mastodon','medium',
+  'tumblr','behance','spotify','wechat',
 ];
 
 test('build runs without error', () => {
@@ -68,7 +70,7 @@ test('robots.txt exists and references sitemap', () => {
   assert.ok(robots.includes('allplatforms.io/sitemap.xml'), 'robots.txt wrong sitemap URL');
 });
 
-for (const slug of ['pinterest','snapchat','threads','reddit','twitch','discord']) {
+for (const slug of ['pinterest','snapchat','threads','reddit','twitch','discord','whatsapp','telegram','vimeo','bluesky','mastodon','medium','tumblr','behance','spotify','wechat']) {
   test(`${slug} page exists`, () => {
     assert.ok(fs.existsSync(path.join(PUBLIC, slug, 'index.html')), `public/${slug}/index.html missing`);
   });

@@ -1,0 +1,145 @@
+{
+  "name": "Tumblr",
+  "slug": "tumblr",
+  "color": "#35465C",
+  "category": "Social",
+  "description": "Specs and technical requirements for all Tumblr content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Tumblr Help Center", "url": "https://help.tumblr.com/hc/en-us" },
+    { "label": "Tumblr Posting Guide", "url": "https://help.tumblr.com/hc/en-us/articles/231204468" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Photo Post",
+          "dimensions": "Up to 2048 × 3072 px (displayed at 1280 px max width)",
+          "maxFileSize": "10 MB per image",
+          "formats": ["JPG", "PNG", "GIF", "BMP", "WEBP"],
+          "notes": "Up to 10 photos per photoset post; animated GIFs supported"
+        },
+        {
+          "name": "Animated GIF",
+          "dimensions": "Up to 2048 × 3072 px",
+          "maxFileSize": "10 MB",
+          "formats": ["GIF"],
+          "notes": "Tumblr is known for its GIF culture; GIFs auto-animate in the feed"
+        },
+        {
+          "name": "Avatar",
+          "dimensions": "128 × 128 px minimum",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Animated GIF avatars are supported; displayed as a square with rounded corners"
+        },
+        {
+          "name": "Blog Header",
+          "dimensions": "3000 × 900 px recommended",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Shown at the top of your blog; displayed differently depending on theme"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Video Post",
+          "resolution": "Up to 1280 × 720 px recommended",
+          "duration": "Up to 10 minutes",
+          "maxFileSize": "500 MB",
+          "formats": ["MP4", "MOV", "AVI", "WMV", "WEBM"],
+          "notes": "H.264 + AAC recommended; videos can also be embedded from YouTube, Vimeo, etc."
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Text Post Body",
+          "limit": "4,096",
+          "unit": "characters",
+          "notes": "Supports rich HTML formatting"
+        },
+        {
+          "name": "Post Title",
+          "limit": "300",
+          "unit": "characters"
+        },
+        {
+          "name": "Quote Post",
+          "limit": "4,096",
+          "unit": "characters"
+        },
+        {
+          "name": "Tags",
+          "limit": "30 tags; 140 characters per tag",
+          "unit": "",
+          "notes": "Tags are the primary discovery mechanism on Tumblr"
+        },
+        {
+          "name": "Blog Description / Bio",
+          "limit": "1,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Blog Name (URL)",
+          "limit": "32",
+          "unit": "characters",
+          "notes": "Becomes yourblog.tumblr.com; lowercase letters, numbers, and hyphens"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Blog Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Avatar",
+          "dimensions": "128 × 128 px minimum",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Displayed as a square; animated GIFs supported"
+        },
+        {
+          "name": "Blog Header",
+          "dimensions": "3000 × 900 px",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Blaze Ads",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Blaze Promoted Post (Image)",
+          "dimensions": "1280 × 720 px recommended",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Tumblr Blaze boosts your post into other users' feeds; starts from $10/day"
+        },
+        {
+          "name": "Blaze Promoted Post (GIF)",
+          "maxFileSize": "10 MB",
+          "formats": ["GIF"],
+          "notes": "Animated GIFs allowed in Blaze promotions"
+        },
+        {
+          "name": "Blaze Promoted Post Title",
+          "limit": "300",
+          "unit": "characters"
+        }
+      ]
+    }
+  ]
+}

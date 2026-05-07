@@ -6,8 +6,8 @@
   "description": "Specs and technical requirements for all Instagram content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [
-    { "label": "Instagram Help Center", "url": "https://help.instagram.com/1631821640426723" },
-    { "label": "Instagram Ad Specs", "url": "https://www.facebook.com/business/ads-guide/image/instagram-feed" }
+    { "label": "Instagram Help Center", "url": "https://help.instagram.com/" },
+    { "label": "Instagram Ad Specs", "url": "https://www.facebook.com/business/ads-guide" }
   ],
   "specs": [
     {

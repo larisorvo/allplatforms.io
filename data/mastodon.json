@@ -1,0 +1,138 @@
+{
+  "name": "Mastodon",
+  "slug": "mastodon",
+  "color": "#6364FF",
+  "category": "Social",
+  "description": "Specs and technical requirements for all Mastodon content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Mastodon Documentation", "url": "https://docs.joinmastodon.org/" },
+    { "label": "Mastodon User Guide", "url": "https://docs.joinmastodon.org/user/posting/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Post Image",
+          "dimensions": "1280 × 720 px recommended",
+          "maxFileSize": "8 MB (mastodon.social default; varies by instance)",
+          "formats": ["JPG", "PNG", "GIF", "WEBP", "HEIC"],
+          "notes": "Up to 4 images per post; each instance may set different limits"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Animated GIFs supported for avatar; displayed as a circle"
+        },
+        {
+          "name": "Profile Header Banner",
+          "dimensions": "1500 × 500 px",
+          "aspectRatio": "3:1",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG", "GIF"]
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Post Video",
+          "resolution": "Up to 1920 × 1080 px",
+          "maxFileSize": "40 MB (mastodon.social; varies by instance)",
+          "formats": ["MP4", "MOV", "WEBM", "M4V"],
+          "notes": "H.264 + AAC recommended; instance admins set upload limits"
+        },
+        {
+          "name": "Animated GIF",
+          "maxFileSize": "8 MB",
+          "formats": ["GIF"],
+          "notes": "Plays silently in-feed; click to open with sound if attached video"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post (Toot)",
+          "limit": "500",
+          "unit": "characters",
+          "notes": "Default on mastodon.social; instance admins can increase this limit"
+        },
+        {
+          "name": "Content Warning / Subject",
+          "limit": "500",
+          "unit": "characters",
+          "notes": "Optional CW hides post body until clicked"
+        },
+        {
+          "name": "Display Name",
+          "limit": "30",
+          "unit": "characters"
+        },
+        {
+          "name": "Bio",
+          "limit": "500",
+          "unit": "characters",
+          "notes": "Supports HTML-style formatting; links in bio are auto-verified"
+        },
+        {
+          "name": "Profile Metadata Fields",
+          "limit": "4 fields",
+          "unit": "fields",
+          "notes": "Each field label up to 255 characters, value up to 255 characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Header Banner",
+          "dimensions": "1500 × 500 px",
+          "aspectRatio": "3:1",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG", "GIF"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Visibility & Discovery",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Hashtag",
+          "limit": "No set limit",
+          "unit": "characters",
+          "notes": "Hashtags are the primary discovery mechanism; no ads on the federated network"
+        },
+        {
+          "name": "Poll Options",
+          "limit": "4",
+          "unit": "options",
+          "notes": "Each option up to 50 characters; polls can run 5 minutes to 7 days"
+        }
+      ]
+    }
+  ]
+}

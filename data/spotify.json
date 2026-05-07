@@ -1,0 +1,157 @@
+{
+  "name": "Spotify",
+  "slug": "spotify",
+  "color": "#1DB954",
+  "category": "Audio",
+  "description": "Specs and technical requirements for Spotify podcasters, artists, and creators.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Spotify for Podcasters", "url": "https://podcasters.spotify.com/resources" },
+    { "label": "Spotify for Artists", "url": "https://artists.spotify.com/blog/getting-started" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Podcast Cover Art",
+          "dimensions": "3000 × 3000 px recommended (min 1400 × 1400)",
+          "aspectRatio": "1:1",
+          "maxFileSize": "512 KB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square format required; RGB colour space; max 2 MB on some platforms"
+        },
+        {
+          "name": "Episode Artwork",
+          "dimensions": "3000 × 3000 px",
+          "aspectRatio": "1:1",
+          "maxFileSize": "512 KB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Overrides podcast cover for individual episodes if set"
+        },
+        {
+          "name": "Artist Profile Photo",
+          "dimensions": "3000 × 3000 px minimum",
+          "aspectRatio": "1:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Submitted via music distributor; displayed as a circle in Spotify app"
+        },
+        {
+          "name": "Playlist Cover",
+          "dimensions": "3000 × 3000 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "4 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "For user-created playlists; Spotify-generated playlists use auto artwork"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Canvas & Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Spotify Canvas",
+          "resolution": "720 × 1280 px (720p)",
+          "aspectRatio": "9:16",
+          "duration": "3 – 8 seconds",
+          "maxFileSize": "No official limit (target under 10 MB)",
+          "formats": ["MP4", "WEBM"],
+          "notes": "Looping ambient video shown behind the Now Playing screen; H.264 recommended"
+        },
+        {
+          "name": "Podcast Video",
+          "resolution": "1920 × 1080 px recommended",
+          "aspectRatio": "16:9",
+          "maxFileSize": "500 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "Video podcasts uploaded via Spotify for Podcasters; H.264 + AAC"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Podcast Name",
+          "limit": "100",
+          "unit": "characters"
+        },
+        {
+          "name": "Podcast Description",
+          "limit": "4,000",
+          "unit": "characters",
+          "notes": "Shown on the podcast page; first 250 characters are visible in the app without expanding"
+        },
+        {
+          "name": "Episode Title",
+          "limit": "200",
+          "unit": "characters"
+        },
+        {
+          "name": "Episode Description / Show Notes",
+          "limit": "4,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Artist Bio",
+          "limit": "1,500",
+          "unit": "characters",
+          "notes": "Editable via Spotify for Artists"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Artist & Show Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Artist Profile Photo",
+          "dimensions": "3000 × 3000 px",
+          "formats": ["JPG", "PNG"],
+          "notes": "Submitted via music distributor or Spotify for Artists"
+        },
+        {
+          "name": "Artist Header Image",
+          "dimensions": "2660 × 1140 px",
+          "aspectRatio": "~2.33:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner shown on desktop artist pages; safe zone 2200 × 600 px centered"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Spotify Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Audio Ad",
+          "duration": "30 seconds maximum",
+          "formats": ["MP3", "OGG"],
+          "notes": "Managed via Spotify Ad Studio; 44.1 kHz, 192 kbps minimum"
+        },
+        {
+          "name": "Display / Overlay Ad",
+          "dimensions": "640 × 640 px",
+          "maxFileSize": "200 KB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Companion image shown alongside audio ad; displayed during ad playback"
+        },
+        {
+          "name": "Video Ad (Sponsored Session)",
+          "resolution": "1280 × 720 px",
+          "duration": "15 – 30 seconds",
+          "formats": ["MP4"],
+          "notes": "Users opt in for 30 minutes of ad-free listening after watching"
+        }
+      ]
+    }
+  ]
+}

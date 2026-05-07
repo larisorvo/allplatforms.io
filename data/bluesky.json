@@ -1,0 +1,137 @@
+{
+  "name": "Bluesky",
+  "slug": "bluesky",
+  "color": "#0085FF",
+  "category": "Social",
+  "description": "Specs and technical requirements for all Bluesky content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Bluesky Help Center", "url": "https://bsky.social/about/faq" },
+    { "label": "AT Protocol Docs", "url": "https://atproto.com/guides/overview" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Post Image",
+          "dimensions": "Up to 2000 × 2000 px",
+          "maxFileSize": "1 MB per image",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Up to 4 images per post; GIF animations are supported"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "1000 × 1000 px recommended",
+          "maxFileSize": "1 MB",
+          "formats": ["JPG", "PNG", "WEBP"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Profile Banner",
+          "dimensions": "3000 × 1000 px recommended",
+          "aspectRatio": "3:1",
+          "maxFileSize": "1 MB",
+          "formats": ["JPG", "PNG", "WEBP"]
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Post Video",
+          "resolution": "Up to 1920 × 1080 px",
+          "duration": "Up to 60 seconds",
+          "maxFileSize": "50 MB",
+          "formats": ["MP4", "MOV", "WEBM"],
+          "notes": "H.264 codec recommended; plays inline in the feed"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post",
+          "limit": "300",
+          "unit": "characters",
+          "notes": "URLs count as 27 characters regardless of actual length"
+        },
+        {
+          "name": "Bio",
+          "limit": "256",
+          "unit": "characters"
+        },
+        {
+          "name": "Display Name",
+          "limit": "64",
+          "unit": "characters"
+        },
+        {
+          "name": "Handle",
+          "limit": "253",
+          "unit": "characters",
+          "notes": "In the format user.bsky.social or a custom domain; 3 characters minimum"
+        },
+        {
+          "name": "Alt Text",
+          "limit": "1,000",
+          "unit": "characters",
+          "notes": "Alt text for images; strongly encouraged for accessibility"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Avatar",
+          "dimensions": "1000 × 1000 px recommended",
+          "maxFileSize": "1 MB",
+          "formats": ["JPG", "PNG", "WEBP"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Banner",
+          "dimensions": "3000 × 1000 px",
+          "aspectRatio": "3:1",
+          "maxFileSize": "1 MB",
+          "formats": ["JPG", "PNG", "WEBP"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Starter Packs & Discovery",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Starter Pack Name",
+          "limit": "50",
+          "unit": "characters",
+          "notes": "Curated lists of accounts and feeds for new users to follow"
+        },
+        {
+          "name": "Starter Pack Description",
+          "limit": "300",
+          "unit": "characters"
+        },
+        {
+          "name": "Feed Generator Name",
+          "limit": "64",
+          "unit": "characters",
+          "notes": "Custom algorithm feeds built on AT Protocol"
+        }
+      ]
+    }
+  ]
+}

@@ -15,99 +15,557 @@
   <meta property="og:description" content="{{META_DESCRIPTION}}">
   <meta property="og:url" content="{{CANONICAL_URL}}">
   <script type="application/ld+json">{{JSON_LD}}</script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { darkMode: 'class' }</script>
   <style>
-    .icon-fade-1 { fill: rgba(0,0,0,0.09); }
-    .icon-fade-2 { fill: rgba(0,0,0,0.05); }
-    .icon-fade-3 { fill: rgba(0,0,0,0.03); }
-    .icon-fade-4 { fill: rgba(0,0,0,0.015); }
-    html.dark .icon-fade-1 { fill: rgba(255,255,255,0.13); }
-    html.dark .icon-fade-2 { fill: rgba(255,255,255,0.06); }
-    html.dark .icon-fade-3 { fill: rgba(255,255,255,0.04); }
-    html.dark .icon-fade-4 { fill: rgba(255,255,255,0.02); }
-    html.dark .dark-hero { background: linear-gradient(135deg, var(--hero-color, rgba(51,51,51,0.25)) 0%, #111827 60%) !important; }
+    :root {
+      --bg:        #0c0c0f;
+      --surface:   #141418;
+      --surface2:  #1a1a20;
+      --border:    #222228;
+      --border-hi: #2e2e38;
+      --text:      #e8e8f0;
+      --muted:     #6b6b80;
+      --accent:    #c8f557;
+      --platform:  {{PLATFORM_COLOR}};
+      --font-display: 'Syne', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+      --font-body:    'DM Sans', sans-serif;
+    }
+    html:not(.dark) {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --surface2:  #f0f0f4;
+      --border:    #e0e0e8;
+      --border-hi: #c8c8d8;
+      --text:      #18181e;
+      --muted:     #888898;
+      --accent:    #5a3af7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 300;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-wordmark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .logo-wordmark span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .nav-platforms {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .nav-platforms::-webkit-scrollbar { display: none; }
+    .nav-platforms a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-platforms a:hover {
+      color: var(--text);
+      background: var(--surface);
+    }
+    .nav-platforms a.active {
+      color: var(--platform);
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+    }
+
+    /* HERO */
+    .hero {
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--platform) 12%, transparent) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    html:not(.dark) .hero-bg {
+      background: radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--platform) 8%, transparent) 0%, transparent 60%);
+    }
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 40px;
+      position: relative;
+    }
+    .hero-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .hero-breadcrumb a:hover { color: var(--text); }
+    .hero-breadcrumb .sep { opacity: 0.4; }
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .platform-logo-wrap {
+      flex-shrink: 0;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: var(--text);
+    }
+    h1 .platform-accent {
+      color: var(--platform);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+    .quick-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .quick-stats span {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+    .quick-stats span strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    /* dots between quick stats spans */
+    .quick-stats .sep {
+      background: none;
+      border: none;
+      color: var(--border-hi);
+      padding: 5px 0;
+    }
+
+    /* AD LEADERBOARD */
+    .ad-leaderboard {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .ad-leaderboard-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .ad-slot {
+      background: var(--surface2);
+      border: 1px dashed var(--border-hi);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--border-hi);
+      letter-spacing: 0.08em;
+    }
+
+    /* LAYOUT */
+    .content-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    main { flex: 1; min-width: 0; }
+    aside {
+      width: 280px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 72px;
+    }
+    @media (max-width: 1024px) { aside { display: none; } }
+
+    /* SECTION HEADERS */
+    .spec-section { margin-bottom: 48px; }
+    .spec-section h2 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-bar {
+      width: 3px;
+      height: 20px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      background: var(--platform);
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* SPEC CARDS — override build.js output */
+    .spec-grid > div {
+      background: var(--surface) !important;
+      border-radius: 0 !important;
+      border: none !important;
+      padding: 20px !important;
+      transition: background 0.15s;
+    }
+    .spec-grid > div:hover {
+      background: var(--surface2) !important;
+    }
+    .spec-grid > div h3 {
+      font-family: var(--font-display) !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.02em !important;
+      color: var(--muted) !important;
+      text-transform: uppercase !important;
+      margin-bottom: 14px !important;
+    }
+    .spec-grid > div table { width: 100%; border-collapse: collapse; }
+    .spec-grid > div tbody tr { border: none !important; }
+    .spec-grid > div tbody tr + tr { border-top: 1px solid var(--border) !important; }
+    .spec-grid > div th {
+      font-family: var(--font-mono) !important;
+      font-size: 11px !important;
+      font-weight: 400 !important;
+      color: var(--muted) !important;
+      text-align: left;
+      padding: 7px 12px 7px 0 !important;
+      white-space: nowrap;
+      width: 1%;
+    }
+    .spec-grid > div td {
+      font-family: var(--font-mono) !important;
+      font-size: 12px !important;
+      color: var(--text) !important;
+      padding: 7px 0 !important;
+    }
+
+    /* MID-CONTENT AD */
+    .ad-mid {
+      margin: 24px 0;
+      height: 90px;
+    }
+
+    /* SIDEBAR */
+    .sidebar-ad {
+      height: 400px;
+      margin-bottom: 16px;
+    }
+    .sidebar-platforms {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .sidebar-platforms h4 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sidebar-platforms nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sidebar-platforms a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+    }
+    .sidebar-platforms a:hover {
+      color: var(--text);
+      background: var(--surface2);
+    }
+
+    /* SOURCES */
+    .sources-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .sources-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 24px;
+    }
+    .sources-inner h4 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sources-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .sources-links a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--platform);
+      text-decoration: none;
+      border: 1px solid color-mix(in srgb, var(--platform) 30%, transparent);
+      padding: 5px 12px;
+      border-radius: 100px;
+      transition: background 0.15s;
+    }
+    .sources-links a:hover {
+      background: color-mix(in srgb, var(--platform) 10%, transparent);
+    }
+    .sources-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .footer-logo span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--accent);
+    }
+    .footer-note {
+      font-size: 12px;
+      color: var(--muted);
+      flex: 1;
+    }
+    #theme-toggle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--border-hi);
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    #theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Rewrite build.js section structure */
+    section.mb-10 { margin-bottom: 0 !important; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner { animation: fadeUp 0.45s ease both; }
+    main        { animation: fadeUp 0.45s 0.1s ease both; }
   </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
+<body>
 
   <!-- Navigation -->
-  <nav class="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2" aria-label="allplatforms.io">
-        <svg width="28" height="28" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="0" y="0" width="14" height="14" rx="2" fill="#4F46E5"/>
-          <rect x="17" y="0" width="14" height="14" rx="2" fill="#7C3AED"/>
-          <rect x="34" y="0" width="14" height="14" rx="2" fill="#A78BFA"/>
-          <rect x="0" y="17" width="14" height="14" rx="2" fill="#EC4899"/>
-          <rect x="17" y="17" width="14" height="14" rx="2" class="icon-fade-1"/>
-          <rect x="34" y="17" width="14" height="14" rx="2" class="icon-fade-2"/>
-          <rect x="0" y="34" width="14" height="14" rx="2" class="icon-fade-2"/>
-          <rect x="17" y="34" width="14" height="14" rx="2" class="icon-fade-3"/>
-          <rect x="34" y="34" width="14" height="14" rx="2" class="icon-fade-4"/>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="allplatforms.io">
+        <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="0"  y="0"  width="14" height="14" rx="2.5" fill="var(--accent)"/>
+          <rect x="17" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.6"/>
+          <rect x="34" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.3"/>
+          <rect x="0"  y="17" width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.5"/>
+          <rect x="17" y="17" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="34" y="17" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="0"  y="34" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="17" y="34" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="34" y="34" width="14" height="14" rx="2.5" fill="var(--border)" opacity="0.5"/>
         </svg>
-        <span class="text-gray-900 dark:text-white" style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:18px;letter-spacing:-0.02em;">allplatforms<span class="text-violet-600 dark:text-violet-400" style="font-family:'Space Mono',monospace;font-weight:400;font-size:13px;letter-spacing:0.01em;">.io</span></span>
+        <span class="logo-wordmark">allplatforms<span>.io</span></span>
       </a>
-      <div class="hidden md:flex items-center gap-1 text-sm">{{NAV_LINKS}}</div>
+      <div class="nav-platforms hidden md:flex">{{NAV_LINKS}}</div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <div class="dark-hero border-b border-gray-200 dark:border-gray-700" style="background: linear-gradient(135deg, {{PLATFORM_COLOR}}18 0%, white 60%); --hero-color: {{PLATFORM_COLOR}}40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      <div class="flex items-center gap-4 mb-2">
-        {{PLATFORM_LOGO}}
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight" style="color: {{PLATFORM_COLOR}}">{{PLATFORM_NAME}} Specs</h1>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="/">allplatforms.io</a>
+        <span class="sep">/</span>
+        <span style="color:var(--platform);">{{PLATFORM_NAME}}</span>
       </div>
-      <p class="text-gray-600 dark:text-gray-300 mt-1 text-lg">{{PLATFORM_DESCRIPTION}}</p>
-      <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">{{QUICK_STATS}}</div>
+      <div class="hero-title-row">
+        <div class="platform-logo-wrap">{{PLATFORM_LOGO}}</div>
+        <h1><span class="platform-accent">{{PLATFORM_NAME}}</span> Specs</h1>
+      </div>
+      <p class="hero-desc">{{PLATFORM_DESCRIPTION}}</p>
+      <div class="quick-stats">{{QUICK_STATS}}</div>
     </div>
   </div>
 
   <!-- Ad: Leaderboard -->
-  <div class="bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex justify-center">
-      <div class="ad-slot w-full max-w-3xl h-16 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-gray-400 dark:text-gray-600 text-xs" data-ad-format="leaderboard">[Ad]</div>
+  <div class="ad-leaderboard">
+    <div class="ad-leaderboard-inner">
+      <div class="ad-slot" style="width:100%;max-width:728px;height:60px;" data-ad-format="leaderboard">[Ad]</div>
     </div>
   </div>
 
   <!-- Content -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 lg:flex lg:gap-8">
-
-    <!-- Main -->
-    <main class="flex-1 min-w-0">
+  <div class="content-wrap">
+    <main id="main-content">
       {{SPEC_SECTIONS}}
     </main>
 
-    <!-- Sidebar -->
-    <aside class="w-72 flex-shrink-0 hidden lg:block">
-      <div class="sticky top-4 space-y-4">
-        <div class="ad-slot h-[600px] bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 dark:text-gray-600 text-xs" data-ad-format="sidebar-300x600">[Ad]</div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
-          <h4 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">Other Platforms</h4>
-          <nav class="space-y-1">{{OTHER_PLATFORMS}}</nav>
-        </div>
+    <aside>
+      <div class="ad-slot sidebar-ad" data-ad-format="sidebar-300x400">[Ad]</div>
+      <div class="sidebar-platforms">
+        <h4>Other Platforms</h4>
+        <nav>{{OTHER_PLATFORMS}}</nav>
       </div>
     </aside>
-
   </div>
 
   <!-- Sources -->
-  <div class="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 mt-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-      <h4 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Sources</h4>
-      <div class="flex flex-wrap gap-3 text-sm">{{SOURCES}}</div>
-      <p class="text-xs text-gray-400 dark:text-gray-500 mt-3">Last verified: <time datetime="{{LAST_UPDATED}}">{{LAST_UPDATED}}</time></p>
+  <div class="sources-bar">
+    <div class="sources-inner">
+      <h4>Sources</h4>
+      <div class="sources-links">{{SOURCES}}</div>
+      <p class="sources-date">Last verified: <time datetime="{{LAST_UPDATED}}">{{LAST_UPDATED}}</time></p>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-indigo-900 dark:bg-gray-950 text-indigo-300 dark:text-gray-500 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between gap-3">
-      <p class="whitespace-nowrap" style="font-family:'DM Sans',sans-serif;font-weight:500;"><span style="background:linear-gradient(to right,#A78BFA,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">allplatforms</span><span style="font-family:'Space Mono',monospace;font-weight:400;font-size:0.8em;color:#A78BFA;">.io</span></p>
-      <p class="flex-1 text-violet-300 dark:text-gray-500">Spec data verified against official platform documentation. Always check platform help centers for the latest updates.</p>
-      <button id="theme-toggle" onclick="toggleTheme()" class="self-start sm:self-auto inline-flex items-center gap-1.5 text-xs text-indigo-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 bg-indigo-800 dark:bg-gray-800 hover:bg-indigo-700 dark:hover:bg-gray-700 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap" aria-label="Toggle color theme">
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">allplatforms<span>.io</span></span>
+      <p class="footer-note">Spec data verified against official platform documentation. Always check platform help centers for the latest updates.</p>
+      <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
         <span id="theme-icon"></span>
         <span id="theme-label"></span>
       </button>
@@ -115,15 +573,41 @@
   </footer>
 
   <script>
+    // Rewrite section structure from build.js to match our CSS
+    document.querySelectorAll('main section').forEach(function(section) {
+      // section h2: extract bar + label
+      var h2 = section.querySelector('h2');
+      if (h2) {
+        var bar = h2.querySelector('span:first-child');
+        var label = h2.querySelector('span:last-child');
+        if (bar && label) {
+          bar.className = 'section-bar';
+          bar.removeAttribute('style');
+        }
+      }
+      // grid div
+      var grid = section.querySelector('.grid');
+      if (grid) {
+        grid.className = 'spec-grid';
+      }
+      section.className = 'spec-section';
+      section.removeAttribute('id');
+    });
+
+    // Mid-content ads: restyle
+    document.querySelectorAll('.ad-slot.my-6').forEach(function(el) {
+      el.className = 'ad-slot ad-mid';
+    });
+
     function toggleTheme() {
       var dark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('ap-theme', dark ? 'dark' : 'light');
       updateThemeToggle(dark);
     }
     function updateThemeToggle(dark) {
-      var icon = document.getElementById('theme-icon');
+      var icon  = document.getElementById('theme-icon');
       var label = document.getElementById('theme-label');
-      if (icon) icon.textContent = dark ? '☀' : '🌙';
+      if (icon)  icon.textContent  = dark ? '☀' : '🌙';
       if (label) label.textContent = dark ? 'Light mode' : 'Dark mode';
     }
     updateThemeToggle(document.documentElement.classList.contains('dark'));

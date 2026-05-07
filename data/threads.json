@@ -6,8 +6,8 @@
   "description": "Specs and technical requirements for all Threads content formats.",
   "lastUpdated": "2026-05-07",
   "sources": [
-    { "label": "Threads Help Center", "url": "https://help.instagram.com/1686158435031605" },
-    { "label": "Meta Ads Guide — Threads", "url": "https://www.facebook.com/business/ads-guide" }
+    { "label": "Threads Help Center", "url": "https://help.threads.net/" },
+    { "label": "Meta Ads Guide", "url": "https://www.facebook.com/business/ads-guide" }
   ],
   "specs": [
     {

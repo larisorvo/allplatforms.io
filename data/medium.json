@@ -1,0 +1,150 @@
+{
+  "name": "Medium",
+  "slug": "medium",
+  "color": "#02B875",
+  "category": "Publishing",
+  "description": "Specs and technical requirements for all Medium content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Medium Help Center", "url": "https://help.medium.com/hc/en-us" },
+    { "label": "Medium — Image Guidelines", "url": "https://help.medium.com/hc/en-us/articles/215029667" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Story Featured Image",
+          "dimensions": "1400 × 788 px recommended",
+          "aspectRatio": "16:9",
+          "maxFileSize": "25 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Shown at top of story and in feed; also used as social share image"
+        },
+        {
+          "name": "Inline / Body Image",
+          "dimensions": "Up to 1400 px wide (recommended)",
+          "maxFileSize": "25 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Can be set to full-width or inset; GIFs animate in the reader"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "500 × 500 px recommended",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Publication Logo",
+          "dimensions": "300 × 300 px minimum",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square logo for Medium Publications"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video & Embeds",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Embedded Video",
+          "notes": "Medium does not support direct video upload; embed YouTube, Vimeo, or other video platforms via URL"
+        },
+        {
+          "name": "Embedded GIF",
+          "maxFileSize": "25 MB",
+          "formats": ["GIF"],
+          "notes": "Animated GIFs can be uploaded directly and play in the reader"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Story Title",
+          "limit": "140",
+          "unit": "characters",
+          "notes": "Title is indexed by search engines"
+        },
+        {
+          "name": "Subtitle / Kicker",
+          "limit": "140",
+          "unit": "characters",
+          "notes": "Optional subtitle shown below the title"
+        },
+        {
+          "name": "Story Body",
+          "limit": "No hard limit",
+          "unit": "",
+          "notes": "Unlimited story length; supports rich formatting via Medium editor"
+        },
+        {
+          "name": "Profile Bio",
+          "limit": "160",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "50",
+          "unit": "characters",
+          "notes": "Lowercase letters, numbers, underscores, and hyphens"
+        },
+        {
+          "name": "Publication Name",
+          "limit": "80",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Publication Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "500 × 500 px",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Publication Logo",
+          "dimensions": "300 × 300 px minimum",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"]
+        },
+        {
+          "name": "Publication Avatar",
+          "dimensions": "300 × 300 px",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Monetisation & Distribution",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Partner Program Story",
+          "notes": "Stories behind the Medium paywall; earnings based on member reading time; no image size requirements beyond standard post specs"
+        },
+        {
+          "name": "Newsletter Subject Line",
+          "limit": "150",
+          "unit": "characters",
+          "notes": "Email subject for Medium publication newsletter sends"
+        }
+      ]
+    }
+  ]
+}

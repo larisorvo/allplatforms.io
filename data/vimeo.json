@@ -1,0 +1,130 @@
+{
+  "name": "Vimeo",
+  "slug": "vimeo",
+  "color": "#1AB7EA",
+  "category": "Video",
+  "description": "Specs and technical requirements for all Vimeo content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Vimeo — Compression Guidelines", "url": "https://vimeo.com/help/compression" },
+    { "label": "Vimeo Help Center", "url": "https://help.vimeo.com/hc/en-us" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Video Thumbnail",
+          "dimensions": "1280 × 720 px minimum",
+          "aspectRatio": "16:9",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Custom thumbnails available on all plans; Vimeo auto-generates if none set"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "300 × 300 px minimum",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Channel / Showcase Header",
+          "dimensions": "1600 × 460 px recommended",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner image for custom Vimeo Showcases (formerly Albums)"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Video Upload",
+          "resolution": "Up to 8K (7680 × 4320 px); 4K (3840 × 2160) recommended",
+          "aspectRatio": "Any supported; 16:9 most common",
+          "maxFileSize": "Free: 500 MB/week · Plus: 5 GB/week · Pro: 20 GB/week",
+          "formats": ["MP4", "MOV", "AVI", "WMV", "FLV", "MKV", "WEBM", "M4V", "MPG"],
+          "notes": "H.264 + AAC recommended; 24fps, 25fps, or 30fps for standard; 48/50/60fps for high-frame-rate"
+        },
+        {
+          "name": "Vimeo Review",
+          "resolution": "Same as upload",
+          "notes": "Share private review links with clients; supports time-coded comments"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Video Title",
+          "limit": "128",
+          "unit": "characters"
+        },
+        {
+          "name": "Video Description",
+          "limit": "5,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Tags",
+          "limit": "25",
+          "unit": "tags per video",
+          "notes": "Up to 25 tags; each tag up to 50 characters"
+        },
+        {
+          "name": "Bio",
+          "limit": "1,000",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Showcase Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "300 × 300 px minimum",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle; upload at 600×600 for best quality"
+        },
+        {
+          "name": "Showcase Header",
+          "dimensions": "1600 × 460 px",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Vimeo OTT & Monetisation",
+      "priority": 5,
+      "items": [
+        {
+          "name": "OTT App Icon",
+          "dimensions": "400 × 400 px",
+          "formats": ["PNG"],
+          "notes": "Vimeo OTT (Over-The-Top) branded app icon; transparent background supported"
+        },
+        {
+          "name": "OTT Splash Screen",
+          "dimensions": "1920 × 1080 px",
+          "formats": ["JPG", "PNG"],
+          "notes": "Loading screen shown on Smart TV and OTT apps"
+        }
+      ]
+    }
+  ]
+}

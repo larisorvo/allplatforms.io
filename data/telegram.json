@@ -1,0 +1,154 @@
+{
+  "name": "Telegram",
+  "slug": "telegram",
+  "color": "#26A5E4",
+  "category": "Messaging",
+  "description": "Specs and technical requirements for all Telegram content formats.",
+  "lastUpdated": "2026-05-07",
+  "sources": [
+    { "label": "Telegram FAQ", "url": "https://telegram.org/faq" },
+    { "label": "Telegram Bot API — File Limits", "url": "https://core.telegram.org/bots/api#sending-files" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Photo (Chat / Channel)",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Telegram compresses photos; send as File/Document to preserve full quality"
+        },
+        {
+          "name": "Profile Photo",
+          "dimensions": "640 × 640 px recommended",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle; animated profile photos supported for Premium users"
+        },
+        {
+          "name": "Sticker",
+          "dimensions": "512 × 512 px",
+          "maxFileSize": "512 KB",
+          "formats": ["PNG", "WEBP"],
+          "notes": "Transparent background required; animated stickers use TGS (Lottie-based) format"
+        },
+        {
+          "name": "Channel / Group Icon",
+          "dimensions": "640 × 640 px recommended",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Video (Chat / Channel)",
+          "resolution": "Up to 3840 × 2160 px (4K)",
+          "maxFileSize": "2 GB",
+          "formats": ["MP4", "MOV", "AVI", "MKV"],
+          "notes": "H.264 + AAC recommended; Telegram Premium users can send up to 4 GB"
+        },
+        {
+          "name": "Video Note (Round Video)",
+          "dimensions": "Displayed as 240 × 240 px circle",
+          "duration": "Up to 60 seconds",
+          "maxFileSize": "100 MB",
+          "formats": ["MP4"],
+          "notes": "Looping circular video; must be square aspect ratio at source"
+        },
+        {
+          "name": "GIF / Animation",
+          "maxFileSize": "50 MB",
+          "formats": ["GIF", "MP4"],
+          "notes": "Telegram stores GIFs as silent MP4 for efficiency; auto-loops"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Message",
+          "limit": "4,096",
+          "unit": "characters"
+        },
+        {
+          "name": "Caption",
+          "limit": "1,024",
+          "unit": "characters",
+          "notes": "Caption attached to a photo, video, or document"
+        },
+        {
+          "name": "Bio / About",
+          "limit": "70",
+          "unit": "characters"
+        },
+        {
+          "name": "Channel / Group Name",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Channel / Group Description",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "32",
+          "unit": "characters",
+          "notes": "5 characters minimum; letters, numbers, underscores only"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Channel Assets",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "640 × 640 px recommended",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle"
+        },
+        {
+          "name": "Channel Cover Photo",
+          "dimensions": "640 × 640 px",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"]
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Telegram Ads",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Sponsored Message",
+          "limit": "160",
+          "unit": "characters",
+          "notes": "Text-only ads displayed in public channels with 1,000+ subscribers; managed via Telegram Ad Platform"
+        },
+        {
+          "name": "Sponsored Message URL Button",
+          "limit": "50",
+          "unit": "characters",
+          "notes": "Optional CTA button label on sponsored messages"
+        }
+      ]
+    }
+  ]
+}

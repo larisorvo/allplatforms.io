@@ -6,8 +6,7 @@
   "description": "Specs and technical requirements for all Facebook content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [
-    { "label": "Facebook Image Specs", "url": "https://www.facebook.com/help/597402743415010" },
-    { "label": "Facebook Video Specs", "url": "https://www.facebook.com/help/1141422115955462" },
+    { "label": "Facebook Business Help Center", "url": "https://www.facebook.com/business/help/" },
     { "label": "Facebook Ad Specs", "url": "https://www.facebook.com/business/ads-guide" }
   ],
   "specs": [
