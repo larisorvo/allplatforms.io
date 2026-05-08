@@ -388,6 +388,49 @@
       margin-bottom: 6px;
     }
 
+    /* IMAGES */
+    .aimg-wrap {
+      margin: 4px 0 28px;
+    }
+    .aimg-real {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .aimg-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .aimg-placeholder svg { opacity: 0.25; }
+    .aimg-placeholder span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.6;
+      text-align: center;
+      max-width: 420px;
+      line-height: 1.5;
+      padding: 0 24px;
+    }
+    .aimg-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
     /* RELATED PLATFORMS */
     .related-section {
       max-width: 760px;
@@ -549,6 +592,7 @@
 
   <article class="article-body">
     <p class="ap">Video is now the dominant content format on every major social platform. But each platform has its own rules — different aspect ratios, file size limits, codec requirements, and maximum durations. Get these wrong and your video gets rejected, compressed into a blurry mess, or wrapped in black bars. This guide covers everything you need to know for 2025.</p>
+<div class="aimg-wrap"><div class="aimg-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg><span>Social media video aspect ratios compared — 9:16 vertical, 1:1 square, 16:9 landscape</span></div><p class="aimg-caption">Vertical 9:16 dominates mobile-first platforms; horizontal 16:9 still rules YouTube and desktop</p></div>
 <h2 class="ah2" id="key-video-specs-to-understand">Key Video Specs to Understand</h2>
 <p class="ap">Before diving into platform-by-platform specs, here are the key terms you'll see throughout this guide:</p>
 <ul class="alist"><li>Resolution — the pixel dimensions of your video (e.g. 1920×1080). Higher is sharper, but large files take longer to upload and process.</li><li>Aspect Ratio — the width-to-height ratio (e.g. 16:9 for landscape, 9:16 for vertical). This determines how the video fills the screen.</li><li>Frame Rate — how many frames per second (fps). 24fps looks cinematic, 30fps is standard, 60fps is smooth for action.</li><li>Codec — the compression format. H.264 (MP4) is universally accepted. H.265 (HEVC) offers better quality at smaller sizes but isn't accepted everywhere.</li><li>Bitrate — how much data per second. Higher bitrate = better quality, larger file.</li><li>Max File Size — the platform's upload limit. This is often the binding constraint for long videos.</li></ul>
@@ -572,6 +616,7 @@
 <div class="atbl-wrap"><table class="atbl"><thead><tr><th>Video Type</th><th>Resolution</th><th>Aspect Ratio</th><th>Max Duration</th><th>Max File Size</th><th>Notes</th></tr></thead><tbody><tr><td>Feed Video</td><td>256×144 min, 4096×2304 max</td><td>1:2.4 to 2.4:1</td><td>10 minutes</td><td>5 GB</td><td>H.264 / MP4 recommended</td></tr><tr><td>LinkedIn Live</td><td>1920×1080 min</td><td>16:9</td><td>4 hours</td><td>—</td><td></td></tr><tr><td>Sponsored Video</td><td>1920×1080</td><td>16:9 or 1:1</td><td>30 minutes</td><td>200 MB</td><td>For ads</td></tr></tbody></table></div>
 <h2 class="ah2" id="snapchat-video-specs">Snapchat Video Specs</h2>
 <div class="atbl-wrap"><table class="atbl"><thead><tr><th>Video Type</th><th>Resolution</th><th>Aspect Ratio</th><th>Max Duration</th><th>Max File Size</th><th>Notes</th></tr></thead><tbody><tr><td>Snap / Story</td><td>1080×1920</td><td>9:16</td><td>60 seconds</td><td>1 GB</td><td></td></tr><tr><td>Spotlight</td><td>1080×1920</td><td>9:16</td><td>60 seconds</td><td>1 GB</td><td>Vertical video discovery</td></tr><tr><td>Snap Ad</td><td>1080×1920</td><td>9:16</td><td>3–180 seconds</td><td>1 GB</td><td>H.264 / MOV or MP4</td></tr></tbody></table></div>
+<div class="aimg-wrap"><div class="aimg-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg><span>Video codec and bitrate settings for social media export</span></div><p class="aimg-caption">H.264 MP4 is the universal codec — accepted by every major platform without transcoding issues</p></div>
 <h2 class="ah2" id="quick-comparison-all-platforms">Quick Comparison: All Platforms</h2>
 <div class="atbl-wrap"><table class="atbl"><thead><tr><th>Platform</th><th>Best Resolution</th><th>Best Aspect Ratio</th><th>Max Duration</th><th>Max File Size</th></tr></thead><tbody><tr><td>YouTube</td><td>3840×2160 (4K)</td><td>16:9</td><td>12 hours</td><td>256 GB</td></tr><tr><td>TikTok</td><td>1080×1920</td><td>9:16</td><td>10 minutes</td><td>4 GB</td></tr><tr><td>Instagram Reels</td><td>1080×1920</td><td>9:16</td><td>15 minutes</td><td>4 GB</td></tr><tr><td>Instagram Feed</td><td>1080×1080</td><td>1:1</td><td>60 minutes</td><td>4 GB</td></tr><tr><td>Facebook</td><td>1920×1080</td><td>16:9</td><td>240 minutes</td><td>10 GB</td></tr><tr><td>X (Twitter)</td><td>1920×1200</td><td>16:9</td><td>2m 20s</td><td>512 MB</td></tr><tr><td>LinkedIn</td><td>1920×1080</td><td>1:1</td><td>10 minutes</td><td>5 GB</td></tr><tr><td>Snapchat</td><td>1080×1920</td><td>9:16</td><td>60 seconds</td><td>1 GB</td></tr></tbody></table></div>
 <div class="atip"><strong>Universal advice</strong>Export in H.264 (MP4) at the highest quality your file size allows. It's the one codec accepted everywhere. Use AAC audio at 48kHz. For vertical video (9:16), plan your composition so the subject is centered — most platforms layer UI elements over the top and bottom 15% of the frame.</div>

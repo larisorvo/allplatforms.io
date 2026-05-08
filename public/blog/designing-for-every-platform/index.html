@@ -388,6 +388,49 @@
       margin-bottom: 6px;
     }
 
+    /* IMAGES */
+    .aimg-wrap {
+      margin: 4px 0 28px;
+    }
+    .aimg-real {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .aimg-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .aimg-placeholder svg { opacity: 0.25; }
+    .aimg-placeholder span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.6;
+      text-align: center;
+      max-width: 420px;
+      line-height: 1.5;
+      padding: 0 24px;
+    }
+    .aimg-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
     /* RELATED PLATFORMS */
     .related-section {
       max-width: 760px;
@@ -551,6 +594,7 @@
     <p class="ap">Every platform wants a different version of your creative. Instagram wants 4:5 portrait. LinkedIn wants 1.91:1 landscape. TikTok wants 9:16 vertical. YouTube wants 16:9. Pinterest wants 2:3. If you design separately for each, you're multiplying your production effort by five — and still probably getting something wrong. This guide is about a different approach: design once, intelligently, so that a single asset can be adapted to every format without losing what makes it work.</p>
 <h2 class="ah2" id="the-problem-with-platform-first-thinking">The Problem with Platform-First Thinking</h2>
 <p class="ap">The natural instinct is to start with the platform. "I'm making an Instagram post, so I'll design at 1080×1080." Then when you need the same asset for LinkedIn, you resize it and something gets cropped off. Then for TikTok Stories you pillarbox it. Then for Facebook you squeeze it. By the end, you have five mediocre versions instead of one great one. Platform-first thinking creates reactive, fragmented creative work. The better approach is platform-agnostic design: build a master asset with all formats in mind, then adapt rather than redesign.</p>
+<div class="aimg-wrap"><div class="aimg-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg><span>A single creative asset shown simultaneously in 9:16, 4:5, 1:1, and 16:9 formats across different platforms</span></div><p class="aimg-caption">Platform-agnostic design means building one asset that survives every crop — not redesigning for each platform separately</p></div>
 <h2 class="ah2" id="the-four-aspect-ratios-that-cover-everything">The Four Aspect Ratios That Cover Everything</h2>
 <p class="ap">Across all major social platforms, nearly every image and video placement uses one of four aspect ratios. Understand these four shapes and you understand the entire landscape of social media formats.</p>
 <div class="atbl-wrap"><table class="atbl"><thead><tr><th>Ratio</th><th>Shape</th><th>Primary Platforms &amp; Uses</th></tr></thead><tbody><tr><td>9:16 (0.56:1)</td><td>Tall vertical</td><td>TikTok feed, Instagram Reels/Stories, Snapchat, Facebook Stories — full-screen mobile content</td></tr><tr><td>4:5 (0.8:1)</td><td>Portrait</td><td>Instagram feed, Facebook feed, LinkedIn feed — maximum vertical space without going full-screen</td></tr><tr><td>1:1 (square)</td><td>Square</td><td>Instagram feed (classic), Facebook posts, Pinterest — universal safe format</td></tr><tr><td>16:9 (1.78:1)</td><td>Landscape</td><td>YouTube thumbnails, LinkedIn articles, X/Twitter posts, Facebook video — wide-screen horizontal</td></tr></tbody></table></div>
@@ -575,6 +619,7 @@
 <p class="ap">Export format is the last decision most designers make, but it has a significant impact on quality and file size. Each platform recompresses uploads — your goal is to give the platform the best possible source to work with.</p>
 <div class="atbl-wrap"><table class="atbl"><thead><tr><th>Content Type</th><th>Recommended Format</th><th>Recommended Settings</th><th>Why</th></tr></thead><tbody><tr><td>Graphics with text</td><td>PNG</td><td>24-bit, sRGB</td><td>Lossless — text stays sharp after platform recompression</td></tr><tr><td>Photography</td><td>JPG</td><td>85–95% quality, sRGB</td><td>Smaller file, minimal visible difference at high quality</td></tr><tr><td>Images with transparency</td><td>PNG</td><td>24-bit with alpha</td><td>JPG doesn't support transparency</td></tr><tr><td>Animation / motion</td><td>MP4 (H.264)</td><td>High bitrate, AAC audio</td><td>Universal codec, accepted everywhere</td></tr><tr><td>Short looping content</td><td>MP4 or GIF</td><td>MP4 preferred (smaller)</td><td>GIF is large and limited to 256 colors; MP4 is superior</td></tr><tr><td>High-res exports</td><td>PNG or JPG 95%</td><td>Maximum quality</td><td>Platform will downsample — start at the highest quality you can</td></tr></tbody></table></div>
 <div class="atip"><strong>Compression tip</strong>Facebook and Instagram compress JPEGs aggressively. For graphics that contain text, always upload as PNG — the lossless format ensures text remains sharp after the platform's recompression pass. For photography, high-quality JPEG is fine since compression artifacts in photographic detail are harder to notice.</div>
+<div class="aimg-wrap"><div class="aimg-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg><span>Design file showing safe zone guides overlaid on a 1080x1920 canvas with crop markers for 1:1 and 4:5</span></div><p class="aimg-caption">A master canvas with visible safe zone guides lets you see exactly what survives each crop before you export</p></div>
 <h2 class="ah2" id="a-practical-layered-file-structure">A Practical Layered File Structure</h2>
 <p class="ap">The biggest time-saver in multi-platform design is a well-organized master file. Structure your Figma, Photoshop, or Illustrator file in layers that map to the export workflow, not the visual hierarchy.</p>
 <ul class="alist"><li>Layer: Safe zone guides — locked, non-printing overlays showing the 1:1, 4:5, and 9:16 crop boundaries. These are your guardrails. Never export with them visible.</li><li>Layer: Platform UI simulation — optional ghost overlays showing where TikTok buttons, Instagram action bars, and Facebook labels will appear. Helps you avoid placing key elements under UI.</li><li>Layer: Text and headlines — all text elements in one group, so you can toggle them off when exporting background-only versions.</li><li>Layer: Brand elements — logo, watermark, icon. Separate from text so you can scale or reposition independently per format.</li><li>Layer: Subject / foreground — the main visual element. Keep it as a smart object or component so it can be repositioned for landscape crops.</li><li>Layer: Background — a layer that extends beyond the canvas in all directions (use a larger artboard or clipping mask). This lets you shift the crop without revealing empty canvas.</li></ul>

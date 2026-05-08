@@ -388,6 +388,49 @@
       margin-bottom: 6px;
     }
 
+    /* IMAGES */
+    .aimg-wrap {
+      margin: 4px 0 28px;
+    }
+    .aimg-real {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .aimg-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .aimg-placeholder svg { opacity: 0.25; }
+    .aimg-placeholder span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.6;
+      text-align: center;
+      max-width: 420px;
+      line-height: 1.5;
+      padding: 0 24px;
+    }
+    .aimg-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
     /* RELATED PLATFORMS */
     .related-section {
       max-width: 760px;
@@ -549,6 +592,7 @@
 
   <article class="article-body">
     <p class="ap">LinkedIn is the leading professional social network, and getting your visuals right here matters — whether you're managing a personal brand, a company page, or running B2B ad campaigns. This guide covers every image and video spec you need, from profile photos to sponsored content.</p>
+<div class="aimg-wrap"><div class="aimg-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg><span>LinkedIn profile page showing the profile photo, banner, and post image layout</span></div><p class="aimg-caption">LinkedIn's 4:1 banner ratio is one of the widest of any social platform — keep key content in the center third</p></div>
 <h2 class="ah2" id="linkedin-profile-image-sizes">LinkedIn Profile Image Sizes</h2>
 <div class="atbl-wrap"><table class="atbl"><thead><tr><th>Image Type</th><th>Recommended Size</th><th>Aspect Ratio</th><th>Max File Size</th><th>Notes</th></tr></thead><tbody><tr><td>Profile Photo</td><td>400×400 px</td><td>1:1</td><td>8 MB</td><td>Displays as circle; JPG or PNG</td></tr><tr><td>Profile Background Banner</td><td>1584×396 px</td><td>4:1</td><td>8 MB</td><td>Mobile may crop top/bottom</td></tr><tr><td>Post Image</td><td>1200×627 px</td><td>1.91:1</td><td>5 MB</td><td>Most common feed format</td></tr><tr><td>Portrait Post</td><td>1080×1350 px</td><td>4:5</td><td>5 MB</td><td>Max vertical space in feed</td></tr><tr><td>Document / PDF cover</td><td>1080×1080 px</td><td>1:1</td><td>100 MB</td><td>First slide shown in feed</td></tr></tbody></table></div>
 <h2 class="ah2" id="linkedin-company-page-sizes">LinkedIn Company Page Sizes</h2>
@@ -561,6 +605,7 @@
 <h2 class="ah2" id="linkedin-carousel-document-post-tips">LinkedIn Carousel / Document Post Tips</h2>
 <p class="ap">Document posts (PDFs uploaded as carousels) are one of LinkedIn's highest-performing formats because they encourage multiple interactions as users swipe through. Each page of the PDF becomes a slide.</p>
 <ul class="alist"><li>Design each slide at 1080×1080 px (square) for optimal feed display</li><li>Keep text large and readable — slides are small in the feed preview</li><li>Use a strong cover slide — it's what appears before the user clicks</li><li>10–20 slides is the sweet spot; longer documents see drop-off</li><li>Export at 150–300 DPI for sharp text without huge file sizes</li></ul>
+<div class="aimg-wrap"><div class="aimg-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg><span>LinkedIn document carousel post showing multiple slides in the feed</span></div><p class="aimg-caption">Document posts (PDF carousels) are one of LinkedIn's highest-performing content formats</p></div>
 <h2 class="ah2" id="linkedin-ads-image-specs">LinkedIn Ads Image Specs</h2>
 <div class="atbl-wrap"><table class="atbl"><thead><tr><th>Ad Type</th><th>Image Size</th><th>Aspect Ratio</th><th>Max File Size</th></tr></thead><tbody><tr><td>Single Image Ad</td><td>1200×627 px</td><td>1.91:1</td><td>5 MB</td></tr><tr><td>Single Image Ad (square)</td><td>1200×1200 px</td><td>1:1</td><td>5 MB</td></tr><tr><td>Carousel Ad card</td><td>1080×1080 px</td><td>1:1</td><td>10 MB per card</td></tr><tr><td>Message Ad banner</td><td>300×250 px</td><td>6:5</td><td>2 MB</td></tr><tr><td>Spotlight Ad logo</td><td>100×100 px</td><td>1:1</td><td>2 MB</td></tr></tbody></table></div>
 <div class="atip"><strong>LinkedIn tip</strong>LinkedIn's feed shows images in a 1.91:1 ratio by default. If you upload a square (1:1) image, it appears cropped in the feed with a 'see more' expansion. For guaranteed full-image display, use 1200×627 px. For maximum feed real estate on mobile, use 1080×1350 px (4:5).</div>

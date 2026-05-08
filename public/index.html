@@ -182,13 +182,47 @@
     }
     .grid-main { flex: 1; min-width: 0; }
     .blog-aside {
-      width: 244px;
+      width: 300px;
       flex-shrink: 0;
       position: sticky;
       top: 72px;
       padding-top: 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
-    @media (max-width: 1080px) { .blog-aside { display: none; } }
+    @media (max-width: 1140px) { .blog-aside { display: none; } }
+
+    /* AD SLOT */
+    .sidebar-ad {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-ad-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.45;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .sidebar-ad-slot {
+      width: 300px;
+      height: 250px;
+      background: var(--surface);
+      border: 1px dashed var(--border-hi);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      opacity: 0.4;
+    }
 
     .hero-blog-label {
       font-family: var(--font-mono);
@@ -1120,7 +1154,10 @@
           <button id="show-all-btn" onclick="showAll()"></button>
         </div>
       </div>
-      <aside class="blog-aside"><p class="hero-blog-label">From the blog</p>
+      <aside class="blog-aside"><div class="sidebar-ad">
+  <p class="sidebar-ad-label">Advertisement</p>
+  <div class="sidebar-ad-slot">300 × 250</div>
+</div><p class="hero-blog-label">From the blog</p>
 <div class="hero-blog-list"><a href="/blog/designing-for-every-platform" class="hero-blog-item">
   <div class="hero-blog-meta">
     <span class="hero-blog-cat">Strategy</span>

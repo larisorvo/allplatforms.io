@@ -13,6 +13,12 @@
       "content": "Getting image sizes right is one of the most overlooked parts of social media work. Use the wrong dimensions and your cover photo gets cropped, your ad looks blurry, or your story disappears into letterboxing. This guide covers every major platform — verified against official documentation and updated for 2025."
     },
     {
+      "type": "image",
+      "url": "",
+      "alt": "Side-by-side comparison of the four core social media aspect ratios",
+      "caption": "The same visual asset at 9:16, 4:5, 1:1, and 16:9 — the four formats that cover every major platform"
+    },
+    {
       "type": "h2",
       "content": "Why Image Sizes Matter"
     },
@@ -175,6 +181,12 @@
         ["Profile Photo", "320×320 px", "1:1", ""],
         ["Spotlight", "1080×1920 px", "9:16", "Keep UI safe zone in mind"]
       ]
+    },
+    {
+      "type": "image",
+      "url": "",
+      "alt": "Cheat sheet overview of profile photo and cover image dimensions across major social platforms",
+      "caption": "Profile photos, cover images, and feed posts each follow different dimension rules per platform"
     },
     {
       "type": "h2",

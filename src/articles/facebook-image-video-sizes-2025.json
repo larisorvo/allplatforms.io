@@ -13,6 +13,12 @@
       "content": "Facebook is still the world's largest social platform with over 3 billion monthly users. It also has the most complex set of image and video specs — different rules apply to profiles, pages, groups, events, ads, and stories. This guide covers everything in one place."
     },
     {
+      "type": "image",
+      "url": "",
+      "alt": "Facebook profile page with cover photo, profile picture, and feed post image areas highlighted",
+      "caption": "Facebook renders images differently across profiles, pages, groups, events, and ads — each placement has its own rules"
+    },
+    {
       "type": "h2",
       "content": "Facebook Profile Image Sizes"
     },
@@ -101,6 +107,12 @@
         ["Event Cover Photo",  "1920×1005 px",  "1.91:1", "Cropped to 470×174 in timeline"],
         ["Fundraiser Image",   "1200×630 px",   "1.91:1", ""]
       ]
+    },
+    {
+      "type": "image",
+      "url": "",
+      "alt": "Facebook video formats shown across feed, Stories, and Reels placements",
+      "caption": "Facebook supports the widest range of video aspect ratios of any platform, from 16:9 landscape to 9:16 vertical"
     },
     {
       "type": "h2",

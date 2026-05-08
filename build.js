@@ -254,7 +254,11 @@ function buildFeaturedArticles(articles) {
   </div>
   <span class="hero-blog-title">${escapeHtml(a.title)}</span>
 </a>`).join('\n');
-  return `<p class="hero-blog-label">From the blog</p>
+  const adSlot = `<div class="sidebar-ad">
+  <p class="sidebar-ad-label">Advertisement</p>
+  <div class="sidebar-ad-slot">300 × 250</div>
+</div>`;
+  return `${adSlot}<p class="hero-blog-label">From the blog</p>
 <div class="hero-blog-list">${items}</div>
 <a href="/blog" class="hero-blog-all">View all articles →</a>`;
 }
@@ -336,6 +340,14 @@ function renderArticleBody(sections) {
       }
       case 'tip':
         return `<div class="atip"><strong>${escapeHtml(s.label || 'Tip')}</strong>${escapeHtml(s.content)}</div>`;
+      case 'image': {
+        const caption = s.caption ? `<p class="aimg-caption">${escapeHtml(s.caption)}</p>` : '';
+        if (s.url) {
+          return `<div class="aimg-wrap"><img class="aimg-real" src="${escapeHtml(s.url)}" alt="${escapeHtml(s.alt || '')}" loading="lazy">${caption}</div>`;
+        }
+        const icon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg>`;
+        return `<div class="aimg-wrap"><div class="aimg-placeholder">${icon}<span>${escapeHtml(s.alt || 'Image')}</span></div>${caption}</div>`;
+      }
       default:
         return '';
     }

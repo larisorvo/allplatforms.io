@@ -21,6 +21,12 @@
       "content": "The natural instinct is to start with the platform. \"I'm making an Instagram post, so I'll design at 1080×1080.\" Then when you need the same asset for LinkedIn, you resize it and something gets cropped off. Then for TikTok Stories you pillarbox it. Then for Facebook you squeeze it. By the end, you have five mediocre versions instead of one great one. Platform-first thinking creates reactive, fragmented creative work. The better approach is platform-agnostic design: build a master asset with all formats in mind, then adapt rather than redesign."
     },
     {
+      "type": "image",
+      "url": "",
+      "alt": "A single creative asset shown simultaneously in 9:16, 4:5, 1:1, and 16:9 formats across different platforms",
+      "caption": "Platform-agnostic design means building one asset that survives every crop — not redesigning for each platform separately"
+    },
+    {
       "type": "h2",
       "content": "The Four Aspect Ratios That Cover Everything"
     },
@@ -158,6 +164,12 @@
       "type": "tip",
       "label": "Compression tip",
       "content": "Facebook and Instagram compress JPEGs aggressively. For graphics that contain text, always upload as PNG — the lossless format ensures text remains sharp after the platform's recompression pass. For photography, high-quality JPEG is fine since compression artifacts in photographic detail are harder to notice."
+    },
+    {
+      "type": "image",
+      "url": "",
+      "alt": "Design file showing safe zone guides overlaid on a 1080x1920 canvas with crop markers for 1:1 and 4:5",
+      "caption": "A master canvas with visible safe zone guides lets you see exactly what survives each crop before you export"
     },
     {
       "type": "h2",

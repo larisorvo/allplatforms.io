@@ -13,6 +13,12 @@
       "content": "Video is now the dominant content format on every major social platform. But each platform has its own rules — different aspect ratios, file size limits, codec requirements, and maximum durations. Get these wrong and your video gets rejected, compressed into a blurry mess, or wrapped in black bars. This guide covers everything you need to know for 2025."
     },
     {
+      "type": "image",
+      "url": "",
+      "alt": "Social media video aspect ratios compared — 9:16 vertical, 1:1 square, 16:9 landscape",
+      "caption": "Vertical 9:16 dominates mobile-first platforms; horizontal 16:9 still rules YouTube and desktop"
+    },
+    {
       "type": "h2",
       "content": "Key Video Specs to Understand"
     },
@@ -149,6 +155,12 @@
         ["Spotlight",     "1080×1920", "9:16", "60 seconds", "1 GB",  "Vertical video discovery"],
         ["Snap Ad",       "1080×1920", "9:16", "3–180 seconds", "1 GB", "H.264 / MOV or MP4"]
       ]
+    },
+    {
+      "type": "image",
+      "url": "",
+      "alt": "Video codec and bitrate settings for social media export",
+      "caption": "H.264 MP4 is the universal codec — accepted by every major platform without transcoding issues"
     },
     {
       "type": "h2",

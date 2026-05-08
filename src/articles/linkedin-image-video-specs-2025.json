@@ -13,6 +13,12 @@
       "content": "LinkedIn is the leading professional social network, and getting your visuals right here matters — whether you're managing a personal brand, a company page, or running B2B ad campaigns. This guide covers every image and video spec you need, from profile photos to sponsored content."
     },
     {
+      "type": "image",
+      "url": "",
+      "alt": "LinkedIn profile page showing the profile photo, banner, and post image layout",
+      "caption": "LinkedIn's 4:1 banner ratio is one of the widest of any social platform — keep key content in the center third"
+    },
+    {
       "type": "h2",
       "content": "LinkedIn Profile Image Sizes"
     },
@@ -91,6 +97,12 @@
         "10–20 slides is the sweet spot; longer documents see drop-off",
         "Export at 150–300 DPI for sharp text without huge file sizes"
       ]
+    },
+    {
+      "type": "image",
+      "url": "",
+      "alt": "LinkedIn document carousel post showing multiple slides in the feed",
+      "caption": "Document posts (PDF carousels) are one of LinkedIn's highest-performing content formats"
     },
     {
       "type": "h2",

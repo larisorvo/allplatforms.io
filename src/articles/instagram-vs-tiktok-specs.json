@@ -13,6 +13,12 @@
       "content": "Instagram and TikTok are the two dominant platforms for visual and video content in 2025, and they're both chasing the same short-form video format. But they have meaningfully different technical requirements, audiences, and content strategies. This head-to-head covers every spec you need to create content for both."
     },
     {
+      "type": "image",
+      "url": "",
+      "alt": "Instagram and TikTok apps displayed side by side on a smartphone",
+      "caption": "Both platforms have converged on the same 9:16 vertical format — but their audiences and algorithms remain distinct"
+    },
+    {
       "type": "h2",
       "content": "At a Glance: Key Differences"
     },
@@ -109,6 +115,12 @@
         ["Link stickers",      "Yes (all users)","Yes"],
         ["Poll / quiz stickers","Yes",           "Yes"]
       ]
+    },
+    {
+      "type": "image",
+      "url": "",
+      "alt": "Diagram showing the UI safe zones on Instagram Reels versus TikTok video",
+      "caption": "Safe zones differ between platforms — Instagram covers more of the bottom, TikTok more of the right side"
     },
     {
       "type": "h2",
