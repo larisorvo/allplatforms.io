@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var t=localStorage.getItem('ap-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <title>Designing for Every Platform: A Framework for Universal Social Media Creatives | AllPlatforms.io</title>
+  <meta name="description" content="How to design images and video assets that work across Facebook, Instagram, TikTok, LinkedIn and more — a practical system for safe zones, composition, typography, and export workflows.">
+  <link rel="canonical" href="https://allplatforms.io/blog/designing-for-every-platform">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6151MG4WFW"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6151MG4WFW');</script>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Designing for Every Platform: A Framework for Universal Social Media Creatives | AllPlatforms.io">
+  <meta property="og:description" content="How to design images and video assets that work across Facebook, Instagram, TikTok, LinkedIn and more — a practical system for safe zones, composition, typography, and export workflows.">
+  <meta property="og:url" content="https://allplatforms.io/blog/designing-for-every-platform">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Designing for Every Platform: A Framework for Universal Social Media Creatives","description":"How to design images and video assets that work across Facebook, Instagram, TikTok, LinkedIn and more — a practical system for safe zones, composition, typography, and export workflows.","url":"https://allplatforms.io/blog/designing-for-every-platform","datePublished":"2025-05-08","dateModified":"2025-05-08","author":{"@type":"Organization","name":"AllPlatforms.io","url":"https://allplatforms.io"},"publisher":{"@type":"Organization","name":"AllPlatforms.io","url":"https://allplatforms.io"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    :root {
+      --bg:        #0c0c0f;
+      --surface:   #141418;
+      --surface2:  #1a1a20;
+      --border:    #222228;
+      --border-hi: #2e2e38;
+      --text:      #e8e8f0;
+      --muted:     #6b6b80;
+      --accent:    #c8f557;
+      --font-display: 'Inter', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+      --font-body:    'Inter', sans-serif;
+    }
+    html:not(.dark) {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --surface2:  #f0f0f4;
+      --border:    #e0e0e8;
+      --border-hi: #c8c8d8;
+      --text:      #18181e;
+      --muted:     #888898;
+      --accent:    #5a3af7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-wordmark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .logo-wordmark span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border-hi);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .nav-link:hover { border-color: var(--accent); color: var(--accent); }
+    #theme-toggle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    #theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
+    }
+    .article-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .article-breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .article-breadcrumb a:hover { color: var(--accent); }
+    .article-breadcrumb .sep { opacity: 0.4; }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .article-cat {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .article-read-time {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .article-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* TABLE OF CONTENTS */
+    .toc {
+      max-width: 760px;
+      margin: 0 auto 8px;
+      padding: 0 24px;
+    }
+    .toc-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+    .toc-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      counter-reset: toc-counter;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+    .toc ol li a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+    .toc ol li a:hover { color: var(--accent); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+    .article-body .ap {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .article-body .ap a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+      text-underline-offset: 3px;
+    }
+    .article-body .ap a:hover { text-decoration-color: var(--accent); }
+    .article-body .ah2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 40px 0 16px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .article-body .ah3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 28px 0 12px;
+    }
+
+    /* TABLES */
+    .atbl-wrap {
+      overflow-x: auto;
+      margin: 4px 0 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .atbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .atbl caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: left;
+      padding: 10px 16px 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .atbl thead tr {
+      background: var(--surface2);
+    }
+    .atbl thead th {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 10px 16px;
+      text-align: left;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+    .atbl tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+    }
+    .atbl tbody tr:last-child { border-bottom: none; }
+    .atbl tbody tr:hover { background: var(--surface2); }
+    .atbl tbody td {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text);
+      padding: 10px 16px;
+      vertical-align: top;
+    }
+    .atbl tbody td:first-child {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* LISTS */
+    .alist {
+      list-style: none;
+      margin: 4px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .alist li {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      padding-left: 20px;
+      position: relative;
+    }
+    .alist li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+      top: 2px;
+    }
+
+    /* TIP BLOCK */
+    .atip {
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 4px 0 28px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    .atip strong {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* RELATED PLATFORMS */
+    .related-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+    .related-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .related-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .related-platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .rel-platform {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px 7px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .rel-platform:hover {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+    }
+
+    /* BACK LINK */
+    .back-link-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 32px;
+    }
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .footer-logo span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--accent);
+    }
+    .footer-note { font-size: 12px; color: var(--muted); }
+    .footer-email {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .footer-email:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .article-header { animation: fadeUp 0.45s ease both; }
+    .toc            { animation: fadeUp 0.45s 0.06s ease both; }
+    .article-body   { animation: fadeUp 0.45s 0.12s ease both; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="allplatforms.io">
+        <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="0"  y="0"  width="14" height="14" rx="2.5" fill="var(--accent)"/>
+          <rect x="17" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.6"/>
+          <rect x="34" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.3"/>
+          <rect x="0"  y="17" width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.5"/>
+          <rect x="17" y="17" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="34" y="17" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="0"  y="34" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="17" y="34" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="34" y="34" width="14" height="14" rx="2.5" fill="var(--border)" opacity="0.5"/>
+        </svg>
+        <span class="logo-wordmark">allplatforms<span>.io</span></span>
+      </a>
+      <div class="nav-right">
+        <a href="/blog" class="nav-link">Blog</a>
+        <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
+          <span id="theme-label"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-breadcrumb">
+      <a href="/">allplatforms.io</a>
+      <span class="sep">/</span>
+      <a href="/blog">Blog</a>
+      <span class="sep">/</span>
+      <span>Strategy</span>
+    </div>
+    <div class="article-meta">
+      <span class="article-cat">Strategy</span>
+      <span class="article-read-time">11 min read</span>
+      <span class="article-date"><time datetime="2025-05-08">May 8, 2025</time></span>
+    </div>
+    <h1 class="article-title">Designing for Every Platform: A Framework for Universal Social Media Creatives</h1>
+    <p class="article-desc">How to design images and video assets that work across Facebook, Instagram, TikTok, LinkedIn and more — a practical system for safe zones, composition, typography, and export workflows.</p>
+  </header>
+
+  <div class="toc"><div class="toc-inner"><p class="toc-label">Contents</p><ol><li><a href="#the-problem-with-platform-first-thinking">The Problem with Platform-First Thinking</a></li><li><a href="#the-four-aspect-ratios-that-cover-everything">The Four Aspect Ratios That Cover Everything</a></li><li><a href="#the-universal-canvas-start-at-1080-1920">The Universal Canvas: Start at 1080×1920</a></li><li><a href="#safe-zones-the-non-negotiable-rule">Safe Zones: The Non-Negotiable Rule</a></li><li><a href="#composition-rules-for-cross-platform-design">Composition Rules for Cross-Platform Design</a></li><li><a href="#typography-that-survives-every-crop">Typography That Survives Every Crop</a></li><li><a href="#color-and-contrast-designing-for-both-themes">Color and Contrast: Designing for Both Themes</a></li><li><a href="#file-format-and-export-strategy">File Format and Export Strategy</a></li><li><a href="#a-practical-layered-file-structure">A Practical Layered File Structure</a></li><li><a href="#when-to-adapt-vs-when-to-redesign">When to Adapt vs When to Redesign</a></li><li><a href="#the-one-canvas-export-checklist">The One-Canvas Export Checklist</a></li></ol></div></div>
+
+  <article class="article-body">
+    <p class="ap">Every platform wants a different version of your creative. Instagram wants 4:5 portrait. LinkedIn wants 1.91:1 landscape. TikTok wants 9:16 vertical. YouTube wants 16:9. Pinterest wants 2:3. If you design separately for each, you're multiplying your production effort by five — and still probably getting something wrong. This guide is about a different approach: design once, intelligently, so that a single asset can be adapted to every format without losing what makes it work.</p>
+<h2 class="ah2" id="the-problem-with-platform-first-thinking">The Problem with Platform-First Thinking</h2>
+<p class="ap">The natural instinct is to start with the platform. "I'm making an Instagram post, so I'll design at 1080×1080." Then when you need the same asset for LinkedIn, you resize it and something gets cropped off. Then for TikTok Stories you pillarbox it. Then for Facebook you squeeze it. By the end, you have five mediocre versions instead of one great one. Platform-first thinking creates reactive, fragmented creative work. The better approach is platform-agnostic design: build a master asset with all formats in mind, then adapt rather than redesign.</p>
+<h2 class="ah2" id="the-four-aspect-ratios-that-cover-everything">The Four Aspect Ratios That Cover Everything</h2>
+<p class="ap">Across all major social platforms, nearly every image and video placement uses one of four aspect ratios. Understand these four shapes and you understand the entire landscape of social media formats.</p>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Ratio</th><th>Shape</th><th>Primary Platforms &amp; Uses</th></tr></thead><tbody><tr><td>9:16 (0.56:1)</td><td>Tall vertical</td><td>TikTok feed, Instagram Reels/Stories, Snapchat, Facebook Stories — full-screen mobile content</td></tr><tr><td>4:5 (0.8:1)</td><td>Portrait</td><td>Instagram feed, Facebook feed, LinkedIn feed — maximum vertical space without going full-screen</td></tr><tr><td>1:1 (square)</td><td>Square</td><td>Instagram feed (classic), Facebook posts, Pinterest — universal safe format</td></tr><tr><td>16:9 (1.78:1)</td><td>Landscape</td><td>YouTube thumbnails, LinkedIn articles, X/Twitter posts, Facebook video — wide-screen horizontal</td></tr></tbody></table></div>
+<div class="atip"><strong>Key insight</strong>These four ratios aren't four separate problems — they're four crops of the same vertical canvas. A well-composed 9:16 asset contains a valid 4:5, a valid 1:1, and a valid 16:9 within it. The entire multi-format problem is really a cropping and composition problem.</div>
+<h2 class="ah2" id="the-universal-canvas-start-at-1080-1920">The Universal Canvas: Start at 1080×1920</h2>
+<p class="ap">Design your master asset at <strong>1080×1920 pixels (9:16)</strong>. This is the largest format any major platform requires, and every other ratio is a crop of it. Starting here gives you the most compositional freedom and ensures you never have to upscale. From a single 1080×1920 canvas, you can export: a 1080×1350 portrait (4:5), a 1080×1080 square (1:1), and a 1920×1080 landscape (16:9, by rotating and re-cropping). The 16:9 landscape is the only ratio that requires a different orientation — we'll address that separately.</p>
+<h2 class="ah2" id="safe-zones-the-non-negotiable-rule">Safe Zones: The Non-Negotiable Rule</h2>
+<p class="ap">A safe zone is the area of your canvas that remains visible regardless of how the platform crops or frames it. Every platform overlays UI on top of your content — platform logos, action buttons, captions, navigation bars. If your subject or key text lands outside the safe zone, it will be obscured or cropped on at least one platform. Design everything that matters inside the safe zone. Use the outer areas for background, atmosphere, and non-essential visual elements.</p>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Output Format</th><th>Canvas Size</th><th>Safe Zone (center area)</th><th>Avoid these edges</th></tr></thead><tbody><tr><td>9:16 Full vertical</td><td>1080×1920</td><td>1080×1420 (center)</td><td>Top 250px, bottom 250px</td></tr><tr><td>4:5 Portrait</td><td>1080×1350</td><td>1040×1260 (center)</td><td>20px all sides</td></tr><tr><td>1:1 Square</td><td>1080×1080</td><td>1040×1040 (center)</td><td>20px all sides</td></tr><tr><td>16:9 Landscape</td><td>1920×1080</td><td>1800×960 (center)</td><td>60px all sides</td></tr></tbody></table></div>
+<p class="ap">The most critical safe zone is the <strong>1:1 center of a 9:16 canvas</strong>. If everything that matters lives in a central 1080×1080 square (from 440px to 1520px vertically), your asset will survive being cropped to square format on any platform. Make this box visible in your design tool as a guide layer.</p>
+<h2 class="ah2" id="composition-rules-for-cross-platform-design">Composition Rules for Cross-Platform Design</h2>
+<p class="ap">Standard composition rules apply here, but with extra constraints. The guiding principle is <em>center-weighted composition</em> — keep your visual anchor and focal point in the center third of the frame, not the edges. Edge-heavy composition is the most common reason assets fail when cropped.</p>
+<ul class="alist"><li>Subject center — Keep your main subject (person, product, logo) within the central 60% of the frame width and height. Side-by-side compositions almost always break when cropped.</li><li>Negative space above and below — In a 9:16 vertical, you naturally have more vertical breathing room. Use the areas outside the 1:1 safe zone for sky, background texture, or atmosphere that can be safely cut.</li><li>Avoid split compositions — Two subjects side by side work in 16:9 landscape but look bad in 9:16 vertical. One strong central subject scales to every ratio. Two subjects side-by-side do not.</li><li>Keep text away from rounded corners — Platforms display content in rounded rectangles on mobile. Text in the very corners can be clipped by the UI frame even if it's within the safe zone.</li><li>Logo placement — Put your logo or watermark at the top center or bottom center, never a corner. Corners are the most likely to be cropped or obscured by UI overlays.</li><li>Background breathing room — Use a background that can extend in any direction without looking unnatural. Solid colors, gradients, and blurred backgrounds are forgiving of crops. Busy scenes with hard edges at the frame border are not.</li></ul>
+<h2 class="ah2" id="typography-that-survives-every-crop">Typography That Survives Every Crop</h2>
+<p class="ap">Text is where most multi-platform designs fall apart. Type that reads fine at full size becomes illegible when the asset is viewed at thumbnail scale, and text near the edges gets clipped by safe-zone violations. A few rules eliminate the majority of problems.</p>
+<ul class="alist"><li>Minimum font size of 32px at 1080px width — this translates to roughly 16pt on a phone screen. Anything smaller becomes unreadable in a feed thumbnail.</li><li>Keep all text within the 1:1 safe zone — even if you're designing a 9:16 asset primarily for Stories. Text in the very top or bottom of vertical content will be obscured by platform UI.</li><li>High contrast always — a minimum contrast ratio of 4.5:1 against the background (WCAG AA standard). This also makes your text readable in both light and dark feed themes.</li><li>Short copy wins — aim for 6 words or fewer as your primary headline. Long body copy is invisible in a feed. If you have more to say, say it in the caption, not on the creative.</li><li>Single font family — multi-format assets that mix typefaces look inconsistent when thumbnailed. One font, two weights (regular + bold) handles 95% of cases cleanly.</li><li>Avoid text at the exact vertical center of a 9:16 canvas — on many platforms, UI elements (follow buttons, share icons) appear at the exact center point. Offset key text slightly up or down.</li></ul>
+<div class="atip"><strong>Typography rule</strong>Test your design at 30% scale. Open it in a new window at thumbnail size. If you can't read the headline, it will perform poorly in feeds. Mobile feed thumbnails are approximately 300×375px — your design needs to work at that scale, not just at full resolution.</div>
+<h2 class="ah2" id="color-and-contrast-designing-for-both-themes">Color and Contrast: Designing for Both Themes</h2>
+<p class="ap">Most platforms default to dark mode for a significant portion of their user base. Your creative appears over a dark background in the feed — but also sometimes over a white background (in previews, web embeds, or share cards). Design with enough contrast that it reads clearly in both contexts.</p>
+<ul class="alist"><li>Avoid true white (#FFFFFF) backgrounds — in a dark-mode feed, a pure white background creates jarring contrast that draws attention for the wrong reason. Off-white or light grey is less abrasive and still reads as 'light'.</li><li>Avoid true black (#000000) or very dark near-black colors as the only background — they become invisible against dark feed backgrounds. Add a subtle border, inner shadow, or slight lift in color (use #1a1a1a or #0d0d0d minimum).</li><li>sRGB color space — always export in sRGB. Facebook and Instagram reprocess images and convert color spaces. Designs in wide-gamut color spaces (Display P3, Adobe RGB) will look dull after platform compression.</li><li>Brand color accessibility — if your brand color is a light pastel or a saturated yellow, it may not pass contrast requirements against a white background. Have a fallback combination ready.</li><li>Test dark mode AND light mode — open your design on a phone screen in both display modes. The colors will look different, and text that passes contrast on white may fail on a dark background.</li></ul>
+<h2 class="ah2" id="file-format-and-export-strategy">File Format and Export Strategy</h2>
+<p class="ap">Export format is the last decision most designers make, but it has a significant impact on quality and file size. Each platform recompresses uploads — your goal is to give the platform the best possible source to work with.</p>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Content Type</th><th>Recommended Format</th><th>Recommended Settings</th><th>Why</th></tr></thead><tbody><tr><td>Graphics with text</td><td>PNG</td><td>24-bit, sRGB</td><td>Lossless — text stays sharp after platform recompression</td></tr><tr><td>Photography</td><td>JPG</td><td>85–95% quality, sRGB</td><td>Smaller file, minimal visible difference at high quality</td></tr><tr><td>Images with transparency</td><td>PNG</td><td>24-bit with alpha</td><td>JPG doesn't support transparency</td></tr><tr><td>Animation / motion</td><td>MP4 (H.264)</td><td>High bitrate, AAC audio</td><td>Universal codec, accepted everywhere</td></tr><tr><td>Short looping content</td><td>MP4 or GIF</td><td>MP4 preferred (smaller)</td><td>GIF is large and limited to 256 colors; MP4 is superior</td></tr><tr><td>High-res exports</td><td>PNG or JPG 95%</td><td>Maximum quality</td><td>Platform will downsample — start at the highest quality you can</td></tr></tbody></table></div>
+<div class="atip"><strong>Compression tip</strong>Facebook and Instagram compress JPEGs aggressively. For graphics that contain text, always upload as PNG — the lossless format ensures text remains sharp after the platform's recompression pass. For photography, high-quality JPEG is fine since compression artifacts in photographic detail are harder to notice.</div>
+<h2 class="ah2" id="a-practical-layered-file-structure">A Practical Layered File Structure</h2>
+<p class="ap">The biggest time-saver in multi-platform design is a well-organized master file. Structure your Figma, Photoshop, or Illustrator file in layers that map to the export workflow, not the visual hierarchy.</p>
+<ul class="alist"><li>Layer: Safe zone guides — locked, non-printing overlays showing the 1:1, 4:5, and 9:16 crop boundaries. These are your guardrails. Never export with them visible.</li><li>Layer: Platform UI simulation — optional ghost overlays showing where TikTok buttons, Instagram action bars, and Facebook labels will appear. Helps you avoid placing key elements under UI.</li><li>Layer: Text and headlines — all text elements in one group, so you can toggle them off when exporting background-only versions.</li><li>Layer: Brand elements — logo, watermark, icon. Separate from text so you can scale or reposition independently per format.</li><li>Layer: Subject / foreground — the main visual element. Keep it as a smart object or component so it can be repositioned for landscape crops.</li><li>Layer: Background — a layer that extends beyond the canvas in all directions (use a larger artboard or clipping mask). This lets you shift the crop without revealing empty canvas.</li></ul>
+<h2 class="ah2" id="when-to-adapt-vs-when-to-redesign">When to Adapt vs When to Redesign</h2>
+<p class="ap">Not every asset can be universally adapted. Some designs are fundamentally single-format: a side-by-side product comparison works in 16:9 landscape but cannot be cropped to 9:16 without losing half the information. Know when adaptation is worth it and when it isn't.</p>
+<ul class="alist"><li>Adapt (safe to crop) — single-subject photography, product shots on clean backgrounds, typographic statements, abstract brand assets, color-blocked designs.</li><li>Adapt with repositioning — two-subject compositions that can be reframed to show one subject per crop (common in campaign photography).</li><li>Redesign required — infographics (information layout is inseparable from the shape), side-by-side comparisons, charts and data visualizations, any design where the full width or full height is semantically important.</li><li>Redesign for text-heavy content — captions and body text on social posts should always be rewritten per platform, not just resized. What reads well in a 1:1 square caption is often too long for a Story headline and too short for a LinkedIn document slide.</li></ul>
+<h2 class="ah2" id="the-one-canvas-export-checklist">The One-Canvas Export Checklist</h2>
+<p class="ap">Before you finalize any master asset, run through this checklist to confirm it will work across formats:</p>
+<ul class="alist"><li>Is the primary subject fully visible in the center 1080×1080 safe zone?</li><li>Is all text larger than 32px and within the 1:1 safe zone?</li><li>Does the text contrast ratio pass 4.5:1 against the background?</li><li>Is the design legible at 30% scale (thumbnail size)?</li><li>Can the background extend in all directions without creating an obvious edge?</li><li>Is the logo/watermark at a top or bottom center position rather than a corner?</li><li>Is the file exported in sRGB color space?</li><li>For graphics with text: is the export format PNG, not JPEG?</li></ul>
+<div class="atip"><strong>Final thought</strong>The goal of platform-agnostic design isn't to make something generic — it's to make something robust. A great design with strong composition, clear hierarchy, and proper contrast will survive any crop. A weak design won't survive even one platform's compression. Solve the design problem first, then solve the format problem.</div>
+  </article>
+
+  <div class="related-section"><p class="related-label">Platform specs</p><div class="related-platforms"><a href="/instagram" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#E1306C;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Instagram</span></a><a href="/tiktok" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#FE2C55;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.02-.08z"/></svg></div><span>TikTok</span></a><a href="/facebook" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#1877F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><span>Facebook</span></a><a href="/linkedin" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#0A66C2;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect fill="#ffffff" x="2" y="9" width="4" height="12"/><circle fill="#ffffff" cx="4" cy="4" r="2"/></svg></div><span>LinkedIn</span></a><a href="/youtube" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#FF0000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div><span>YouTube</span></a><a href="/pinterest" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#E60023;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div><span>Pinterest</span></a><a href="/x" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#000000;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><span>X (Twitter)</span></a><a href="/snapchat" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#FFFC00;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.166.006C7.456-.026 3.25 2.618 1.25 6.72c-.9 1.85-1.16 3.79-1.25 5.73v.7c.04 1.14.1 2.39.56 3.46-.23.12-.46.27-.65.44-.48.41-.73.93-.65 1.45.16 1.01 1.36 1.61 2.22 1.85.13.04.27.08.42.13.44.15.91.33 1.17.71.41.59.61 1.3.93 1.94.38.74 1.01 1.15 1.79 1.15.4 0 .82-.11 1.29-.34.52-.25 1.02-.37 1.5-.37.54 0 1.01.15 1.49.47.63.42 1.17.62 1.7.62.75 0 1.38-.37 1.82-1.07.31-.49.53-1.08.84-1.58.22-.36.65-.55 1.07-.69.14-.05.28-.09.41-.13.86-.24 2.06-.84 2.22-1.85.08-.52-.17-1.04-.65-1.45-.19-.17-.42-.32-.66-.44.47-1.07.52-2.32.56-3.46v-.7c-.09-1.95-.35-3.87-1.25-5.73C21.05 2.62 16.87-.02 12.17.006h-.004z"/></svg></div><span>Snapchat</span></a></div></div>
+
+  <div class="back-link-wrap">
+    <a href="/blog" class="back-link">← Back to Blog</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">allplatforms<span>.io</span></span>
+      <p class="footer-note">Spec data verified against official platform documentation. Updated regularly.</p>
+      <span id="contact-link"></span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      var dark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('ap-theme', dark ? 'dark' : 'light');
+      updateThemeToggle(dark);
+    }
+    function updateThemeToggle(dark) {
+      var label = document.getElementById('theme-label');
+      if (label) label.textContent = dark ? 'Light' : 'Dark';
+    }
+    updateThemeToggle(document.documentElement.classList.contains('dark'));
+
+    (function(){
+      var c=[109,97,105,108,64,97,108,108,112,108,97,116,102,111,114,109,115,46,105,111];
+      var el=document.getElementById('contact-link');
+      if(!el)return;
+      var e=c.map(function(n){return String.fromCharCode(n);}).join('');
+      var a=document.createElement('a');
+      a.href='mai'+'lto:'+e;
+      a.textContent=e;
+      a.className='footer-email';
+      el.appendChild(a);
+    })();
+  </script>
+
+</body>
+</html>
