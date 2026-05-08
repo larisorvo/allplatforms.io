@@ -164,12 +164,20 @@
       line-height: 1.65;
     }
 
-    /* CATEGORY FILTER */
+    /* CONTROLS BAR (sort + type filter) */
+    .controls-bar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
     .cat-filter {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
+      gap: 6px;
+      flex: 1;
     }
     .cat-btn {
       font-family: var(--font-mono);
@@ -191,6 +199,39 @@
       background: var(--accent);
       border-color: var(--accent);
       color: var(--bg);
+    }
+    /* SORT DROPDOWN */
+    .sort-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .sort-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .sort-select {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      border-radius: 100px;
+      padding: 5px 32px 5px 14px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%236b6b80' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .sort-select:hover, .sort-select:focus {
+      border-color: var(--accent);
+      outline: none;
     }
 
     /* GRID */
@@ -384,7 +425,20 @@
 
   <!-- Platform grid -->
   <div class="grid-wrap">
-    <div id="cat-filter" class="cat-filter"></div>
+    <div class="controls-bar">
+      <div id="type-filter" class="cat-filter"></div>
+      <div class="sort-wrap">
+        <span class="sort-label">Sort by</span>
+        <select class="sort-select" id="sort-select" onchange="sortCards(this.value)">
+          <option value="popularity">Most popular</option>
+          <option value="az">Alphabetical A–Z</option>
+          <option value="updated">Recently updated</option>
+          <option value="newest">Newest platform</option>
+          <option value="marketing">Most used by marketers</option>
+          <option value="specs">Most complete specs</option>
+        </select>
+      </div>
+    </div>
     <p class="grid-label" id="grid-label">{{PLATFORM_COUNT}} platforms</p>
     <div id="platform-grid">
       {{PLATFORM_CARDS}}
@@ -402,8 +456,7 @@
   <script>
     function styleCards() {
       document.querySelectorAll('#platform-grid > a').forEach(function(card) {
-        var slug     = card.dataset.platform || '';
-        var color    = card.dataset.color    || '';
+        var color = card.dataset.color || '';
 
         var headerDiv = card.querySelector('div:first-child');
         var bodyDiv   = card.querySelector('div:last-child');
@@ -442,40 +495,81 @@
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    var activeCategory = '';
+    // Map internal type keys → display labels for filter pills
+    var TYPE_LABELS = {
+      'Social':           'Social Networks',
+      'Video':            'Video',
+      'Messaging':        'Messaging Apps',
+      'Professional':     'Professional',
+      'Image':            'Image',
+      'Short-form Video': 'Short-form Video',
+      'Forums':           'Forums & Communities',
+      'Streaming':        'Streaming & Live',
+      'Audio':            'Audio',
+      'Publishing':       'Publishing',
+      'Creator':          'Creator',
+    };
 
-    function buildCategoryFilter() {
-      var cats = [];
+    var activeType = '';
+
+    function buildTypeFilter() {
+      var types = [];
       document.querySelectorAll('#platform-grid > a').forEach(function(card) {
-        var cat = card.dataset.category;
-        if (cat && cats.indexOf(cat) === -1) cats.push(cat);
+        var t = card.dataset.type;
+        if (t && types.indexOf(t) === -1) types.push(t);
       });
-      cats.sort();
+      types.sort();
 
-      var wrap = document.getElementById('cat-filter');
+      var wrap = document.getElementById('type-filter');
       if (!wrap) return;
 
-      var html = '<button class="cat-btn active" onclick="filterByCategory(this,\'\')">All</button>';
-      cats.forEach(function(cat) {
-        html += '<button class="cat-btn" onclick="filterByCategory(this,\'' + escHtml(cat) + '\')">' + escHtml(cat) + '</button>';
+      var html = '<button class="cat-btn active" onclick="filterByType(this,\'\')">All</button>';
+      types.forEach(function(t) {
+        var label = TYPE_LABELS[t] || t;
+        html += '<button class="cat-btn" onclick="filterByType(this,\'' + escHtml(t) + '\')">' + escHtml(label) + '</button>';
       });
       wrap.innerHTML = html;
     }
 
-    function filterByCategory(btn, cat) {
-      activeCategory = cat;
+    function filterByType(btn, type) {
+      activeType = type;
       document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
 
       var visible = 0;
       document.querySelectorAll('#platform-grid > a').forEach(function(card) {
-        var show = !cat || card.dataset.category === cat;
+        var show = !type || card.dataset.type === type;
         card.style.display = show ? '' : 'none';
         if (show) visible++;
       });
 
       var label = document.getElementById('grid-label');
-      if (label) label.textContent = visible + ' platform' + (visible !== 1 ? 's' : '') + (cat ? ' · ' + cat : '');
+      var typeName = type ? (TYPE_LABELS[type] || type) : '';
+      if (label) label.textContent = visible + ' platform' + (visible !== 1 ? 's' : '') + (typeName ? ' · ' + typeName : '');
+    }
+
+    function sortCards(key) {
+      var grid = document.getElementById('platform-grid');
+      if (!grid) return;
+      var cards = Array.from(grid.querySelectorAll(':scope > a'));
+      cards.sort(function(a, b) {
+        switch (key) {
+          case 'popularity':
+            return parseInt(a.dataset.popularity  || 99) - parseInt(b.dataset.popularity  || 99);
+          case 'marketing':
+            return parseInt(a.dataset.marketingRank || 99) - parseInt(b.dataset.marketingRank || 99);
+          case 'newest':
+            return parseInt(b.dataset.launchYear  || 0)  - parseInt(a.dataset.launchYear  || 0);
+          case 'updated':
+            return (b.dataset.updated || '').localeCompare(a.dataset.updated || '');
+          case 'specs':
+            return parseInt(b.dataset.specCount   || 0)  - parseInt(a.dataset.specCount   || 0);
+          case 'az':
+            return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        }
+        return 0;
+      });
+      cards.forEach(function(card) { grid.appendChild(card); });
     }
 
     function toggleTheme() {
@@ -490,7 +584,8 @@
     }
 
     styleCards();
-    buildCategoryFilter();
+    sortCards('popularity');
+    buildTypeFilter();
     updateThemeToggle(document.documentElement.classList.contains('dark'));
   </script>
 

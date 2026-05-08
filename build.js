@@ -25,6 +25,43 @@ const FIELD_LABELS = {
   notes:       'Notes',
 };
 
+// Popularity rank, marketer rank, launch year, and platform type for every slug.
+// Popularity ≈ global MAU; marketingRank ≈ paid/organic marketer usage.
+const PLATFORM_META = {
+  facebook:  { popularity: 1,  marketingRank: 1,  launchYear: 2004, type: 'Social' },
+  youtube:   { popularity: 2,  marketingRank: 3,  launchYear: 2005, type: 'Video' },
+  whatsapp:  { popularity: 3,  marketingRank: 11, launchYear: 2009, type: 'Messaging' },
+  instagram: { popularity: 4,  marketingRank: 2,  launchYear: 2010, type: 'Social' },
+  tiktok:    { popularity: 5,  marketingRank: 4,  launchYear: 2018, type: 'Short-form Video' },
+  wechat:    { popularity: 6,  marketingRank: 20, launchYear: 2011, type: 'Messaging' },
+  messenger: { popularity: 7,  marketingRank: 12, launchYear: 2011, type: 'Messaging' },
+  telegram:  { popularity: 8,  marketingRank: 13, launchYear: 2013, type: 'Messaging' },
+  snapchat:  { popularity: 9,  marketingRank: 8,  launchYear: 2011, type: 'Short-form Video' },
+  x:         { popularity: 10, marketingRank: 6,  launchYear: 2006, type: 'Social' },
+  pinterest: { popularity: 11, marketingRank: 7,  launchYear: 2010, type: 'Image' },
+  linkedin:  { popularity: 12, marketingRank: 5,  launchYear: 2003, type: 'Professional' },
+  reddit:    { popularity: 13, marketingRank: 10, launchYear: 2005, type: 'Forums' },
+  spotify:   { popularity: 14, marketingRank: 31, launchYear: 2008, type: 'Audio' },
+  discord:   { popularity: 15, marketingRank: 14, launchYear: 2015, type: 'Social' },
+  line:      { popularity: 16, marketingRank: 29, launchYear: 2011, type: 'Messaging' },
+  twitch:    { popularity: 17, marketingRank: 15, launchYear: 2011, type: 'Streaming' },
+  threads:   { popularity: 18, marketingRank: 9,  launchYear: 2023, type: 'Social' },
+  tumblr:    { popularity: 19, marketingRank: 25, launchYear: 2007, type: 'Social' },
+  medium:    { popularity: 20, marketingRank: 22, launchYear: 2012, type: 'Publishing' },
+  mastodon:  { popularity: 21, marketingRank: 18, launchYear: 2016, type: 'Social' },
+  behance:   { popularity: 22, marketingRank: 24, launchYear: 2006, type: 'Professional' },
+  signal:    { popularity: 23, marketingRank: 30, launchYear: 2014, type: 'Messaging' },
+  rumble:    { popularity: 24, marketingRank: 28, launchYear: 2013, type: 'Video' },
+  bereal:    { popularity: 25, marketingRank: 17, launchYear: 2020, type: 'Social' },
+  bluesky:   { popularity: 26, marketingRank: 19, launchYear: 2023, type: 'Social' },
+  kick:      { popularity: 27, marketingRank: 27, launchYear: 2022, type: 'Streaming' },
+  lemon8:    { popularity: 28, marketingRank: 16, launchYear: 2020, type: 'Image' },
+  substack:  { popularity: 29, marketingRank: 23, launchYear: 2017, type: 'Publishing' },
+  patreon:   { popularity: 30, marketingRank: 21, launchYear: 2013, type: 'Creator' },
+  vimeo:     { popularity: 31, marketingRank: 26, launchYear: 2004, type: 'Video' },
+  clubhouse: { popularity: 32, marketingRank: 32, launchYear: 2020, type: 'Audio' },
+};
+
 function escapeHtml(s) {
   return String(s)
     .replace(/&/g, '&amp;')
@@ -160,8 +197,8 @@ function buildPlatformPage(platform, template, allPlatforms, logos) {
     .map((section, i) => renderSection(section, platform.color, i === 0))
     .join('\n');
 
-  const metaTitle = `${platform.name} Specs & Size Guide | AllPlatforms.io`;
-  const metaDesc  = `Complete ${platform.name} specs: image sizes, video requirements, character limits, and ad specs. Last verified ${platform.lastUpdated}.`;
+  const metaTitle = `${platform.name} Specifications & Size Guide | AllPlatforms.io`;
+  const metaDesc  = `Complete ${platform.name} technical specifications: image sizes, video requirements, character limits, and ad specs. Last verified ${platform.lastUpdated}.`;
   const canonical = `${BASE_URL}/${platform.slug}`;
 
   const jsonLd = JSON.stringify({
@@ -210,13 +247,16 @@ function buildHomePage(allPlatforms, template, logos) {
 
     const iconBadge = buildLogoBadge(p, logos, 36, 20, 8);
     const category  = escapeHtml(p.category || 'Social');
+    const meta      = PLATFORM_META[p.slug] || { popularity: 99, marketingRank: 99, launchYear: 2000, type: p.category || 'Social' };
+    const metaType  = escapeHtml(meta.type);
+    const specCount = p.specs.reduce((sum, s) => sum + s.items.length, 0);
 
-    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="${p.slug}" data-color="${p.color}" data-category="${category}">
+    return `<a href="/${p.slug}" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="${p.slug}" data-color="${p.color}" data-category="${category}" data-type="${metaType}" data-name="${escapeHtml(p.name)}" data-popularity="${meta.popularity}" data-marketing-rank="${meta.marketingRank}" data-launch-year="${meta.launchYear}" data-spec-count="${specCount}" data-updated="${escapeHtml(p.lastUpdated)}">
   <div class="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-700" style="background:linear-gradient(135deg,${p.color}18,transparent);">
     ${iconBadge}
     <div>
       <div class="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">${escapeHtml(p.name)}</div>
-      <div class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide" style="font-size:10px;letter-spacing:0.05em;">${category}</div>
+      <div class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide" style="font-size:10px;letter-spacing:0.05em;">${metaType}</div>
     </div>
   </div>
   <div class="p-4">
@@ -226,8 +266,8 @@ function buildHomePage(allPlatforms, template, logos) {
 </a>`;
   }).join('\n');
 
-  const metaTitle = 'Social Media Specs & Size Guide | AllPlatforms.io';
-  const metaDesc  = 'Complete specs for every major platform — image sizes, video requirements, character limits, and ad specs, all in one place. Verified against official documentation.';
+  const metaTitle = 'Social Media Specifications & Size Guide | AllPlatforms.io';
+  const metaDesc  = 'Complete technical specifications for every major social platform — image sizes, video requirements, character limits, and ad specs, all in one place. Verified against official documentation.';
   const platformCount = String(allPlatforms.length);
 
   return template
