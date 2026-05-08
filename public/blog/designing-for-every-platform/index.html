@@ -418,7 +418,76 @@
       border-radius: 10px;
       border: 1px solid var(--border);
       display: block;
+      cursor: zoom-in;
     }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0);
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+    .lightbox.lb-open {
+      display: flex;
+      background: rgba(0,0,0,0.9);
+    }
+    .lightbox.lb-visible { background: rgba(0,0,0,0.9); }
+    .lightbox-inner {
+      position: relative;
+      max-width: min(92vw, 1100px);
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .lb-visible .lightbox-inner {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .lightbox-inner img {
+      max-width: 100%;
+      max-height: calc(92vh - 60px);
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+    .lightbox-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.22); }
     .aimg-placeholder {
       width: 100%;
       aspect-ratio: 16/9;
@@ -691,7 +760,57 @@
       a.className='footer-email';
       el.appendChild(a);
     })();
+
+    // Lightbox
+    (function () {
+      var lb      = document.getElementById('lb');
+      var lbImg   = document.getElementById('lb-img');
+      var lbCap   = document.getElementById('lb-cap');
+      var lbClose = document.getElementById('lb-close');
+
+      function open(src, alt, caption) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lbCap.textContent = caption || alt || '';
+        lbCap.style.display = lbCap.textContent ? '' : 'none';
+        lb.classList.add('lb-open');
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () {
+          lb.classList.add('lb-visible');
+        });
+      }
+
+      function close() {
+        lb.classList.remove('lb-visible');
+        lb.addEventListener('transitionend', function handler() {
+          lb.classList.remove('lb-open');
+          document.body.style.overflow = '';
+          lbImg.src = '';
+          lb.removeEventListener('transitionend', handler);
+        }, { once: true });
+      }
+
+      document.querySelectorAll('.aimg-real, .article-hero .aimg-real').forEach(function (img) {
+        img.addEventListener('click', function () {
+          var wrap    = img.closest('.aimg-wrap, .article-hero');
+          var capEl   = wrap ? wrap.querySelector('.aimg-caption') : null;
+          open(img.src, img.alt, capEl ? capEl.textContent : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
   </script>
+
+  <div id="lb" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lb-close" class="lightbox-close" aria-label="Close">&#x2715;</button>
+    <div class="lightbox-inner">
+      <img id="lb-img" src="" alt="">
+      <p id="lb-cap" class="lightbox-caption"></p>
+    </div>
+  </div>
 
 </body>
 </html>

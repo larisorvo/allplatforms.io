@@ -250,7 +250,7 @@ function buildFeaturedArticles(articles) {
   const items = articles.slice(0, 5).map(a => {
     const imgUrl  = getArticleFirstImageUrl(a);
     const imgHtml = imgUrl
-      ? `<img class="hero-blog-thumb" src="${escapeHtml(thumbUrl(imgUrl, 80))}" alt="" loading="lazy">`
+      ? `<img class="hero-blog-thumb" src="${escapeHtml(thumbUrl(imgUrl, 80))}" alt="${escapeHtml(a.title)}" loading="lazy">`
       : `<div class="hero-blog-thumb hero-blog-thumb-ph"></div>`;
     return `<a href="/blog/${a.slug}" class="hero-blog-item">
   ${imgHtml}
