@@ -247,7 +247,7 @@ function buildPlatformPage(platform, template, allPlatforms, logos) {
 
 function buildFeaturedArticles(articles) {
   if (!articles || articles.length === 0) return '';
-  const items = articles.slice(0, 3).map(a => {
+  const items = articles.slice(0, 5).map(a => {
     const imgUrl  = getArticleFirstImageUrl(a);
     const imgHtml = imgUrl
       ? `<img class="hero-blog-thumb" src="${escapeHtml(thumbUrl(imgUrl, 80))}" alt="" loading="lazy">`
