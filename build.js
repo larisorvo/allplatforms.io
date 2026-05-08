@@ -247,13 +247,22 @@ function buildPlatformPage(platform, template, allPlatforms, logos) {
 
 function buildFeaturedArticles(articles) {
   if (!articles || articles.length === 0) return '';
-  const items = articles.slice(0, 3).map(a => `<a href="/blog/${a.slug}" class="hero-blog-item">
-  <div class="hero-blog-meta">
-    <span class="hero-blog-cat">${escapeHtml(a.category || 'Guide')}</span>
-    <span class="hero-blog-time">${escapeHtml(a.readTime || '5 min read')}</span>
+  const items = articles.slice(0, 3).map(a => {
+    const imgUrl  = getArticleFirstImageUrl(a);
+    const imgHtml = imgUrl
+      ? `<img class="hero-blog-thumb" src="${escapeHtml(thumbUrl(imgUrl, 80))}" alt="" loading="lazy">`
+      : `<div class="hero-blog-thumb hero-blog-thumb-ph"></div>`;
+    return `<a href="/blog/${a.slug}" class="hero-blog-item">
+  ${imgHtml}
+  <div class="hero-blog-text">
+    <div class="hero-blog-meta">
+      <span class="hero-blog-cat">${escapeHtml(a.category || 'Guide')}</span>
+      <span class="hero-blog-time">${escapeHtml(a.readTime || '5 min read')}</span>
+    </div>
+    <span class="hero-blog-title">${escapeHtml(a.title)}</span>
   </div>
-  <span class="hero-blog-title">${escapeHtml(a.title)}</span>
-</a>`).join('\n');
+</a>`;
+  }).join('\n');
   const adSlot = `<div class="sidebar-ad">
   <p class="sidebar-ad-label">Advertisement</p>
   <div class="sidebar-ad-slot">300 × 250</div>
@@ -377,11 +386,33 @@ function buildRelatedPlatformsWidget(slugs, allPlatforms, logos) {
   return `<div class="related-section"><p class="related-label">Platform specs</p><div class="related-platforms">${links}</div></div>`;
 }
 
+function getArticleFirstImageUrl(article) {
+  const s = article.sections[0];
+  return (s && s.type === 'image' && s.url) ? s.url : null;
+}
+
+function thumbUrl(imgUrl, width) {
+  if (!imgUrl) return '';
+  const base = path.basename(imgUrl, path.extname(imgUrl));
+  return `/images/thumbs/${base}-${width}.jpg`;
+}
+
 function buildArticlePage(article, template, allPlatforms, logos) {
   const canonical = `${BASE_URL}/blog/${article.slug}`;
   const metaTitle = `${article.title} | AllPlatforms.io`;
-  const body      = renderArticleBody(article.sections);
-  const toc       = buildArticleTOC(article.sections);
+
+  // Pull hero image out so it renders above the TOC, not inside the body
+  const firstSection = article.sections[0];
+  let heroHtml    = '';
+  let bodySections = article.sections;
+  if (firstSection && firstSection.type === 'image' && firstSection.url) {
+    bodySections = article.sections.slice(1);
+    const cap = firstSection.caption ? `<p class="aimg-caption">${escapeHtml(firstSection.caption)}</p>` : '';
+    heroHtml = `<div class="article-hero"><img class="aimg-real" src="${escapeHtml(firstSection.url)}" alt="${escapeHtml(firstSection.alt || '')}" loading="eager">${cap}</div>`;
+  }
+
+  const body      = renderArticleBody(bodySections);
+  const toc       = buildArticleTOC(bodySections);
   const related   = buildRelatedPlatformsWidget(article.relatedPlatforms || [], allPlatforms, logos);
   const dateDisplay = new Date(article.publishDate + 'T00:00:00Z')
     .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
@@ -409,6 +440,7 @@ function buildArticlePage(article, template, allPlatforms, logos) {
     .replace(/\{\{ARTICLE_DATE_DISPLAY\}\}/g,    () => dateDisplay)
     .replace(/\{\{ARTICLE_READ_TIME\}\}/g,       () => escapeHtml(article.readTime || '5 min read'))
     .replace(/\{\{ARTICLE_CATEGORY\}\}/g,        () => escapeHtml(article.category || 'Guide'))
+    .replace(/\{\{ARTICLE_HERO\}\}/g,            () => heroHtml)
     .replace(/\{\{ARTICLE_TOC\}\}/g,             () => toc)
     .replace(/\{\{ARTICLE_BODY\}\}/g,            () => body)
     .replace(/\{\{RELATED_PLATFORMS_SECTION\}\}/g, () => related);
@@ -418,14 +450,21 @@ function buildBlogIndexPage(articles, template) {
   const cards = articles.map(a => {
     const dateDisplay = new Date(a.publishDate + 'T00:00:00Z')
       .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+    const imgUrl  = getArticleFirstImageUrl(a);
+    const imgHtml = imgUrl
+      ? `<div class="blog-card-img"><img src="${escapeHtml(thumbUrl(imgUrl, 600))}" alt="${escapeHtml(a.title)}" loading="lazy"></div>`
+      : '';
     return `<a href="/blog/${a.slug}" class="blog-card">
-  <div class="blog-card-top">
-    <span class="blog-card-cat">${escapeHtml(a.category || 'Guide')}</span>
-    <span class="blog-card-read">${escapeHtml(a.readTime || '5 min read')}</span>
+  ${imgHtml}
+  <div class="blog-card-body">
+    <div class="blog-card-top">
+      <span class="blog-card-cat">${escapeHtml(a.category || 'Guide')}</span>
+      <span class="blog-card-read">${escapeHtml(a.readTime || '5 min read')}</span>
+    </div>
+    <h2 class="blog-card-title">${escapeHtml(a.title)}</h2>
+    <p class="blog-card-desc">${escapeHtml(a.description)}</p>
+    <span class="blog-card-date">${dateDisplay}</span>
   </div>
-  <h2 class="blog-card-title">${escapeHtml(a.title)}</h2>
-  <p class="blog-card-desc">${escapeHtml(a.description)}</p>
-  <span class="blog-card-date">${dateDisplay}</span>
 </a>`;
   }).join('\n');
 

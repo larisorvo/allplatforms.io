@@ -246,14 +246,39 @@
       flex-direction: column;
     }
     .hero-blog-item {
-      padding: 13px 0;
+      padding: 12px 0;
       border-top: 1px solid var(--border);
       display: flex;
-      flex-direction: column;
-      gap: 5px;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 12px;
       text-decoration: none;
     }
     .hero-blog-item:last-of-type { border-bottom: 1px solid var(--border); }
+    .hero-blog-thumb {
+      width: 72px;
+      height: 54px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .hero-blog-thumb-ph {
+      width: 72px;
+      height: 54px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .hero-blog-text {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
     .hero-blog-meta {
       display: flex;
       align-items: center;
@@ -1159,25 +1184,34 @@
   <div class="sidebar-ad-slot">300 × 250</div>
 </div><p class="hero-blog-label">From the blog</p>
 <div class="hero-blog-list"><a href="/blog/designing-for-every-platform" class="hero-blog-item">
-  <div class="hero-blog-meta">
-    <span class="hero-blog-cat">Strategy</span>
-    <span class="hero-blog-time">11 min read</span>
+  <img class="hero-blog-thumb" src="/images/thumbs/designing-for-every-platform-1-80.jpg" alt="" loading="lazy">
+  <div class="hero-blog-text">
+    <div class="hero-blog-meta">
+      <span class="hero-blog-cat">Strategy</span>
+      <span class="hero-blog-time">11 min read</span>
+    </div>
+    <span class="hero-blog-title">Designing for Every Platform: A Framework for Universal Social Media Creatives</span>
   </div>
-  <span class="hero-blog-title">Designing for Every Platform: A Framework for Universal Social Media Creatives</span>
 </a>
 <a href="/blog/facebook-image-video-sizes-2026" class="hero-blog-item">
-  <div class="hero-blog-meta">
-    <span class="hero-blog-cat">Guide</span>
-    <span class="hero-blog-time">7 min read</span>
+  <img class="hero-blog-thumb" src="/images/thumbs/facebook-image-video-sizes-1-80.jpg" alt="" loading="lazy">
+  <div class="hero-blog-text">
+    <div class="hero-blog-meta">
+      <span class="hero-blog-cat">Guide</span>
+      <span class="hero-blog-time">7 min read</span>
+    </div>
+    <span class="hero-blog-title">Facebook Image &amp; Video Sizes: Complete Guide for 2026</span>
   </div>
-  <span class="hero-blog-title">Facebook Image &amp; Video Sizes: Complete Guide for 2026</span>
 </a>
 <a href="/blog/instagram-vs-tiktok-specs" class="hero-blog-item">
-  <div class="hero-blog-meta">
-    <span class="hero-blog-cat">Comparison</span>
-    <span class="hero-blog-time">6 min read</span>
+  <img class="hero-blog-thumb" src="/images/thumbs/instagram-vs-tiktok-1-80.jpg" alt="" loading="lazy">
+  <div class="hero-blog-text">
+    <div class="hero-blog-meta">
+      <span class="hero-blog-cat">Comparison</span>
+      <span class="hero-blog-time">6 min read</span>
+    </div>
+    <span class="hero-blog-title">Instagram vs TikTok: Full Spec Comparison for 2026</span>
   </div>
-  <span class="hero-blog-title">Instagram vs TikTok: Full Spec Comparison for 2026</span>
 </a></div>
 <a href="/blog" class="hero-blog-all">View all articles →</a></aside>
     </div>

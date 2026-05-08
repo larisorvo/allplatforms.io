@@ -201,6 +201,27 @@
       line-height: 1.65;
     }
 
+    /* ARTICLE HERO IMAGE (above TOC) */
+    .article-hero {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      padding: 0 24px;
+    }
+    .article-hero .aimg-real {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .article-hero .aimg-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+      opacity: 0.65;
+    }
+
     /* TABLE OF CONTENTS */
     .toc {
       max-width: 760px;
@@ -587,6 +608,8 @@
     <h1 class="article-title">{{ARTICLE_TITLE}}</h1>
     <p class="article-desc">{{ARTICLE_DESCRIPTION}}</p>
   </header>
+
+  {{ARTICLE_HERO}}
 
   {{ARTICLE_TOC}}
 
