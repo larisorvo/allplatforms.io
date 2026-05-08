@@ -22,7 +22,7 @@
     },
     {
       "type": "image",
-      "url": "",
+      "url": "/images/designing-for-every-platform-1.png",
       "alt": "A single creative asset shown simultaneously in 9:16, 4:5, 1:1, and 16:9 formats across different platforms",
       "caption": "Platform-agnostic design means building one asset that survives every crop — not redesigning for each platform separately"
     },
@@ -167,7 +167,7 @@
     },
     {
       "type": "image",
-      "url": "",
+      "url": "/images/designing-for-every-platform-2.png",
       "alt": "Design file showing safe zone guides overlaid on a 1080x1920 canvas with crop markers for 1:1 and 4:5",
       "caption": "A master canvas with visible safe zone guides lets you see exactly what survives each crop before you export"
     },
