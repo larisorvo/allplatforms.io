@@ -460,6 +460,15 @@
       color: var(--muted);
       flex: 1;
     }
+    .footer-email {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .footer-email:hover { color: var(--accent); }
     #theme-toggle {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -655,6 +664,7 @@
     <div class="footer-inner">
       <span class="footer-logo">allplatforms<span>.io</span></span>
       <p class="footer-note">Spec data verified against official platform documentation. Always check platform help centers for the latest updates.</p>
+      <span id="contact-link"></span>
       <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
         <span id="theme-icon"></span>
         <span id="theme-label"></span>
@@ -701,6 +711,19 @@
       if (label) label.textContent = dark ? 'Light mode' : 'Dark mode';
     }
     updateThemeToggle(document.documentElement.classList.contains('dark'));
+
+    // Contact email injected at runtime — never in source HTML
+    (function(){
+      var c=[109,97,105,108,64,97,108,108,112,108,97,116,102,111,114,109,115,46,105,111];
+      var el=document.getElementById('contact-link');
+      if(!el)return;
+      var e=c.map(function(n){return String.fromCharCode(n);}).join('');
+      var a=document.createElement('a');
+      a.href='mai'+'lto:'+e;
+      a.textContent=e;
+      a.className='footer-email';
+      el.appendChild(a);
+    })();
   </script>
 
 </body>

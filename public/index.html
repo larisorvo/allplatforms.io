@@ -401,6 +401,15 @@
       font-size: 12px;
       color: var(--muted);
     }
+    .footer-email {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .footer-email:hover { color: var(--accent); }
 
     /* Animations */
     @keyframes fadeUp {
@@ -1020,6 +1029,7 @@
     <div class="footer-inner">
       <span class="footer-logo">allplatforms<span>.io</span></span>
       <p class="footer-note">Spec data verified against official platform documentation. Updated regularly.</p>
+      <span id="contact-link"></span>
     </div>
   </footer>
 
@@ -1194,6 +1204,19 @@
     sortCards('popularity');   // also calls applyVisibility() → hides ranks 13+
     buildTypeFilter();
     updateThemeToggle(document.documentElement.classList.contains('dark'));
+
+    // Contact email injected at runtime — never in source HTML
+    (function(){
+      var c=[109,97,105,108,64,97,108,108,112,108,97,116,102,111,114,109,115,46,105,111];
+      var el=document.getElementById('contact-link');
+      if(!el)return;
+      var e=c.map(function(n){return String.fromCharCode(n);}).join('');
+      var a=document.createElement('a');
+      a.href='mai'+'lto:'+e;
+      a.textContent=e;
+      a.className='footer-email';
+      el.appendChild(a);
+    })();
   </script>
 
 </body>
