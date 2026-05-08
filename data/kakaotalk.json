@@ -1,0 +1,152 @@
+{
+  "name": "KakaoTalk",
+  "slug": "kakaotalk",
+  "color": "#FAE100",
+  "category": "Messaging",
+  "description": "Specs and technical requirements for KakaoTalk personal profiles, channel content, and business messaging.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "KakaoTalk Help Center", "url": "https://cs.kakao.com/helps" },
+    { "label": "Kakao for Business", "url": "https://business.kakao.com/" }
+  ],
+  "specs": [
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "640 × 640 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Circular display in chat; full photo shown on profile tap"
+        },
+        {
+          "name": "Profile Background Image",
+          "dimensions": "1080 × 1920 px recommended",
+          "aspectRatio": "9:16",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Shown as a full-screen background on the personal profile card"
+        },
+        {
+          "name": "KakaoTalk Channel Cover",
+          "dimensions": "1024 × 1024 px",
+          "aspectRatio": "1:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square icon for business Kakao Channels; shown in search and chat"
+        }
+      ]
+    },
+    {
+      "category": "images",
+      "label": "Shared Image Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Chat Image",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Shared in personal or group chats; GIFs play inline"
+        },
+        {
+          "name": "Story Post Image",
+          "dimensions": "1080 × 1920 px recommended",
+          "aspectRatio": "9:16",
+          "maxFileSize": "20 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "KakaoTalk Story (timeline) photo post"
+        },
+        {
+          "name": "Custom Emoticon / Sticker",
+          "dimensions": "360 × 360 px",
+          "aspectRatio": "1:1",
+          "maxFileSize": "1 MB",
+          "formats": ["PNG", "GIF"],
+          "notes": "Transparent background; animated stickers use GIF; submitted via KakaoEmoticon Studio"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video & Voice Specs",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Chat Video",
+          "resolution": "Up to 1080p",
+          "maxFileSize": "300 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "Shared directly in chat; H.264 + AAC recommended"
+        },
+        {
+          "name": "Voice Message",
+          "duration": "Up to 3 minutes",
+          "formats": ["AAC", "M4A"],
+          "notes": "Recorded in-app via the voice message feature"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Chat Message",
+          "limit": "10,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Status Message (Profile)",
+          "limit": "60",
+          "unit": "characters",
+          "notes": "Short status shown below the display name on the profile card"
+        },
+        {
+          "name": "Display Name",
+          "limit": "20",
+          "unit": "characters"
+        },
+        {
+          "name": "Channel Post (Business)",
+          "limit": "1,000",
+          "unit": "characters",
+          "notes": "Text limit for Kakao Channel feed posts sent to subscribers"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad & Business Messaging Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Kakao Channel Message — Image",
+          "dimensions": "800 × 400 px",
+          "aspectRatio": "2:1",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Image included in branded channel messages sent to subscribers"
+        },
+        {
+          "name": "KakaoTalk Biz Board (Banner Ad)",
+          "dimensions": "1029 × 258 px",
+          "maxFileSize": "2 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Prominent banner ad shown in the chat list; managed via Kakao Ads"
+        },
+        {
+          "name": "Carousel Feed Ad",
+          "dimensions": "800 × 600 px per card",
+          "aspectRatio": "4:3",
+          "formats": ["JPG", "PNG"],
+          "notes": "Up to 5 cards; shown in KakaoTalk channel feed and Kakao Story"
+        }
+      ]
+    }
+  ]
+}

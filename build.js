@@ -59,7 +59,17 @@ const PLATFORM_META = {
   substack:  { popularity: 29, marketingRank: 23, launchYear: 2017, type: 'Publishing' },
   patreon:   { popularity: 30, marketingRank: 21, launchYear: 2013, type: 'Creator' },
   vimeo:     { popularity: 31, marketingRank: 26, launchYear: 2004, type: 'Video' },
-  clubhouse: { popularity: 32, marketingRank: 32, launchYear: 2020, type: 'Audio' },
+  clubhouse:   { popularity: 32, marketingRank: 32, launchYear: 2020, type: 'Audio' },
+  dribbble:    { popularity: 33, marketingRank: 33, launchYear: 2009, type: 'Professional' },
+  soundcloud:  { popularity: 34, marketingRank: 34, launchYear: 2007, type: 'Audio' },
+  quora:       { popularity: 35, marketingRank: 35, launchYear: 2009, type: 'Forums' },
+  viber:       { popularity: 36, marketingRank: 36, launchYear: 2010, type: 'Messaging' },
+  dailymotion: { popularity: 37, marketingRank: 37, launchYear: 2005, type: 'Video' },
+  flickr:      { popularity: 38, marketingRank: 38, launchYear: 2004, type: 'Image' },
+  '500px':     { popularity: 39, marketingRank: 39, launchYear: 2009, type: 'Image' },
+  bandcamp:    { popularity: 40, marketingRank: 40, launchYear: 2008, type: 'Audio' },
+  kakaotalk:   { popularity: 41, marketingRank: 41, launchYear: 2010, type: 'Messaging' },
+  nextdoor:    { popularity: 42, marketingRank: 42, launchYear: 2011, type: 'Social' },
 };
 
 function escapeHtml(s) {
@@ -100,9 +110,10 @@ function injectLogo(svgString, width, height) {
 }
 
 // Build the colored badge wrapper + logo SVG at a given size.
+// Adds a subtle inner ring so near-black badges remain visible against dark page surfaces.
 function buildLogoBadge(platform, logos, size, iconSize, radius) {
   const logo = injectLogo(logos[platform.slug] || '', iconSize, iconSize);
-  return `<div style="width:${size}px;height:${size}px;border-radius:${radius}px;background:${platform.color};display:flex;align-items:center;justify-content:center;flex-shrink:0;">${logo}</div>`;
+  return `<div style="width:${size}px;height:${size}px;border-radius:${radius}px;background:${platform.color};display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);">${logo}</div>`;
 }
 
 function renderSpecItem(item) {

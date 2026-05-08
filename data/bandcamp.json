@@ -1,0 +1,134 @@
+{
+  "name": "Bandcamp",
+  "slug": "bandcamp",
+  "color": "#00A0C6",
+  "category": "Audio",
+  "description": "Specs and technical requirements for Bandcamp audio releases, artwork, and artist pages.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "Bandcamp Help Center", "url": "https://get.bandcamp.help/" },
+    { "label": "Bandcamp Music Upload Guidelines", "url": "https://bandcamp.com/help/audio_basics" }
+  ],
+  "specs": [
+    {
+      "category": "audio",
+      "label": "Audio Upload Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Master Track Upload",
+          "maxFileSize": "291 MB per track",
+          "formats": ["WAV", "AIFF", "FLAC"],
+          "notes": "Lossless source required; Bandcamp transcodes to MP3 (320 kbps), FLAC, AAC, OGG, and ALAC for fan downloads"
+        },
+        {
+          "name": "Minimum Audio Quality",
+          "notes": "16-bit / 44.1 kHz minimum; 24-bit / 44.1 kHz or 48 kHz recommended for best quality"
+        },
+        {
+          "name": "Streaming Preview",
+          "notes": "Bandcamp streams a 128 kbps MP3 preview by default; full track preview can be enabled by the artist"
+        }
+      ]
+    },
+    {
+      "category": "images",
+      "label": "Artwork & Image Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Album / Single Artwork",
+          "dimensions": "3000 × 3000 px recommended (min 700 × 700)",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Square format required; artwork shown in player, release page, and download"
+        },
+        {
+          "name": "Track Artwork",
+          "dimensions": "3000 × 3000 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Optional per-track art overrides album art in the player"
+        },
+        {
+          "name": "Merch Item Photo",
+          "dimensions": "1200 × 1200 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Product photos for physical merch listed in the Bandcamp store"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Artist Page Assets",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Artist / Label Photo",
+          "dimensions": "1200 × 800 px recommended",
+          "aspectRatio": "3:2",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Main photo displayed in the bio section of the artist page"
+        },
+        {
+          "name": "Page Header Image",
+          "dimensions": "1500 × 500 px recommended",
+          "aspectRatio": "3:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Optional background banner for the artist page header"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Album / Release Title",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Release Description",
+          "limit": "No hard limit",
+          "unit": "characters",
+          "notes": "Supports plain text with basic formatting; shown on the release page"
+        },
+        {
+          "name": "Artist / Label Bio",
+          "limit": "No hard limit",
+          "unit": "characters",
+          "notes": "Shown in the About section of the artist page"
+        },
+        {
+          "name": "Track Title",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Track Credits / Lyrics",
+          "limit": "No hard limit",
+          "unit": "characters",
+          "notes": "Optional per-track lyrics and credits fields"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Embedded Video",
+          "notes": "Bandcamp does not host video natively; YouTube and Vimeo embeds can be added to release and artist pages via embed code"
+        }
+      ]
+    }
+  ]
+}

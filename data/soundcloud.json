@@ -1,0 +1,129 @@
+{
+  "name": "SoundCloud",
+  "slug": "soundcloud",
+  "color": "#FF5500",
+  "category": "Audio",
+  "description": "Specs and technical requirements for SoundCloud tracks, playlists, profiles, and creator content.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "SoundCloud Help Center", "url": "https://help.soundcloud.com/" },
+    { "label": "SoundCloud Creator Guide", "url": "https://creators.soundcloud.com/" }
+  ],
+  "specs": [
+    {
+      "category": "audio",
+      "label": "Audio Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Track Upload",
+          "maxFileSize": "5 GB (SoundCloud Next Pro); 100 MB (free)",
+          "formats": ["MP3", "WAV", "FLAC", "AIFF", "OGG", "AAC", "OPUS"],
+          "notes": "320 kbps MP3 or lossless WAV/FLAC recommended for best streaming quality"
+        },
+        {
+          "name": "Track Duration",
+          "limit": "No hard limit (Next Pro); up to 3 hours recommended",
+          "unit": "duration",
+          "notes": "Free accounts limited to 3 hours total upload time across all tracks"
+        },
+        {
+          "name": "Streaming Bitrate",
+          "notes": "SoundCloud transcodes to 128 kbps MP3 (standard) or 256 kbps AAC (Go+ subscribers); upload the highest quality source file"
+        }
+      ]
+    },
+    {
+      "category": "images",
+      "label": "Artwork & Image Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Track / Playlist Artwork",
+          "dimensions": "3000 × 3000 px recommended (min 800 × 800)",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Square format required; displayed alongside waveform player"
+        },
+        {
+          "name": "Profile Header",
+          "dimensions": "2480 × 520 px",
+          "aspectRatio": "~4.77:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Wide banner shown at top of profile page"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Profile Photo / Avatar",
+          "dimensions": "1000 × 1000 px recommended (min 500 × 500)",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in comments and followers lists"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Track Title",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Track Description",
+          "limit": "10,000",
+          "unit": "characters",
+          "notes": "Supports plain text; first ~100 characters shown in embeds"
+        },
+        {
+          "name": "Bio",
+          "limit": "1,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Username / URL",
+          "limit": "25",
+          "unit": "characters",
+          "notes": "Alphanumeric, hyphens, and underscores; used in the permalink URL"
+        },
+        {
+          "name": "Comment",
+          "limit": "250",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Audio Ad",
+          "duration": "15 – 30 seconds",
+          "formats": ["MP3", "WAV"],
+          "notes": "Served between tracks on free accounts; 44.1 kHz, 192 kbps minimum"
+        },
+        {
+          "name": "Display Companion Ad",
+          "dimensions": "300 × 250 px",
+          "maxFileSize": "150 KB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Shown alongside audio ad; standard IAB medium rectangle"
+        }
+      ]
+    }
+  ]
+}

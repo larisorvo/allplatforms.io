@@ -1,13 +1,19 @@
 {
   "name": "TikTok",
   "slug": "tiktok",
-  "color": "#010101",
+  "color": "#FE2C55",
   "category": "Video",
   "description": "Specs and technical requirements for all TikTok content formats.",
   "lastUpdated": "2026-05-03",
   "sources": [
-    { "label": "TikTok Help Center", "url": "https://support.tiktok.com/en/using-tiktok/creating-videos" },
-    { "label": "TikTok Ads — Creative Specs", "url": "https://ads.tiktok.com/help/article/creative-specs-for-tiktok-ads" }
+    {
+      "label": "TikTok Help Center",
+      "url": "https://support.tiktok.com/en/using-tiktok/creating-videos"
+    },
+    {
+      "label": "TikTok Ads — Creative Specs",
+      "url": "https://ads.tiktok.com/help/article/creative-specs-for-tiktok-ads"
+    }
   ],
   "specs": [
     {
@@ -19,13 +25,21 @@
           "name": "Photo Post (Vertical)",
           "dimensions": "1080 × 1920 px",
           "aspectRatio": "9:16",
-          "formats": ["JPG", "PNG", "WEBP"]
+          "formats": [
+            "JPG",
+            "PNG",
+            "WEBP"
+          ]
         },
         {
           "name": "Photo Post (Square)",
           "dimensions": "1080 × 1080 px",
           "aspectRatio": "1:1",
-          "formats": ["JPG", "PNG", "WEBP"]
+          "formats": [
+            "JPG",
+            "PNG",
+            "WEBP"
+          ]
         }
       ]
     },
@@ -40,7 +54,12 @@
           "aspectRatio": "9:16 recommended",
           "duration": "15 seconds – 10 minutes",
           "maxFileSize": "287.6 MB",
-          "formats": ["MP4", "MOV", "AVI", "WEBM"],
+          "formats": [
+            "MP4",
+            "MOV",
+            "AVI",
+            "WEBM"
+          ],
           "notes": "H.264 or H.265 codec; vertical (9:16) performs best in the feed"
         },
         {
@@ -48,7 +67,10 @@
           "resolution": "1080 × 1920 px",
           "aspectRatio": "9:16",
           "duration": "Up to 15 seconds",
-          "formats": ["MP4", "MOV"]
+          "formats": [
+            "MP4",
+            "MOV"
+          ]
         }
       ]
     },
@@ -88,14 +110,19 @@
         {
           "name": "Profile Photo",
           "dimensions": "200 × 200 px",
-          "formats": ["JPG", "PNG"],
+          "formats": [
+            "JPG",
+            "PNG"
+          ],
           "notes": "Displayed as a circle"
         },
         {
           "name": "Profile Video",
           "resolution": "1080 × 1920 px",
           "duration": "3–60 seconds",
-          "formats": ["MP4"],
+          "formats": [
+            "MP4"
+          ],
           "notes": "Looping video shown on your profile instead of a static photo"
         }
       ]
@@ -110,21 +137,32 @@
           "resolution": "1080 × 1920 px",
           "aspectRatio": "9:16",
           "duration": "5–60 seconds",
-          "formats": ["MP4", "MOV", "AVI", "WEBM"],
+          "formats": [
+            "MP4",
+            "MOV",
+            "AVI",
+            "WEBM"
+          ],
           "notes": "Appears in the For You feed; 9–15 seconds recommended"
         },
         {
           "name": "TopView Ad",
           "resolution": "1080 × 1920 px",
           "duration": "5–60 seconds",
-          "formats": ["MP4", "MOV"],
+          "formats": [
+            "MP4",
+            "MOV"
+          ],
           "notes": "First ad shown when app is opened"
         },
         {
           "name": "Brand Takeover",
           "resolution": "1080 × 1920 px",
           "duration": "3–5 seconds (video) or static image",
-          "formats": ["MP4", "JPG"],
+          "formats": [
+            "MP4",
+            "JPG"
+          ],
           "notes": "Full-screen; exclusive one advertiser per day per category"
         },
         {

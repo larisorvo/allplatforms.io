@@ -1,0 +1,136 @@
+{
+  "name": "500px",
+  "slug": "500px",
+  "color": "#0099E5",
+  "category": "Image",
+  "description": "Specs and technical requirements for 500px photo uploads, portfolios, and licensing.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "500px Help Center", "url": "https://support.500px.com/" },
+    { "label": "500px Licensing Info", "url": "https://500px.com/licensing" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Photo Upload Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Photo Upload",
+          "maxFileSize": "60 MB",
+          "formats": ["JPG"],
+          "notes": "JPEG only; store originals externally — 500px resizes for display; maximum 30 megapixels recommended"
+        },
+        {
+          "name": "Minimum Dimensions",
+          "dimensions": "1980 px on the long edge minimum",
+          "notes": "Images below minimum resolution may be rejected from the Licensing Marketplace"
+        },
+        {
+          "name": "Recommended Dimensions",
+          "dimensions": "4000 × 3000 px or larger",
+          "aspectRatio": "Any",
+          "notes": "Higher resolution improves licensing eligibility; images served up to 2048 px in-browser"
+        },
+        {
+          "name": "Licensing-Ready Photo",
+          "dimensions": "Min 3500 × 2333 px (8 MP+)",
+          "maxFileSize": "60 MB",
+          "formats": ["JPG"],
+          "notes": "Must meet minimum resolution and quality gates for the 500px Licensing Marketplace"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Profile Photo / Avatar",
+          "dimensions": "300 × 300 px minimum; 600 × 600 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in the photographer profile and comments"
+        },
+        {
+          "name": "Profile Cover Image",
+          "dimensions": "1280 × 400 px recommended",
+          "aspectRatio": "3.2:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Wide banner image shown behind the photographer's profile header"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Photo Title",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Photo Description",
+          "limit": "2,000",
+          "unit": "characters",
+          "notes": "Supports plain text; shown on the photo detail page"
+        },
+        {
+          "name": "Tags per Photo",
+          "limit": "20 tags",
+          "unit": "tags"
+        },
+        {
+          "name": "Bio",
+          "limit": "500",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "30",
+          "unit": "characters",
+          "notes": "Alphanumeric and underscores; forms the public profile URL"
+        }
+      ]
+    },
+    {
+      "category": "portfolio",
+      "label": "Portfolio & Gallery Specs",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Portfolio Gallery",
+          "notes": "Free accounts: 7 photo limit per upload batch. Awesome/Pro accounts: unlimited uploads"
+        },
+        {
+          "name": "Gallery Cover",
+          "dimensions": "1280 × 720 px recommended",
+          "aspectRatio": "16:9",
+          "formats": ["JPG"],
+          "notes": "The first photo in a gallery is used as its cover by default"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad & Marketplace Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Sponsored Photo Placement",
+          "notes": "500px does not currently offer a self-serve ad product; partner and brand collaborations managed through the 500px team"
+        },
+        {
+          "name": "License Submission (Commercial)",
+          "dimensions": "Min 3500 × 2333 px",
+          "formats": ["JPG"],
+          "notes": "Commercial license buyers receive high-res downloads; photos must pass quality and IP review"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "name": "Nextdoor",
+  "slug": "nextdoor",
+  "color": "#8DB645",
+  "category": "Social",
+  "description": "Specs and technical requirements for Nextdoor member profiles, posts, business pages, and advertising.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "Nextdoor Help Center", "url": "https://help.nextdoor.com/" },
+    { "label": "Nextdoor Business Pages Help", "url": "https://business.nextdoor.com/en-us/help" }
+  ],
+  "specs": [
+    {
+      "category": "profile",
+      "label": "Profile & Business Page Assets",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Member Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in posts and comments; real photo encouraged per community guidelines"
+        },
+        {
+          "name": "Business Page Logo",
+          "dimensions": "500 × 500 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square logo shown on the Business Page and in local recommendations"
+        },
+        {
+          "name": "Business Page Cover Photo",
+          "dimensions": "1200 × 400 px recommended",
+          "aspectRatio": "3:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner image shown at the top of the Business Page"
+        }
+      ]
+    },
+    {
+      "category": "images",
+      "label": "Post & Listing Image Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Neighbourhood Post Image",
+          "dimensions": "1200 × 900 px recommended",
+          "aspectRatio": "4:3",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Up to 10 images per post; displayed in a grid in the feed"
+        },
+        {
+          "name": "For Sale / Free Item Listing Photo",
+          "dimensions": "800 × 600 px minimum",
+          "aspectRatio": "4:3",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Up to 8 photos per listing in the Nextdoor Classifieds section"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Post Video",
+          "resolution": "Up to 1080p",
+          "duration": "Up to 10 minutes",
+          "maxFileSize": "500 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264 video + AAC audio recommended; autoplay muted in feed"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Neighbourhood Post",
+          "limit": "4,000",
+          "unit": "characters",
+          "notes": "First ~250 characters shown in the feed before 'See more'"
+        },
+        {
+          "name": "Business Page Description",
+          "limit": "500",
+          "unit": "characters"
+        },
+        {
+          "name": "Business Update Post",
+          "limit": "2,000",
+          "unit": "characters",
+          "notes": "Posts made from a Business Page to followers and the local area"
+        },
+        {
+          "name": "Display Name",
+          "limit": "50",
+          "unit": "characters",
+          "notes": "First and last name visible to verified neighbours in the area"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Local Deal Ad — Image",
+          "dimensions": "1200 × 628 px",
+          "aspectRatio": "1.91:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Promoted local deals shown in the neighbourhood feed; managed via Nextdoor Ads"
+        },
+        {
+          "name": "Sponsored Post — Headline",
+          "limit": "60",
+          "unit": "characters"
+        },
+        {
+          "name": "Sponsored Post — Body",
+          "limit": "150",
+          "unit": "characters",
+          "notes": "Ad copy for promoted posts shown in the community feed"
+        },
+        {
+          "name": "Business Page Ad (Awareness)",
+          "dimensions": "1200 × 628 px",
+          "formats": ["JPG", "PNG"],
+          "maxFileSize": "5 MB",
+          "notes": "Awareness ads to grow Business Page followers in a defined neighbourhood radius"
+        }
+      ]
+    }
+  ]
+}

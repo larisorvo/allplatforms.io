@@ -13,6 +13,7 @@ const ALL_SLUGS = [
   'whatsapp','telegram','vimeo','bluesky','mastodon','medium',
   'tumblr','behance','spotify','wechat',
   'bereal','substack','patreon','lemon8','kick','signal','line','messenger','rumble','clubhouse',
+  'dribbble','soundcloud','quora','viber','dailymotion','flickr','500px','bandcamp','kakaotalk','nextdoor',
 ];
 
 test('build runs without error', () => {
@@ -71,7 +72,7 @@ test('robots.txt exists and references sitemap', () => {
   assert.ok(robots.includes('allplatforms.io/sitemap.xml'), 'robots.txt wrong sitemap URL');
 });
 
-for (const slug of ['pinterest','snapchat','threads','reddit','twitch','discord','whatsapp','telegram','vimeo','bluesky','mastodon','medium','tumblr','behance','spotify','wechat','bereal','substack','patreon','lemon8','kick','signal','line','messenger','rumble','clubhouse']) {
+for (const slug of ['pinterest','snapchat','threads','reddit','twitch','discord','whatsapp','telegram','vimeo','bluesky','mastodon','medium','tumblr','behance','spotify','wechat','bereal','substack','patreon','lemon8','kick','signal','line','messenger','rumble','clubhouse','dribbble','soundcloud','quora','viber','dailymotion','flickr','500px','bandcamp','kakaotalk','nextdoor']) {
   test(`${slug} page exists`, () => {
     assert.ok(fs.existsSync(path.join(PUBLIC, slug, 'index.html')), `public/${slug}/index.html missing`);
   });

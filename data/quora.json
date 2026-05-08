@@ -1,0 +1,144 @@
+{
+  "name": "Quora",
+  "slug": "quora",
+  "color": "#B92B27",
+  "category": "Forums",
+  "description": "Specs and technical requirements for Quora profiles, answers, questions, and advertising.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "Quora Help Center", "url": "https://help.quora.com/" },
+    { "label": "Quora Ads Manager", "url": "https://www.quora.com/business/ads" }
+  ],
+  "specs": [
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle; upload at 400×400 for best sharpness"
+        },
+        {
+          "name": "Profile Header Image",
+          "dimensions": "1200 × 300 px recommended",
+          "aspectRatio": "4:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Background banner on public profile pages"
+        }
+      ]
+    },
+    {
+      "category": "images",
+      "label": "In-Content Image Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Answer / Post Inline Image",
+          "dimensions": "Max 1200 px wide",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Images embedded in answer body; resized automatically to fit column width"
+        },
+        {
+          "name": "Space Cover Image",
+          "dimensions": "1200 × 400 px recommended",
+          "aspectRatio": "3:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Header image for Quora Spaces (topic communities)"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Answer",
+          "limit": "No hard limit",
+          "unit": "characters",
+          "notes": "Long-form answers supported; first ~200 characters visible in feed before 'Read more'"
+        },
+        {
+          "name": "Question",
+          "limit": "300",
+          "unit": "characters"
+        },
+        {
+          "name": "Bio / Credentials",
+          "limit": "80",
+          "unit": "characters",
+          "notes": "Short credential shown inline next to name on each answer"
+        },
+        {
+          "name": "Full Profile Description",
+          "limit": "1,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Space Post",
+          "limit": "No hard limit",
+          "unit": "characters",
+          "notes": "Posts in Spaces support rich text and embedded media"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Text Ad — Headline",
+          "limit": "65",
+          "unit": "characters"
+        },
+        {
+          "name": "Text Ad — Body",
+          "limit": "105",
+          "unit": "characters"
+        },
+        {
+          "name": "Image Ad",
+          "dimensions": "1200 × 628 px",
+          "aspectRatio": "1.91:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Used in feed and right-rail placements"
+        },
+        {
+          "name": "Promoted Answer",
+          "notes": "Existing Quora answers boosted in relevant feed positions; no additional creative assets required"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Answer Embedded Video",
+          "formats": ["MP4"],
+          "maxFileSize": "500 MB",
+          "notes": "Video embedded directly in an answer; H.264 recommended; YouTube/Vimeo links also accepted"
+        },
+        {
+          "name": "Video Ad",
+          "resolution": "1280 × 720 px minimum",
+          "aspectRatio": "16:9",
+          "duration": "15 – 30 seconds recommended",
+          "formats": ["MP4"],
+          "notes": "Managed via Quora Ads Manager"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "name": "Dailymotion",
+  "slug": "dailymotion",
+  "color": "#0066DC",
+  "category": "Video",
+  "description": "Specs and technical requirements for Dailymotion video uploads, channels, and advertising.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "Dailymotion Help Center", "url": "https://faq.dailymotion.com/" },
+    { "label": "Dailymotion Partner Help", "url": "https://partner.dailymotion.com/" }
+  ],
+  "specs": [
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Standard Upload",
+          "resolution": "Up to 1080p (1920 × 1080)",
+          "duration": "Up to 60 minutes",
+          "maxFileSize": "2 GB",
+          "formats": ["MP4", "AVI", "MOV", "WMV", "FLV", "MKV"],
+          "notes": "H.264 video + AAC audio recommended; 25–30 fps"
+        },
+        {
+          "name": "Partner / Verified Upload",
+          "resolution": "Up to 4K (3840 × 2160)",
+          "duration": "No hard limit (partner accounts)",
+          "maxFileSize": "4 GB",
+          "formats": ["MP4", "MOV", "MKV"],
+          "notes": "Partners can upload 4K and longer content via the Partner Program"
+        },
+        {
+          "name": "Minimum Resolution",
+          "resolution": "480 × 270 px",
+          "notes": "Videos below this threshold may be rejected or shown with a quality warning"
+        }
+      ]
+    },
+    {
+      "category": "images",
+      "label": "Thumbnail & Image Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Video Thumbnail",
+          "dimensions": "1280 × 720 px",
+          "aspectRatio": "16:9",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Custom thumbnails available to partner accounts; auto-generated for standard users"
+        },
+        {
+          "name": "Channel Avatar",
+          "dimensions": "400 × 400 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Shown in channel header and below videos"
+        },
+        {
+          "name": "Channel Cover / Banner",
+          "dimensions": "1920 × 320 px",
+          "aspectRatio": "6:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Wide header image shown on the channel page"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Channel & Profile Assets",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Channel Avatar",
+          "dimensions": "400 × 400 px",
+          "aspectRatio": "1:1",
+          "formats": ["JPG", "PNG"],
+          "notes": "Used in search results, video pages, and notifications"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Video Title",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Video Description",
+          "limit": "3,000",
+          "unit": "characters",
+          "notes": "Plain text; first ~200 characters shown in embeds"
+        },
+        {
+          "name": "Tags",
+          "limit": "60 tags maximum",
+          "unit": "tags",
+          "notes": "Each tag up to 30 characters"
+        },
+        {
+          "name": "Channel Name",
+          "limit": "50",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Pre-roll Video Ad",
+          "resolution": "1280 × 720 px minimum",
+          "duration": "15 – 30 seconds",
+          "formats": ["MP4"],
+          "notes": "Skippable after 5 seconds; H.264 + AAC"
+        },
+        {
+          "name": "Mid-roll Video Ad",
+          "resolution": "1280 × 720 px minimum",
+          "duration": "Up to 30 seconds",
+          "formats": ["MP4"],
+          "notes": "Inserted at natural content breaks for partner videos"
+        },
+        {
+          "name": "Display Banner Ad",
+          "dimensions": "728 × 90 px or 300 × 250 px",
+          "maxFileSize": "200 KB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Standard IAB banner sizes served around the player"
+        }
+      ]
+    }
+  ]
+}

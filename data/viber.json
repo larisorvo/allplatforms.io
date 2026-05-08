@@ -1,0 +1,141 @@
+{
+  "name": "Viber",
+  "slug": "viber",
+  "color": "#7360F2",
+  "category": "Messaging",
+  "description": "Specs and technical requirements for Viber personal accounts, Communities, and business messaging.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "Viber Help Center", "url": "https://help.viber.com/" },
+    { "label": "Viber for Business", "url": "https://www.viber.com/en/business/" }
+  ],
+  "specs": [
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle in chats and contacts"
+        },
+        {
+          "name": "Community / Channel Icon",
+          "dimensions": "400 × 400 px",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Square icon representing a Viber Community or Channel"
+        },
+        {
+          "name": "Community Cover Photo",
+          "dimensions": "1920 × 768 px recommended",
+          "aspectRatio": "5:2",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Wide banner displayed at the top of the Community page"
+        }
+      ]
+    },
+    {
+      "category": "images",
+      "label": "Shared Image Specs",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Chat / Message Image",
+          "maxFileSize": "200 MB",
+          "formats": ["JPG", "PNG", "GIF", "WEBP"],
+          "notes": "Images shared in personal or group chats; GIFs play inline"
+        },
+        {
+          "name": "Sticker (Custom)",
+          "dimensions": "490 × 490 px",
+          "aspectRatio": "1:1",
+          "maxFileSize": "500 KB",
+          "formats": ["PNG", "WEBP"],
+          "notes": "Transparent background required for sticker packs"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video & Media Specs",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Chat Video",
+          "resolution": "Up to 1080p",
+          "duration": "Up to 3 minutes in chat",
+          "maxFileSize": "200 MB",
+          "formats": ["MP4", "MOV"],
+          "notes": "H.264 recommended for broad device compatibility"
+        },
+        {
+          "name": "Voice Message",
+          "duration": "No hard limit (practical limit ~15 minutes)",
+          "formats": ["M4A", "MP4"],
+          "notes": "Recorded in-app; transcription available in some regions"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Chat Message",
+          "limit": "7,000",
+          "unit": "characters"
+        },
+        {
+          "name": "Bio / About",
+          "limit": "70",
+          "unit": "characters"
+        },
+        {
+          "name": "Community Name",
+          "limit": "30",
+          "unit": "characters"
+        },
+        {
+          "name": "Community Description",
+          "limit": "200",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Business Messaging Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Business Message Image",
+          "dimensions": "800 × 533 px recommended",
+          "aspectRatio": "3:2",
+          "maxFileSize": "1 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Promotional image sent via Viber Business Messages API"
+        },
+        {
+          "name": "Chatbot Message — Text",
+          "limit": "1,000",
+          "unit": "characters",
+          "notes": "Text body for bot-initiated transactional or promotional messages"
+        },
+        {
+          "name": "Rich Media Message",
+          "dimensions": "400 × 400 px per card",
+          "formats": ["JPG", "PNG"],
+          "notes": "Carousel-style rich messages via Business API; up to 6 cards"
+        }
+      ]
+    }
+  ]
+}

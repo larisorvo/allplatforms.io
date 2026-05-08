@@ -1,0 +1,148 @@
+{
+  "name": "Dribbble",
+  "slug": "dribbble",
+  "color": "#EA4C89",
+  "category": "Portfolio",
+  "description": "Specs and technical requirements for Dribbble shots, profiles, and creative portfolio content.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "Dribbble Help Center", "url": "https://help.dribbble.com/" },
+    { "label": "Dribbble Upload Guidelines", "url": "https://dribbble.com/process" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Shot & Image Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Shot — Standard",
+          "dimensions": "400 × 300 px (min); 800 × 600 px recommended",
+          "aspectRatio": "4:3",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Classic 4:3 format; GIF shots loop automatically on hover"
+        },
+        {
+          "name": "Shot — 2× (Retina)",
+          "dimensions": "800 × 600 px",
+          "aspectRatio": "4:3",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Recommended upload size for sharp rendering on HiDPI displays"
+        },
+        {
+          "name": "Shot — Wide (16:9)",
+          "dimensions": "1600 × 900 px",
+          "aspectRatio": "16:9",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Widescreen format supported for banner-style portfolio pieces"
+        },
+        {
+          "name": "Attachment / Project File",
+          "maxFileSize": "100 MB",
+          "formats": ["JPG", "PNG", "GIF", "PDF", "MP4"],
+          "notes": "Additional files attached to a shot; Pro accounts only"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile Assets",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Profile Photo",
+          "dimensions": "400 × 400 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed as a circle throughout the platform"
+        },
+        {
+          "name": "Profile Header / Cover",
+          "dimensions": "2000 × 600 px recommended",
+          "aspectRatio": "~10:3",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Shown on the designer profile page background"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video & Animation Specs",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Shot Video",
+          "resolution": "800 × 600 px or 1600 × 900 px",
+          "duration": "Up to 24 seconds recommended",
+          "maxFileSize": "10 MB",
+          "formats": ["MP4"],
+          "notes": "H.264 codec; autoplay muted; Pro/Team accounts only"
+        },
+        {
+          "name": "Animated GIF Shot",
+          "dimensions": "800 × 600 px",
+          "aspectRatio": "4:3",
+          "maxFileSize": "10 MB",
+          "formats": ["GIF"],
+          "notes": "Loops on hover; keep frame count low to stay within file size limit"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Shot Title",
+          "limit": "100",
+          "unit": "characters"
+        },
+        {
+          "name": "Shot Description",
+          "limit": "1,200",
+          "unit": "characters",
+          "notes": "Supports basic markdown; shown below the shot"
+        },
+        {
+          "name": "Bio",
+          "limit": "160",
+          "unit": "characters"
+        },
+        {
+          "name": "Username",
+          "limit": "30",
+          "unit": "characters",
+          "notes": "Alphanumeric and hyphens only"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad & Hiring Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Job Board Logo",
+          "dimensions": "400 × 400 px",
+          "aspectRatio": "1:1",
+          "maxFileSize": "5 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Company logo shown on job listings"
+        },
+        {
+          "name": "Promoted Shot",
+          "dimensions": "800 × 600 px",
+          "aspectRatio": "4:3",
+          "formats": ["JPG", "PNG"],
+          "notes": "Promoted shots appear in search and category feeds; standard shot dimensions apply"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "name": "Flickr",
+  "slug": "flickr",
+  "color": "#FF0084",
+  "category": "Image",
+  "description": "Specs and technical requirements for Flickr photo uploads, profiles, and groups.",
+  "lastUpdated": "2026-05-08",
+  "sources": [
+    { "label": "Flickr Help Center", "url": "https://help.flickr.com/" },
+    { "label": "Flickr Upload Guidelines", "url": "https://www.flickr.com/help/limits/" }
+  ],
+  "specs": [
+    {
+      "category": "images",
+      "label": "Photo Upload Specs",
+      "priority": 1,
+      "items": [
+        {
+          "name": "Photo Upload (Free)",
+          "maxFileSize": "200 MB",
+          "formats": ["JPG", "PNG", "GIF"],
+          "notes": "Free accounts limited to 1,000 photos; images stored at original resolution"
+        },
+        {
+          "name": "Photo Upload (Pro)",
+          "maxFileSize": "200 MB per file; unlimited storage",
+          "formats": ["JPG", "PNG", "GIF", "TIF"],
+          "notes": "Pro accounts get unlimited uploads and original file storage including RAW-adjacent TIF"
+        },
+        {
+          "name": "Maximum Pixel Dimensions",
+          "dimensions": "No cap on resolution",
+          "notes": "Flickr stores and serves original dimensions; largest sizes served up to 6144 px on the long edge in-browser"
+        },
+        {
+          "name": "Video Upload",
+          "duration": "Up to 3 minutes",
+          "maxFileSize": "1 GB (Pro)",
+          "formats": ["MP4", "MOV", "AVI", "WMV"],
+          "notes": "Videos stored at up to 1080p; transcoded for web playback"
+        }
+      ]
+    },
+    {
+      "category": "profile",
+      "label": "Profile & Cover Assets",
+      "priority": 2,
+      "items": [
+        {
+          "name": "Buddy Icon (Profile Photo)",
+          "dimensions": "100 × 100 px minimum; 512 × 512 px recommended",
+          "aspectRatio": "1:1",
+          "maxFileSize": "10 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Displayed alongside photos, comments, and in groups"
+        },
+        {
+          "name": "Cover Photo",
+          "dimensions": "2048 × 462 px recommended",
+          "aspectRatio": "~4.43:1",
+          "maxFileSize": "200 MB",
+          "formats": ["JPG", "PNG"],
+          "notes": "Banner image shown at the top of the photostream; any uploaded photo can be set as cover"
+        }
+      ]
+    },
+    {
+      "category": "text",
+      "label": "Text & Character Limits",
+      "priority": 3,
+      "items": [
+        {
+          "name": "Photo Title",
+          "limit": "255",
+          "unit": "characters"
+        },
+        {
+          "name": "Photo Description",
+          "limit": "No hard limit",
+          "unit": "characters",
+          "notes": "Supports a subset of HTML tags including links and basic formatting"
+        },
+        {
+          "name": "Tags per Photo",
+          "limit": "75 tags",
+          "unit": "tags",
+          "notes": "Each tag up to 255 characters; spaces create separate tags unless quoted"
+        },
+        {
+          "name": "Profile Display Name",
+          "limit": "64",
+          "unit": "characters"
+        },
+        {
+          "name": "Profile Description",
+          "limit": "No hard limit",
+          "unit": "characters"
+        }
+      ]
+    },
+    {
+      "category": "video",
+      "label": "Video Specs",
+      "priority": 4,
+      "items": [
+        {
+          "name": "Video Upload",
+          "resolution": "Up to 1920 × 1080 px",
+          "duration": "Up to 3 minutes",
+          "maxFileSize": "1 GB",
+          "formats": ["MP4", "MOV"],
+          "notes": "Pro accounts only; transcoded and served at up to 1080p via HLS"
+        }
+      ]
+    },
+    {
+      "category": "ads",
+      "label": "Ad Specs",
+      "priority": 5,
+      "items": [
+        {
+          "name": "Flickr Ads",
+          "notes": "Flickr uses third-party display advertising on free accounts; standard IAB formats (300×250, 728×90) served via partner ad networks"
+        }
+      ]
+    }
+  ]
+}
