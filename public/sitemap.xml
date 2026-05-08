@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://allplatforms.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://allplatforms.io/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://allplatforms.io/500px</loc><lastmod>2026-05-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://allplatforms.io/bandcamp</loc><lastmod>2026-05-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://allplatforms.io/behance</loc><lastmod>2026-05-07</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -43,4 +44,9 @@
   <url><loc>https://allplatforms.io/whatsapp</loc><lastmod>2026-05-07</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://allplatforms.io/x</loc><lastmod>2026-05-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://allplatforms.io/youtube</loc><lastmod>2026-05-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://allplatforms.io/blog/facebook-image-video-sizes-2025</loc><lastmod>2025-05-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://allplatforms.io/blog/instagram-vs-tiktok-specs</loc><lastmod>2025-05-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://allplatforms.io/blog/linkedin-image-video-specs-2025</loc><lastmod>2025-05-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://allplatforms.io/blog/social-media-image-sizes-2025</loc><lastmod>2025-05-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://allplatforms.io/blog/social-media-video-specs-2025</loc><lastmod>2025-05-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

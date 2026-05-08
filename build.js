@@ -4,11 +4,12 @@
 const fs   = require('fs');
 const path = require('path');
 
-const DATA_DIR   = path.join(__dirname, 'data');
-const SRC_DIR    = path.join(__dirname, 'src');
-const PUBLIC_DIR = path.join(__dirname, 'public');
-const LOGOS_DIR  = path.join(PUBLIC_DIR, 'logos');
-const BASE_URL   = 'https://allplatforms.io';
+const DATA_DIR     = path.join(__dirname, 'data');
+const SRC_DIR      = path.join(__dirname, 'src');
+const ARTICLES_DIR = path.join(SRC_DIR, 'articles');
+const PUBLIC_DIR   = path.join(__dirname, 'public');
+const LOGOS_DIR    = path.join(PUBLIC_DIR, 'logos');
+const BASE_URL     = 'https://allplatforms.io';
 
 // Fields rendered in spec item tables, in display order.
 // 'unit' is consumed together with 'limit' — not rendered as its own row.
@@ -288,11 +289,135 @@ function buildHomePage(allPlatforms, template, logos) {
     .replace(/\{\{PLATFORM_COUNT\}\}/g,   () => platformCount);
 }
 
-function buildSitemap(allPlatforms) {
+// ── Article helpers ────────────────────────────────────────────────────────
+
+function slugifyHeading(s) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function renderArticleBody(sections) {
+  return sections.map(s => {
+    switch (s.type) {
+      case 'paragraph':
+        // paragraph content is raw HTML (author-controlled) — not escaped
+        return `<p class="ap">${s.content}</p>`;
+      case 'h2':
+        return `<h2 class="ah2" id="${slugifyHeading(s.content)}">${escapeHtml(s.content)}</h2>`;
+      case 'h3':
+        return `<h3 class="ah3">${escapeHtml(s.content)}</h3>`;
+      case 'table': {
+        const ths = s.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('');
+        const trs = s.rows.map(r =>
+          `<tr>${r.map(c => `<td>${escapeHtml(String(c))}</td>`).join('')}</tr>`
+        ).join('');
+        const cap = s.caption ? `<caption>${escapeHtml(s.caption)}</caption>` : '';
+        return `<div class="atbl-wrap"><table class="atbl">${cap}<thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table></div>`;
+      }
+      case 'list': {
+        const lis = s.items.map(i => `<li>${escapeHtml(i)}</li>`).join('');
+        return `<ul class="alist">${lis}</ul>`;
+      }
+      case 'tip':
+        return `<div class="atip"><strong>${escapeHtml(s.label || 'Tip')}</strong>${escapeHtml(s.content)}</div>`;
+      default:
+        return '';
+    }
+  }).join('\n');
+}
+
+function buildArticleTOC(sections) {
+  const h2s = sections.filter(s => s.type === 'h2');
+  if (h2s.length < 2) return '';
+  const items = h2s.map(s => {
+    const id = slugifyHeading(s.content);
+    return `<li><a href="#${id}">${escapeHtml(s.content)}</a></li>`;
+  }).join('');
+  return `<div class="toc"><div class="toc-inner"><p class="toc-label">Contents</p><ol>${items}</ol></div></div>`;
+}
+
+function buildRelatedPlatformsWidget(slugs, allPlatforms, logos) {
+  if (!slugs || !slugs.length) return '';
+  const links = slugs
+    .map(slug => allPlatforms.find(p => p.slug === slug))
+    .filter(Boolean)
+    .map(p => {
+      const badge = buildLogoBadge(p, logos, 28, 16, 6);
+      return `<a href="/${p.slug}" class="rel-platform">${badge}<span>${escapeHtml(p.name)}</span></a>`;
+    })
+    .join('');
+  return `<div class="related-section"><p class="related-label">Platform specs</p><div class="related-platforms">${links}</div></div>`;
+}
+
+function buildArticlePage(article, template, allPlatforms, logos) {
+  const canonical = `${BASE_URL}/blog/${article.slug}`;
+  const metaTitle = `${article.title} | AllPlatforms.io`;
+  const body      = renderArticleBody(article.sections);
+  const toc       = buildArticleTOC(article.sections);
+  const related   = buildRelatedPlatformsWidget(article.relatedPlatforms || [], allPlatforms, logos);
+  const dateDisplay = new Date(article.publishDate + 'T00:00:00Z')
+    .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+  const jsonLd = JSON.stringify({
+    '@context':     'https://schema.org',
+    '@type':        'Article',
+    'headline':     article.title,
+    'description':  article.description,
+    'url':          canonical,
+    'datePublished': article.publishDate,
+    'dateModified':  article.lastUpdated,
+    'author':     { '@type': 'Organization', 'name': 'AllPlatforms.io', 'url': BASE_URL },
+    'publisher':  { '@type': 'Organization', 'name': 'AllPlatforms.io', 'url': BASE_URL },
+  });
+
+  return template
+    .replace(/\{\{META_TITLE\}\}/g,              () => metaTitle)
+    .replace(/\{\{META_DESCRIPTION\}\}/g,        () => article.description)
+    .replace(/\{\{CANONICAL_URL\}\}/g,           () => canonical)
+    .replace(/\{\{JSON_LD\}\}/g,                 () => jsonLd)
+    .replace(/\{\{ARTICLE_TITLE\}\}/g,           () => escapeHtml(article.title))
+    .replace(/\{\{ARTICLE_DESCRIPTION\}\}/g,     () => escapeHtml(article.description))
+    .replace(/\{\{ARTICLE_DATE\}\}/g,            () => article.publishDate)
+    .replace(/\{\{ARTICLE_DATE_DISPLAY\}\}/g,    () => dateDisplay)
+    .replace(/\{\{ARTICLE_READ_TIME\}\}/g,       () => escapeHtml(article.readTime || '5 min read'))
+    .replace(/\{\{ARTICLE_CATEGORY\}\}/g,        () => escapeHtml(article.category || 'Guide'))
+    .replace(/\{\{ARTICLE_TOC\}\}/g,             () => toc)
+    .replace(/\{\{ARTICLE_BODY\}\}/g,            () => body)
+    .replace(/\{\{RELATED_PLATFORMS_SECTION\}\}/g, () => related);
+}
+
+function buildBlogIndexPage(articles, template) {
+  const cards = articles.map(a => {
+    const dateDisplay = new Date(a.publishDate + 'T00:00:00Z')
+      .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+    return `<a href="/blog/${a.slug}" class="blog-card">
+  <div class="blog-card-top">
+    <span class="blog-card-cat">${escapeHtml(a.category || 'Guide')}</span>
+    <span class="blog-card-read">${escapeHtml(a.readTime || '5 min read')}</span>
+  </div>
+  <h2 class="blog-card-title">${escapeHtml(a.title)}</h2>
+  <p class="blog-card-desc">${escapeHtml(a.description)}</p>
+  <span class="blog-card-date">${dateDisplay}</span>
+</a>`;
+  }).join('\n');
+
+  return template
+    .replace(/\{\{META_TITLE\}\}/g,       () => 'Blog — Social Media Guides & Comparisons | AllPlatforms.io')
+    .replace(/\{\{META_DESCRIPTION\}\}/g, () => 'Guides, spec comparisons, and quick references for social media image sizes, video formats, and platform specs.')
+    .replace(/\{\{BLOG_CARDS\}\}/g,       () => cards)
+    .replace(/\{\{ARTICLE_COUNT\}\}/g,    () => String(articles.length));
+}
+
+// ── Sitemap ─────────────────────────────────────────────────────────────────
+
+function buildSitemap(allPlatforms, articles) {
   const urls = [
     `  <url><loc>${BASE_URL}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
+    `  <url><loc>${BASE_URL}/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`,
     ...allPlatforms.map(p =>
       `  <url><loc>${BASE_URL}/${p.slug}</loc><lastmod>${p.lastUpdated}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`
+    ),
+    ...articles.map(a =>
+      `  <url><loc>${BASE_URL}/blog/${a.slug}</loc><lastmod>${a.lastUpdated}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
     ),
   ].join('\n');
 
@@ -318,6 +443,14 @@ function main() {
   const platformTemplate = fs.readFileSync(path.join(SRC_DIR, 'template-platform.html'), 'utf8');
   const indexTemplate    = fs.readFileSync(path.join(SRC_DIR, 'template-index.html'),    'utf8');
 
+  // Load articles (sorted newest first)
+  const articles = fs.existsSync(ARTICLES_DIR)
+    ? fs.readdirSync(ARTICLES_DIR)
+        .filter(f => f.endsWith('.json'))
+        .map(f => JSON.parse(fs.readFileSync(path.join(ARTICLES_DIR, f), 'utf8')))
+        .sort((a, b) => b.publishDate.localeCompare(a.publishDate))
+    : [];
+
   fs.mkdirSync(PUBLIC_DIR, { recursive: true });
 
   for (const platform of allPlatforms) {
@@ -334,7 +467,26 @@ function main() {
   fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), buildHomePage(allPlatforms, indexTemplate, logos), 'utf8');
   console.log('  ✓ /index.html');
 
-  const sitemap = buildSitemap(allPlatforms);
+  if (articles.length > 0) {
+    const articleTemplate = fs.readFileSync(path.join(SRC_DIR, 'template-article.html'), 'utf8');
+    const blogTemplate    = fs.readFileSync(path.join(SRC_DIR, 'template-blog.html'),    'utf8');
+
+    const blogDir = path.join(PUBLIC_DIR, 'blog');
+    fs.mkdirSync(blogDir, { recursive: true });
+
+    for (const article of articles) {
+      const dir = path.join(blogDir, article.slug);
+      fs.mkdirSync(dir, { recursive: true });
+      const html = buildArticlePage(article, articleTemplate, allPlatforms, logos);
+      fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+      console.log(`  ✓ /blog/${article.slug}/index.html`);
+    }
+
+    fs.writeFileSync(path.join(blogDir, 'index.html'), buildBlogIndexPage(articles, blogTemplate), 'utf8');
+    console.log('  ✓ /blog/index.html');
+  }
+
+  const sitemap = buildSitemap(allPlatforms, articles);
   fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemap, 'utf8');
   console.log('  ✓ /sitemap.xml');
 
@@ -342,7 +494,7 @@ function main() {
   fs.writeFileSync(path.join(PUBLIC_DIR, 'robots.txt'), robots, 'utf8');
   console.log('  ✓ /robots.txt');
 
-  console.log(`\nBuild complete — ${allPlatforms.length} platform(s)`);
+  console.log(`\nBuild complete — ${allPlatforms.length} platform(s), ${articles.length} article(s)`);
 }
 
 try {

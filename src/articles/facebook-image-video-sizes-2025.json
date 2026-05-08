@@ -1,0 +1,131 @@
+{
+  "slug": "facebook-image-video-sizes-2025",
+  "title": "Facebook Image & Video Sizes: Complete Guide for 2025",
+  "description": "Every Facebook image size and video spec for profiles, pages, posts, Stories, Reels, ads, and events — with the exact dimensions to avoid cropping and compression.",
+  "publishDate": "2025-05-08",
+  "lastUpdated": "2025-05-08",
+  "readTime": "7 min read",
+  "category": "Guide",
+  "relatedPlatforms": ["facebook", "instagram", "messenger"],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "Facebook is still the world's largest social platform with over 3 billion monthly users. It also has the most complex set of image and video specs — different rules apply to profiles, pages, groups, events, ads, and stories. This guide covers everything in one place."
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Profile Image Sizes"
+    },
+    {
+      "type": "table",
+      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "rows": [
+        ["Profile Photo",          "170×170 px",    "1:1",    "Displays as circle; minimum 180×180"],
+        ["Cover Photo (personal)", "851×315 px",    "2.7:1",  "On mobile: 640×360; safe zone: center"],
+        ["Profile video",          "1080×1080 px",  "1:1",    "Replaces profile photo with looping video"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Page Image Sizes"
+    },
+    {
+      "type": "table",
+      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "rows": [
+        ["Page Profile Photo",     "170×170 px",    "1:1",    "Business logo; displays as circle"],
+        ["Page Cover Photo",       "851×315 px",    "2.7:1",  "Mobile: 640×360; keep CTA area safe"],
+        ["Page Cover Video",       "820×312 px",    "2.63:1", "20–90 second loop; no audio by default"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Post Image Sizes"
+    },
+    {
+      "type": "paragraph",
+      "content": "Facebook scales images in the feed based on their original ratio. Landscape images appear wider; square images appear as squares. Facebook renders images at up to 2048px wide on high-density screens, so uploading at 1200px or above is recommended."
+    },
+    {
+      "type": "table",
+      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "rows": [
+        ["Shared / Feed Image",    "1200×630 px",   "1.91:1", "Most common format; sRGB color space"],
+        ["Square Post",            "1080×1080 px",  "1:1",    ""],
+        ["Portrait Post",          "1080×1350 px",  "4:5",    "Max portrait ratio allowed"],
+        ["Photo Album Cover",      "1200×630 px",   "1.91:1", "First photo in the album"],
+        ["Shared Link Preview",    "1200×630 px",   "1.91:1", "Pulled from Open Graph meta tags"]
+      ]
+    },
+    {
+      "type": "tip",
+      "label": "Compression tip",
+      "content": "Facebook recompresses JPEGs significantly. For the sharpest results, upload as PNG (for graphics with text) or upload high-quality JPEGs at 85%+ quality with sRGB color profile."
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Stories Image Sizes"
+    },
+    {
+      "type": "table",
+      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "rows": [
+        ["Story Image / Video",    "1080×1920 px",  "9:16",   "Safe zone: 1080×1420 center area"],
+        ["Story Overlay Text",     "—",             "—",      "Keep within top/bottom 250px safe margins"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Video Specs"
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Codec"],
+      "rows": [
+        ["Feed Video",         "1920×1080",  "16:9 to 9:16", "240 minutes", "10 GB",  "H.264 / MP4"],
+        ["Facebook Reels",     "1080×1920",  "9:16",          "90 seconds",  "4 GB",   "H.264 / MP4"],
+        ["Facebook Stories",   "1080×1920",  "9:16",          "20 seconds",  "4 GB",   "H.264 / MP4"],
+        ["Facebook Live",      "1920×1080",  "16:9",          "8 hours",     "—",      "H.264 via RTMP"],
+        ["360 Video",          "5120×2560",  "2:1",           "60 minutes",  "10 GB",  "H.264 / MP4"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Group & Event Image Sizes"
+    },
+    {
+      "type": "table",
+      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "rows": [
+        ["Group Cover Photo",  "1640×856 px",   "1.91:1", "Displays at 1640×856 on desktop"],
+        ["Event Cover Photo",  "1920×1005 px",  "1.91:1", "Cropped to 470×174 in timeline"],
+        ["Fundraiser Image",   "1200×630 px",   "1.91:1", ""]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Ad Image Specs"
+    },
+    {
+      "type": "paragraph",
+      "content": "Facebook ads share the same underlying image specs as organic posts, but ads have stricter requirements around text overlay. Facebook's ad system historically penalized images with more than 20% text — that rule has been relaxed, but high-text images still see reduced delivery."
+    },
+    {
+      "type": "table",
+      "headers": ["Ad Type", "Recommended Size", "Aspect Ratio", "Max File Size"],
+      "rows": [
+        ["Single Image Ad",     "1200×628 px",   "1.91:1", "30 MB"],
+        ["Single Image (square)","1080×1080 px", "1:1",    "30 MB"],
+        ["Carousel Card",       "1080×1080 px",  "1:1",    "30 MB per card"],
+        ["Stories Ad",          "1080×1920 px",  "9:16",   "30 MB"],
+        ["Reels Ad",            "1080×1920 px",  "9:16",   "4 GB video"],
+        ["Right Column Ad",     "1200×628 px",   "1.91:1", "30 MB"]
+      ]
+    },
+    {
+      "type": "tip",
+      "label": "Ad tip",
+      "content": "For Facebook and Instagram feed ads using the same creative, design at 1080×1350 px (4:5). It takes up the most feed space on both platforms without being cropped, and will be automatically rendered as 1.91:1 in right-column placements."
+    }
+  ]
+}

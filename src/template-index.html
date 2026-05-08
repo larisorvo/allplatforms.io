@@ -102,6 +102,17 @@
       color: var(--accent);
       letter-spacing: 0.02em;
     }
+    .nav-blog-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border-hi);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .nav-blog-link:hover { border-color: var(--accent); color: var(--accent); }
     #theme-toggle {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -441,6 +452,7 @@
         </svg>
         <span class="logo-wordmark">allplatforms<span>.io</span></span>
       </a>
+      <a href="/blog" class="nav-blog-link">Blog</a>
       <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
         <span id="theme-label"></span>
       </button>

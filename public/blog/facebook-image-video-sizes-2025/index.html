@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var t=localStorage.getItem('ap-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <title>Facebook Image & Video Sizes: Complete Guide for 2025 | AllPlatforms.io</title>
+  <meta name="description" content="Every Facebook image size and video spec for profiles, pages, posts, Stories, Reels, ads, and events — with the exact dimensions to avoid cropping and compression.">
+  <link rel="canonical" href="https://allplatforms.io/blog/facebook-image-video-sizes-2025">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6151MG4WFW"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6151MG4WFW');</script>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Facebook Image & Video Sizes: Complete Guide for 2025 | AllPlatforms.io">
+  <meta property="og:description" content="Every Facebook image size and video spec for profiles, pages, posts, Stories, Reels, ads, and events — with the exact dimensions to avoid cropping and compression.">
+  <meta property="og:url" content="https://allplatforms.io/blog/facebook-image-video-sizes-2025">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Facebook Image & Video Sizes: Complete Guide for 2025","description":"Every Facebook image size and video spec for profiles, pages, posts, Stories, Reels, ads, and events — with the exact dimensions to avoid cropping and compression.","url":"https://allplatforms.io/blog/facebook-image-video-sizes-2025","datePublished":"2025-05-08","dateModified":"2025-05-08","author":{"@type":"Organization","name":"AllPlatforms.io","url":"https://allplatforms.io"},"publisher":{"@type":"Organization","name":"AllPlatforms.io","url":"https://allplatforms.io"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    :root {
+      --bg:        #0c0c0f;
+      --surface:   #141418;
+      --surface2:  #1a1a20;
+      --border:    #222228;
+      --border-hi: #2e2e38;
+      --text:      #e8e8f0;
+      --muted:     #6b6b80;
+      --accent:    #c8f557;
+      --font-display: 'Inter', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+      --font-body:    'Inter', sans-serif;
+    }
+    html:not(.dark) {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --surface2:  #f0f0f4;
+      --border:    #e0e0e8;
+      --border-hi: #c8c8d8;
+      --text:      #18181e;
+      --muted:     #888898;
+      --accent:    #5a3af7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-wordmark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .logo-wordmark span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border-hi);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .nav-link:hover { border-color: var(--accent); color: var(--accent); }
+    #theme-toggle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    #theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
+    }
+    .article-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .article-breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .article-breadcrumb a:hover { color: var(--accent); }
+    .article-breadcrumb .sep { opacity: 0.4; }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .article-cat {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .article-read-time {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .article-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* TABLE OF CONTENTS */
+    .toc {
+      max-width: 760px;
+      margin: 0 auto 8px;
+      padding: 0 24px;
+    }
+    .toc-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+    .toc-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      counter-reset: toc-counter;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+    .toc ol li a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+    .toc ol li a:hover { color: var(--accent); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+    .article-body .ap {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .article-body .ap a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+      text-underline-offset: 3px;
+    }
+    .article-body .ap a:hover { text-decoration-color: var(--accent); }
+    .article-body .ah2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 40px 0 16px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .article-body .ah3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 28px 0 12px;
+    }
+
+    /* TABLES */
+    .atbl-wrap {
+      overflow-x: auto;
+      margin: 4px 0 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .atbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .atbl caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: left;
+      padding: 10px 16px 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .atbl thead tr {
+      background: var(--surface2);
+    }
+    .atbl thead th {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 10px 16px;
+      text-align: left;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+    .atbl tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+    }
+    .atbl tbody tr:last-child { border-bottom: none; }
+    .atbl tbody tr:hover { background: var(--surface2); }
+    .atbl tbody td {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text);
+      padding: 10px 16px;
+      vertical-align: top;
+    }
+    .atbl tbody td:first-child {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* LISTS */
+    .alist {
+      list-style: none;
+      margin: 4px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .alist li {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      padding-left: 20px;
+      position: relative;
+    }
+    .alist li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+      top: 2px;
+    }
+
+    /* TIP BLOCK */
+    .atip {
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 4px 0 28px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    .atip strong {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* RELATED PLATFORMS */
+    .related-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+    .related-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .related-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .related-platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .rel-platform {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px 7px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .rel-platform:hover {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+    }
+
+    /* BACK LINK */
+    .back-link-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 32px;
+    }
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .footer-logo span {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--accent);
+    }
+    .footer-note { font-size: 12px; color: var(--muted); }
+    .footer-email {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .footer-email:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .article-header { animation: fadeUp 0.45s ease both; }
+    .toc            { animation: fadeUp 0.45s 0.06s ease both; }
+    .article-body   { animation: fadeUp 0.45s 0.12s ease both; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="allplatforms.io">
+        <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="0"  y="0"  width="14" height="14" rx="2.5" fill="var(--accent)"/>
+          <rect x="17" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.6"/>
+          <rect x="34" y="0"  width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.3"/>
+          <rect x="0"  y="17" width="14" height="14" rx="2.5" fill="var(--accent)" opacity="0.5"/>
+          <rect x="17" y="17" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="34" y="17" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="0"  y="34" width="14" height="14" rx="2.5" fill="var(--border-hi)"/>
+          <rect x="17" y="34" width="14" height="14" rx="2.5" fill="var(--border)"/>
+          <rect x="34" y="34" width="14" height="14" rx="2.5" fill="var(--border)" opacity="0.5"/>
+        </svg>
+        <span class="logo-wordmark">allplatforms<span>.io</span></span>
+      </a>
+      <div class="nav-right">
+        <a href="/blog" class="nav-link">Blog</a>
+        <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
+          <span id="theme-label"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-breadcrumb">
+      <a href="/">allplatforms.io</a>
+      <span class="sep">/</span>
+      <a href="/blog">Blog</a>
+      <span class="sep">/</span>
+      <span>Guide</span>
+    </div>
+    <div class="article-meta">
+      <span class="article-cat">Guide</span>
+      <span class="article-read-time">7 min read</span>
+      <span class="article-date"><time datetime="2025-05-08">May 8, 2025</time></span>
+    </div>
+    <h1 class="article-title">Facebook Image &amp; Video Sizes: Complete Guide for 2025</h1>
+    <p class="article-desc">Every Facebook image size and video spec for profiles, pages, posts, Stories, Reels, ads, and events — with the exact dimensions to avoid cropping and compression.</p>
+  </header>
+
+  <div class="toc"><div class="toc-inner"><p class="toc-label">Contents</p><ol><li><a href="#facebook-profile-image-sizes">Facebook Profile Image Sizes</a></li><li><a href="#facebook-page-image-sizes">Facebook Page Image Sizes</a></li><li><a href="#facebook-post-image-sizes">Facebook Post Image Sizes</a></li><li><a href="#facebook-stories-image-sizes">Facebook Stories Image Sizes</a></li><li><a href="#facebook-video-specs">Facebook Video Specs</a></li><li><a href="#facebook-group-event-image-sizes">Facebook Group &amp; Event Image Sizes</a></li><li><a href="#facebook-ad-image-specs">Facebook Ad Image Specs</a></li></ol></div></div>
+
+  <article class="article-body">
+    <p class="ap">Facebook is still the world's largest social platform with over 3 billion monthly users. It also has the most complex set of image and video specs — different rules apply to profiles, pages, groups, events, ads, and stories. This guide covers everything in one place.</p>
+<h2 class="ah2" id="facebook-profile-image-sizes">Facebook Profile Image Sizes</h2>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Image Type</th><th>Recommended Size</th><th>Aspect Ratio</th><th>Notes</th></tr></thead><tbody><tr><td>Profile Photo</td><td>170×170 px</td><td>1:1</td><td>Displays as circle; minimum 180×180</td></tr><tr><td>Cover Photo (personal)</td><td>851×315 px</td><td>2.7:1</td><td>On mobile: 640×360; safe zone: center</td></tr><tr><td>Profile video</td><td>1080×1080 px</td><td>1:1</td><td>Replaces profile photo with looping video</td></tr></tbody></table></div>
+<h2 class="ah2" id="facebook-page-image-sizes">Facebook Page Image Sizes</h2>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Image Type</th><th>Recommended Size</th><th>Aspect Ratio</th><th>Notes</th></tr></thead><tbody><tr><td>Page Profile Photo</td><td>170×170 px</td><td>1:1</td><td>Business logo; displays as circle</td></tr><tr><td>Page Cover Photo</td><td>851×315 px</td><td>2.7:1</td><td>Mobile: 640×360; keep CTA area safe</td></tr><tr><td>Page Cover Video</td><td>820×312 px</td><td>2.63:1</td><td>20–90 second loop; no audio by default</td></tr></tbody></table></div>
+<h2 class="ah2" id="facebook-post-image-sizes">Facebook Post Image Sizes</h2>
+<p class="ap">Facebook scales images in the feed based on their original ratio. Landscape images appear wider; square images appear as squares. Facebook renders images at up to 2048px wide on high-density screens, so uploading at 1200px or above is recommended.</p>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Image Type</th><th>Recommended Size</th><th>Aspect Ratio</th><th>Notes</th></tr></thead><tbody><tr><td>Shared / Feed Image</td><td>1200×630 px</td><td>1.91:1</td><td>Most common format; sRGB color space</td></tr><tr><td>Square Post</td><td>1080×1080 px</td><td>1:1</td><td></td></tr><tr><td>Portrait Post</td><td>1080×1350 px</td><td>4:5</td><td>Max portrait ratio allowed</td></tr><tr><td>Photo Album Cover</td><td>1200×630 px</td><td>1.91:1</td><td>First photo in the album</td></tr><tr><td>Shared Link Preview</td><td>1200×630 px</td><td>1.91:1</td><td>Pulled from Open Graph meta tags</td></tr></tbody></table></div>
+<div class="atip"><strong>Compression tip</strong>Facebook recompresses JPEGs significantly. For the sharpest results, upload as PNG (for graphics with text) or upload high-quality JPEGs at 85%+ quality with sRGB color profile.</div>
+<h2 class="ah2" id="facebook-stories-image-sizes">Facebook Stories Image Sizes</h2>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Image Type</th><th>Recommended Size</th><th>Aspect Ratio</th><th>Notes</th></tr></thead><tbody><tr><td>Story Image / Video</td><td>1080×1920 px</td><td>9:16</td><td>Safe zone: 1080×1420 center area</td></tr><tr><td>Story Overlay Text</td><td>—</td><td>—</td><td>Keep within top/bottom 250px safe margins</td></tr></tbody></table></div>
+<h2 class="ah2" id="facebook-video-specs">Facebook Video Specs</h2>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Video Type</th><th>Resolution</th><th>Aspect Ratio</th><th>Max Duration</th><th>Max File Size</th><th>Codec</th></tr></thead><tbody><tr><td>Feed Video</td><td>1920×1080</td><td>16:9 to 9:16</td><td>240 minutes</td><td>10 GB</td><td>H.264 / MP4</td></tr><tr><td>Facebook Reels</td><td>1080×1920</td><td>9:16</td><td>90 seconds</td><td>4 GB</td><td>H.264 / MP4</td></tr><tr><td>Facebook Stories</td><td>1080×1920</td><td>9:16</td><td>20 seconds</td><td>4 GB</td><td>H.264 / MP4</td></tr><tr><td>Facebook Live</td><td>1920×1080</td><td>16:9</td><td>8 hours</td><td>—</td><td>H.264 via RTMP</td></tr><tr><td>360 Video</td><td>5120×2560</td><td>2:1</td><td>60 minutes</td><td>10 GB</td><td>H.264 / MP4</td></tr></tbody></table></div>
+<h2 class="ah2" id="facebook-group-event-image-sizes">Facebook Group &amp; Event Image Sizes</h2>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Image Type</th><th>Recommended Size</th><th>Aspect Ratio</th><th>Notes</th></tr></thead><tbody><tr><td>Group Cover Photo</td><td>1640×856 px</td><td>1.91:1</td><td>Displays at 1640×856 on desktop</td></tr><tr><td>Event Cover Photo</td><td>1920×1005 px</td><td>1.91:1</td><td>Cropped to 470×174 in timeline</td></tr><tr><td>Fundraiser Image</td><td>1200×630 px</td><td>1.91:1</td><td></td></tr></tbody></table></div>
+<h2 class="ah2" id="facebook-ad-image-specs">Facebook Ad Image Specs</h2>
+<p class="ap">Facebook ads share the same underlying image specs as organic posts, but ads have stricter requirements around text overlay. Facebook's ad system historically penalized images with more than 20% text — that rule has been relaxed, but high-text images still see reduced delivery.</p>
+<div class="atbl-wrap"><table class="atbl"><thead><tr><th>Ad Type</th><th>Recommended Size</th><th>Aspect Ratio</th><th>Max File Size</th></tr></thead><tbody><tr><td>Single Image Ad</td><td>1200×628 px</td><td>1.91:1</td><td>30 MB</td></tr><tr><td>Single Image (square)</td><td>1080×1080 px</td><td>1:1</td><td>30 MB</td></tr><tr><td>Carousel Card</td><td>1080×1080 px</td><td>1:1</td><td>30 MB per card</td></tr><tr><td>Stories Ad</td><td>1080×1920 px</td><td>9:16</td><td>30 MB</td></tr><tr><td>Reels Ad</td><td>1080×1920 px</td><td>9:16</td><td>4 GB video</td></tr><tr><td>Right Column Ad</td><td>1200×628 px</td><td>1.91:1</td><td>30 MB</td></tr></tbody></table></div>
+<div class="atip"><strong>Ad tip</strong>For Facebook and Instagram feed ads using the same creative, design at 1080×1350 px (4:5). It takes up the most feed space on both platforms without being cropped, and will be automatically rendered as 1.91:1 in right-column placements.</div>
+  </article>
+
+  <div class="related-section"><p class="related-label">Platform specs</p><div class="related-platforms"><a href="/facebook" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#1877F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><span>Facebook</span></a><a href="/instagram" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#E1306C;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Instagram</span></a><a href="/messenger" class="rel-platform"><div style="width:28px;height:28px;border-radius:6px;background:#0078FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M12 2C6.48 2 2 6.19 2 11.33c0 2.82 1.3 5.35 3.36 7.1v3.57l3.28-1.8c.94.26 1.93.4 2.96.4 5.52 0 10-4.19 10-9.27C22 6.19 17.52 2 12 2zm1.16 12.49-2.55-2.73-4.96 2.73 5.47-5.8 2.61 2.73 4.9-2.73-5.47 5.8z"/></svg></div><span>Messenger</span></a></div></div>
+
+  <div class="back-link-wrap">
+    <a href="/blog" class="back-link">← Back to Blog</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">allplatforms<span>.io</span></span>
+      <p class="footer-note">Spec data verified against official platform documentation. Updated regularly.</p>
+      <span id="contact-link"></span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      var dark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('ap-theme', dark ? 'dark' : 'light');
+      updateThemeToggle(dark);
+    }
+    function updateThemeToggle(dark) {
+      var label = document.getElementById('theme-label');
+      if (label) label.textContent = dark ? 'Light' : 'Dark';
+    }
+    updateThemeToggle(document.documentElement.classList.contains('dark'));
+
+    (function(){
+      var c=[109,97,105,108,64,97,108,108,112,108,97,116,102,111,114,109,115,46,105,111];
+      var el=document.getElementById('contact-link');
+      if(!el)return;
+      var e=c.map(function(n){return String.fromCharCode(n);}).join('');
+      var a=document.createElement('a');
+      a.href='mai'+'lto:'+e;
+      a.textContent=e;
+      a.className='footer-email';
+      el.appendChild(a);
+    })();
+  </script>
+
+</body>
+</html>

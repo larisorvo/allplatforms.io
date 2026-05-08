@@ -1,0 +1,177 @@
+{
+  "slug": "social-media-video-specs-2025",
+  "title": "Social Media Video Specs: Every Platform Explained for 2025",
+  "description": "Complete video specifications for YouTube, TikTok, Instagram Reels, Facebook, LinkedIn, X and more — resolutions, aspect ratios, durations, codecs, and file sizes.",
+  "publishDate": "2025-05-08",
+  "lastUpdated": "2025-05-08",
+  "readTime": "8 min read",
+  "category": "Guide",
+  "relatedPlatforms": ["youtube", "tiktok", "instagram", "facebook", "linkedin", "x", "snapchat", "pinterest"],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "Video is now the dominant content format on every major social platform. But each platform has its own rules — different aspect ratios, file size limits, codec requirements, and maximum durations. Get these wrong and your video gets rejected, compressed into a blurry mess, or wrapped in black bars. This guide covers everything you need to know for 2025."
+    },
+    {
+      "type": "h2",
+      "content": "Key Video Specs to Understand"
+    },
+    {
+      "type": "paragraph",
+      "content": "Before diving into platform-by-platform specs, here are the key terms you'll see throughout this guide:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Resolution — the pixel dimensions of your video (e.g. 1920×1080). Higher is sharper, but large files take longer to upload and process.",
+        "Aspect Ratio — the width-to-height ratio (e.g. 16:9 for landscape, 9:16 for vertical). This determines how the video fills the screen.",
+        "Frame Rate — how many frames per second (fps). 24fps looks cinematic, 30fps is standard, 60fps is smooth for action.",
+        "Codec — the compression format. H.264 (MP4) is universally accepted. H.265 (HEVC) offers better quality at smaller sizes but isn't accepted everywhere.",
+        "Bitrate — how much data per second. Higher bitrate = better quality, larger file.",
+        "Max File Size — the platform's upload limit. This is often the binding constraint for long videos."
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "YouTube Video Specs"
+    },
+    {
+      "type": "paragraph",
+      "content": "YouTube supports the widest range of formats of any platform and handles transcoding well — it will process almost anything you upload. That said, uploading in H.264 at the target resolution saves time and ensures the best quality during YouTube's processing."
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Recommended Codec"],
+      "rows": [
+        ["Standard Video",    "Up to 3840×2160 (4K)", "16:9",  "12 hours",  "256 GB",   "H.264 / MP4"],
+        ["YouTube Shorts",    "1080×1920",            "9:16",  "3 minutes", "256 GB",   "H.264 / MP4"],
+        ["Live Stream",       "Up to 1920×1080",      "16:9",  "12 hours",  "—",        "H.264"]
+      ]
+    },
+    {
+      "type": "tip",
+      "label": "YouTube tip",
+      "content": "Upload at native 4K even if your content is 1080p — YouTube applies a higher-quality codec (VP9) to 4K uploads, which results in a sharper 1080p stream than uploading at 1080p directly."
+    },
+    {
+      "type": "h2",
+      "content": "TikTok Video Specs"
+    },
+    {
+      "type": "paragraph",
+      "content": "TikTok is built around vertical 9:16 video. Horizontal and square videos work but are displayed with blurred side bars — vertical always performs better. TikTok's compression is aggressive, so export your video at the highest quality setting before uploading."
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Recommended Codec"],
+      "rows": [
+        ["Feed Video",  "1080×1920", "9:16", "10 minutes", "4 GB",  "H.264 / MP4"],
+        ["TikTok Live", "1080×1920", "9:16", "Unlimited",  "—",     "H.264"],
+        ["Story",       "1080×1920", "9:16", "15 seconds", "—",     "H.264 / MP4"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Instagram Video Specs"
+    },
+    {
+      "type": "paragraph",
+      "content": "Instagram has several different video formats — Reels, Stories, and feed videos — each with different constraints. Reels is Instagram's primary discovery surface, so it's worth optimizing for it specifically."
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "rows": [
+        ["Reels",       "1080×1920", "9:16",    "15 minutes", "4 GB",    "UI safe zone: leave 14% top/bottom"],
+        ["Feed Video",  "1080×1080", "1:1",     "60 minutes", "4 GB",    "Also supports 4:5 portrait"],
+        ["Story Video", "1080×1920", "9:16",    "60 seconds", "4 GB",    "Per clip; can chain clips"],
+        ["Live Video",  "1080×1920", "9:16",    "4 hours",    "—",       ""]
+      ]
+    },
+    {
+      "type": "tip",
+      "label": "Reels tip",
+      "content": "The bottom 35% of a Reel is covered by the caption, audio bar, and action buttons. Keep your most important visuals in the top half of the frame."
+    },
+    {
+      "type": "h2",
+      "content": "Facebook Video Specs"
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "rows": [
+        ["Feed Video",    "1920×1080",  "16:9",  "240 minutes", "10 GB",  "1:1 and 4:5 also work"],
+        ["Facebook Reels","1080×1920",  "9:16",  "90 seconds",  "4 GB",   ""],
+        ["Story Video",   "1080×1920",  "9:16",  "20 seconds",  "4 GB",   ""],
+        ["Live Video",    "1920×1080",  "16:9",  "8 hours",     "—",      ""],
+        ["In-stream Ad",  "1080×1920",  "9:16",  "15 seconds",  "—",      "Preferred for mobile feed"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "X (Twitter) Video Specs"
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "rows": [
+        ["In-stream Video",  "1280×720 min, 1920×1200 max", "16:9 / 1:1 / 9:16", "2 minutes 20 seconds", "512 MB", "MOV or MP4"],
+        ["X Live",           "720p minimum",                 "16:9",               "Unlimited",            "—",      ""]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "LinkedIn Video Specs"
+    },
+    {
+      "type": "paragraph",
+      "content": "LinkedIn video skews toward professional content — product demos, talks, and thought leadership. Square (1:1) and portrait (4:5) formats perform well in the LinkedIn feed because they take up more space without requiring the user to go full-screen."
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "rows": [
+        ["Feed Video",   "256×144 min, 4096×2304 max", "1:2.4 to 2.4:1", "10 minutes", "5 GB",    "H.264 / MP4 recommended"],
+        ["LinkedIn Live","1920×1080 min",               "16:9",            "4 hours",    "—",       ""],
+        ["Sponsored Video", "1920×1080",                "16:9 or 1:1",     "30 minutes", "200 MB",  "For ads"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Snapchat Video Specs"
+    },
+    {
+      "type": "table",
+      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "rows": [
+        ["Snap / Story",  "1080×1920", "9:16", "60 seconds", "1 GB",  ""],
+        ["Spotlight",     "1080×1920", "9:16", "60 seconds", "1 GB",  "Vertical video discovery"],
+        ["Snap Ad",       "1080×1920", "9:16", "3–180 seconds", "1 GB", "H.264 / MOV or MP4"]
+      ]
+    },
+    {
+      "type": "h2",
+      "content": "Quick Comparison: All Platforms"
+    },
+    {
+      "type": "table",
+      "headers": ["Platform", "Best Resolution", "Best Aspect Ratio", "Max Duration", "Max File Size"],
+      "rows": [
+        ["YouTube",    "3840×2160 (4K)", "16:9",  "12 hours",    "256 GB"],
+        ["TikTok",     "1080×1920",      "9:16",  "10 minutes",  "4 GB"],
+        ["Instagram Reels", "1080×1920", "9:16",  "15 minutes",  "4 GB"],
+        ["Instagram Feed",  "1080×1080", "1:1",   "60 minutes",  "4 GB"],
+        ["Facebook",   "1920×1080",      "16:9",  "240 minutes", "10 GB"],
+        ["X (Twitter)","1920×1200",      "16:9",  "2m 20s",      "512 MB"],
+        ["LinkedIn",   "1920×1080",      "1:1",   "10 minutes",  "5 GB"],
+        ["Snapchat",   "1080×1920",      "9:16",  "60 seconds",  "1 GB"]
+      ]
+    },
+    {
+      "type": "tip",
+      "label": "Universal advice",
+      "content": "Export in H.264 (MP4) at the highest quality your file size allows. It's the one codec accepted everywhere. Use AAC audio at 48kHz. For vertical video (9:16), plan your composition so the subject is centered — most platforms layer UI elements over the top and bottom 15% of the frame."
+    }
+  ]
+}
