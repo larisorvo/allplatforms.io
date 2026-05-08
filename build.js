@@ -247,22 +247,16 @@ function buildPlatformPage(platform, template, allPlatforms, logos) {
 
 function buildFeaturedArticles(articles) {
   if (!articles || articles.length === 0) return '';
-  const featured = articles.slice(0, 3);
-  const items = featured.map(a => `<a href="/blog/${a.slug}" class="blog-strip-item">
-  <div class="blog-strip-item-top">
-    <span class="blog-strip-cat">${escapeHtml(a.category || 'Guide')}</span>
-    <span class="blog-strip-read">${escapeHtml(a.readTime || '5 min read')}</span>
+  const items = articles.slice(0, 3).map(a => `<a href="/blog/${a.slug}" class="hero-blog-item">
+  <div class="hero-blog-meta">
+    <span class="hero-blog-cat">${escapeHtml(a.category || 'Guide')}</span>
+    <span class="hero-blog-time">${escapeHtml(a.readTime || '5 min read')}</span>
   </div>
-  <span class="blog-strip-title">${escapeHtml(a.title)}</span>
-  <span class="blog-strip-arrow">Read →</span>
+  <span class="hero-blog-title">${escapeHtml(a.title)}</span>
 </a>`).join('\n');
-  return `<div class="blog-strip">
-  <div class="blog-strip-header">
-    <span class="blog-strip-label">From the blog</span>
-    <a href="/blog" class="blog-strip-all">View all articles →</a>
-  </div>
-  <div class="blog-strip-list">${items}</div>
-</div>`;
+  return `<p class="hero-blog-label">From the blog</p>
+<div class="hero-blog-list">${items}</div>
+<a href="/blog" class="hero-blog-all">View all articles →</a>`;
 }
 
 function buildHomePage(allPlatforms, template, logos, articles) {

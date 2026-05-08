@@ -135,8 +135,11 @@
       max-width: 1280px;
       margin: 0 auto;
       padding: 72px 24px 48px;
-      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 64px;
     }
+    .hero-content { flex: 1; min-width: 0; }
     .hero-eyebrow {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -171,9 +174,86 @@
     .hero-sub {
       font-size: 1.05rem;
       color: var(--muted);
-      max-width: 520px;
       line-height: 1.65;
     }
+
+    /* HERO BLOG SIDEBAR */
+    .hero-blog {
+      width: 260px;
+      flex-shrink: 0;
+      padding-top: 4px;
+    }
+    @media (max-width: 860px) {
+      .hero { flex-direction: column; gap: 32px; }
+      .hero-blog { width: 100%; }
+    }
+    .hero-blog-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-blog-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .hero-blog-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-blog-item {
+      padding: 13px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-decoration: none;
+    }
+    .hero-blog-item:last-of-type { border-bottom: 1px solid var(--border); }
+    .hero-blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-blog-cat {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero-blog-time {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--muted);
+      opacity: 0.5;
+    }
+    .hero-blog-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+    .hero-blog-item:hover .hero-blog-title { color: var(--accent); }
+    .hero-blog-all {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      display: block;
+      margin-top: 14px;
+      transition: color 0.15s;
+    }
+    .hero-blog-all:hover { color: var(--accent); }
 
     /* CONTROLS BAR (sort + type filter) */
     .controls-bar {
@@ -380,104 +460,6 @@
       transform: translate(2px, -2px);
     }
 
-    /* BLOG STRIP */
-    .blog-strip {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px 64px;
-    }
-    .blog-strip-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-    .blog-strip-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .blog-strip-label::after {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: var(--border);
-    }
-    .blog-strip-all {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .blog-strip-all:hover { color: var(--accent); }
-    .blog-strip-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    @media (max-width: 640px) {
-      .blog-strip-list { grid-template-columns: 1fr; }
-    }
-    .blog-strip-item {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 20px 22px;
-      background: var(--surface);
-      text-decoration: none;
-      transition: background 0.15s;
-      position: relative;
-    }
-    .blog-strip-item:hover { background: var(--bg); }
-    .blog-strip-item-top {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .blog-strip-cat {
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      opacity: 0.8;
-    }
-    .blog-strip-read {
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      color: var(--muted);
-      opacity: 0.6;
-      margin-left: auto;
-    }
-    .blog-strip-title {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      line-height: 1.35;
-    }
-    .blog-strip-item:hover .blog-strip-title { color: var(--accent); }
-    .blog-strip-arrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 4px;
-      transition: color 0.15s, transform 0.15s;
-      display: inline-block;
-    }
-    .blog-strip-item:hover .blog-strip-arrow { color: var(--accent); transform: translateX(3px); }
-
     /* FOOTER */
     footer {
       background: var(--surface);
@@ -528,6 +510,7 @@
     .hero-eyebrow { animation: fadeUp 0.5s ease both; }
     h1            { animation: fadeUp 0.5s 0.08s ease both; }
     .hero-sub     { animation: fadeUp 0.5s 0.16s ease both; }
+    .hero-blog    { animation: fadeUp 0.5s 0.2s ease both; }
     .grid-wrap    { animation: fadeUp 0.5s 0.24s ease both; }
   </style>
 </head>
@@ -559,9 +542,12 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-eyebrow">Social Media Specs</div>
-    <h1>Every platform.<br><em>Every spec.</em></h1>
-    <p class="hero-sub">Image sizes, video requirements, character limits, and ad specs for every major platform — verified against official documentation.</p>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Social Media Specs</div>
+      <h1>Every platform.<br><em>Every spec.</em></h1>
+      <p class="hero-sub">Image sizes, video requirements, character limits, and ad specs for every major platform — verified against official documentation.</p>
+    </div>
+    <div class="hero-blog">{{FEATURED_ARTICLES}}</div>
   </div>
 
   <!-- Platform grid -->
@@ -588,9 +574,6 @@
       <button id="show-all-btn" onclick="showAll()"></button>
     </div>
   </div>
-
-  <!-- Blog strip -->
-  {{FEATURED_ARTICLES}}
 
   <!-- Footer -->
   <footer>
