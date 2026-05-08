@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://allplatforms.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { darkMode: 'class' }</script>
   <style>
@@ -29,9 +29,9 @@
       --muted:     #6b6b80;
       --accent:    #c8f557;
       --accent-dk: #9eca2e;
-      --font-display: 'Syne', sans-serif;
+      --font-display: 'Inter', sans-serif;
       --font-mono:    'DM Mono', monospace;
-      --font-body:    'DM Sans', sans-serif;
+      --font-body:    'Inter', sans-serif;
     }
     html:not(.dark) {
       --bg:        #f5f5f7;
@@ -148,8 +148,8 @@
       font-family: var(--font-display);
       font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -0.04em;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
       color: var(--text);
       margin-bottom: 20px;
     }
@@ -1026,23 +1026,29 @@
   <script>
     function styleCards() {
       document.querySelectorAll('#platform-grid > a').forEach(function(card) {
+        // Name and type come straight from data attributes — no DOM guessing needed
         var color = card.dataset.color || '';
+        var name  = card.dataset.name  || '';
+        var type  = card.dataset.type  || '';
 
-        var headerDiv = card.querySelector('div:first-child');
-        var bodyDiv   = card.querySelector('div:last-child');
-        if (!headerDiv || !bodyDiv) return;
+        // Grab the two direct-child divs: header and body
+        var topDivs   = Array.from(card.querySelectorAll(':scope > div'));
+        var headerDiv = topDivs[0];
+        var bodyDiv   = topDivs[topDivs.length - 1];
+        if (!headerDiv || !bodyDiv || headerDiv === bodyDiv) return;
 
-        var badge  = headerDiv.querySelector('div');
-        var nameEl = headerDiv.querySelector('div > div:first-child');
-        var catEl  = headerDiv.querySelector('div > div:last-child');
+        // Badge = first direct div inside the header
+        var badge  = headerDiv.querySelector(':scope > div');
         var descEl = bodyDiv.querySelector('p');
         var listEl = bodyDiv.querySelector('ul');
 
         var badgeHtml = badge  ? badge.outerHTML : '';
-        var name  = nameEl ? nameEl.textContent : '';
-        var cat   = catEl  ? catEl.textContent  : '';
-        var desc  = descEl ? descEl.textContent  : '';
-        var items = listEl ? Array.from(listEl.querySelectorAll('li')).map(function(li){ return li.textContent.replace(/^→\s*/,''); }) : [];
+        var desc  = descEl ? descEl.textContent.trim() : '';
+        var items = listEl
+          ? Array.from(listEl.querySelectorAll('li')).map(function(li){
+              return li.textContent.replace(/^→\s*/, '').trim();
+            })
+          : [];
 
         var headerBg = color ? 'background:linear-gradient(135deg,' + color + '28,transparent)' : '';
 
@@ -1051,12 +1057,12 @@
             badgeHtml +
             '<div>' +
               '<div class="card-name">' + escHtml(name) + '</div>' +
-              '<div class="card-cat">'  + escHtml(cat)  + '</div>' +
+              '<div class="card-cat">'  + escHtml(type)  + '</div>' +
             '</div>' +
           '</div>' +
           '<div class="card-body">' +
             '<p class="card-desc">' + escHtml(desc) + '</p>' +
-            '<ul>' + items.map(function(t){ return '<li>' + escHtml(t) + '</li>'; }).join('') + '</ul>' +
+            (items.length ? '<ul>' + items.map(function(t){ return '<li>' + escHtml(t) + '</li>'; }).join('') + '</ul>' : '') +
           '</div>';
       });
     }
