@@ -6,17 +6,26 @@
   "lastUpdated": "2026-05-08",
   "readTime": "8 min read",
   "category": "Guide",
-  "relatedPlatforms": ["youtube", "tiktok", "instagram", "facebook", "linkedin", "x", "snapchat", "pinterest"],
+  "relatedPlatforms": [
+    "youtube",
+    "tiktok",
+    "instagram",
+    "facebook",
+    "linkedin",
+    "x",
+    "snapchat",
+    "pinterest"
+  ],
   "sections": [
+    {
+      "type": "image",
+      "url": "/images/social-media-video-specs-1.png",
+      "alt": "Social media video aspect ratios compared — 9:16 vertical, 1:1 square, 16:9 landscape",
+      "caption": "Vertical 9:16 dominates mobile-first platforms; horizontal 16:9 still rules YouTube and desktop"
+    },
     {
       "type": "paragraph",
       "content": "Video is now the dominant content format on every major social platform. But each platform has its own rules — different aspect ratios, file size limits, codec requirements, and maximum durations. Get these wrong and your video gets rejected, compressed into a blurry mess, or wrapped in black bars. This guide covers everything you need to know for 2026."
-    },
-    {
-      "type": "image",
-      "url": "",
-      "alt": "Social media video aspect ratios compared — 9:16 vertical, 1:1 square, 16:9 landscape",
-      "caption": "Vertical 9:16 dominates mobile-first platforms; horizontal 16:9 still rules YouTube and desktop"
     },
     {
       "type": "h2",
@@ -47,11 +56,39 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Recommended Codec"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Recommended Codec"
+      ],
       "rows": [
-        ["Standard Video",    "Up to 3840×2160 (4K)", "16:9",  "12 hours",  "256 GB",   "H.264 / MP4"],
-        ["YouTube Shorts",    "1080×1920",            "9:16",  "3 minutes", "256 GB",   "H.264 / MP4"],
-        ["Live Stream",       "Up to 1920×1080",      "16:9",  "12 hours",  "—",        "H.264"]
+        [
+          "Standard Video",
+          "Up to 3840×2160 (4K)",
+          "16:9",
+          "12 hours",
+          "256 GB",
+          "H.264 / MP4"
+        ],
+        [
+          "YouTube Shorts",
+          "1080×1920",
+          "9:16",
+          "3 minutes",
+          "256 GB",
+          "H.264 / MP4"
+        ],
+        [
+          "Live Stream",
+          "Up to 1920×1080",
+          "16:9",
+          "12 hours",
+          "—",
+          "H.264"
+        ]
       ]
     },
     {
@@ -69,11 +106,39 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Recommended Codec"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Recommended Codec"
+      ],
       "rows": [
-        ["Feed Video",  "1080×1920", "9:16", "10 minutes", "4 GB",  "H.264 / MP4"],
-        ["TikTok Live", "1080×1920", "9:16", "Unlimited",  "—",     "H.264"],
-        ["Story",       "1080×1920", "9:16", "15 seconds", "—",     "H.264 / MP4"]
+        [
+          "Feed Video",
+          "1080×1920",
+          "9:16",
+          "10 minutes",
+          "4 GB",
+          "H.264 / MP4"
+        ],
+        [
+          "TikTok Live",
+          "1080×1920",
+          "9:16",
+          "Unlimited",
+          "—",
+          "H.264"
+        ],
+        [
+          "Story",
+          "1080×1920",
+          "9:16",
+          "15 seconds",
+          "—",
+          "H.264 / MP4"
+        ]
       ]
     },
     {
@@ -86,12 +151,47 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Notes"
+      ],
       "rows": [
-        ["Reels",       "1080×1920", "9:16",    "15 minutes", "4 GB",    "UI safe zone: leave 14% top/bottom"],
-        ["Feed Video",  "1080×1080", "1:1",     "60 minutes", "4 GB",    "Also supports 4:5 portrait"],
-        ["Story Video", "1080×1920", "9:16",    "60 seconds", "4 GB",    "Per clip; can chain clips"],
-        ["Live Video",  "1080×1920", "9:16",    "4 hours",    "—",       ""]
+        [
+          "Reels",
+          "1080×1920",
+          "9:16",
+          "15 minutes",
+          "4 GB",
+          "UI safe zone: leave 14% top/bottom"
+        ],
+        [
+          "Feed Video",
+          "1080×1080",
+          "1:1",
+          "60 minutes",
+          "4 GB",
+          "Also supports 4:5 portrait"
+        ],
+        [
+          "Story Video",
+          "1080×1920",
+          "9:16",
+          "60 seconds",
+          "4 GB",
+          "Per clip; can chain clips"
+        ],
+        [
+          "Live Video",
+          "1080×1920",
+          "9:16",
+          "4 hours",
+          "—",
+          ""
+        ]
       ]
     },
     {
@@ -105,13 +205,55 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Notes"
+      ],
       "rows": [
-        ["Feed Video",    "1920×1080",  "16:9",  "240 minutes", "10 GB",  "1:1 and 4:5 also work"],
-        ["Facebook Reels","1080×1920",  "9:16",  "90 seconds",  "4 GB",   ""],
-        ["Story Video",   "1080×1920",  "9:16",  "20 seconds",  "4 GB",   ""],
-        ["Live Video",    "1920×1080",  "16:9",  "8 hours",     "—",      ""],
-        ["In-stream Ad",  "1080×1920",  "9:16",  "15 seconds",  "—",      "Preferred for mobile feed"]
+        [
+          "Feed Video",
+          "1920×1080",
+          "16:9",
+          "240 minutes",
+          "10 GB",
+          "1:1 and 4:5 also work"
+        ],
+        [
+          "Facebook Reels",
+          "1080×1920",
+          "9:16",
+          "90 seconds",
+          "4 GB",
+          ""
+        ],
+        [
+          "Story Video",
+          "1080×1920",
+          "9:16",
+          "20 seconds",
+          "4 GB",
+          ""
+        ],
+        [
+          "Live Video",
+          "1920×1080",
+          "16:9",
+          "8 hours",
+          "—",
+          ""
+        ],
+        [
+          "In-stream Ad",
+          "1080×1920",
+          "9:16",
+          "15 seconds",
+          "—",
+          "Preferred for mobile feed"
+        ]
       ]
     },
     {
@@ -120,10 +262,31 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Notes"
+      ],
       "rows": [
-        ["In-stream Video",  "1280×720 min, 1920×1200 max", "16:9 / 1:1 / 9:16", "2 minutes 20 seconds", "512 MB", "MOV or MP4"],
-        ["X Live",           "720p minimum",                 "16:9",               "Unlimited",            "—",      ""]
+        [
+          "In-stream Video",
+          "1280×720 min, 1920×1200 max",
+          "16:9 / 1:1 / 9:16",
+          "2 minutes 20 seconds",
+          "512 MB",
+          "MOV or MP4"
+        ],
+        [
+          "X Live",
+          "720p minimum",
+          "16:9",
+          "Unlimited",
+          "—",
+          ""
+        ]
       ]
     },
     {
@@ -136,11 +299,39 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Notes"
+      ],
       "rows": [
-        ["Feed Video",   "256×144 min, 4096×2304 max", "1:2.4 to 2.4:1", "10 minutes", "5 GB",    "H.264 / MP4 recommended"],
-        ["LinkedIn Live","1920×1080 min",               "16:9",            "4 hours",    "—",       ""],
-        ["Sponsored Video", "1920×1080",                "16:9 or 1:1",     "30 minutes", "200 MB",  "For ads"]
+        [
+          "Feed Video",
+          "256×144 min, 4096×2304 max",
+          "1:2.4 to 2.4:1",
+          "10 minutes",
+          "5 GB",
+          "H.264 / MP4 recommended"
+        ],
+        [
+          "LinkedIn Live",
+          "1920×1080 min",
+          "16:9",
+          "4 hours",
+          "—",
+          ""
+        ],
+        [
+          "Sponsored Video",
+          "1920×1080",
+          "16:9 or 1:1",
+          "30 minutes",
+          "200 MB",
+          "For ads"
+        ]
       ]
     },
     {
@@ -149,16 +340,44 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Notes"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Notes"
+      ],
       "rows": [
-        ["Snap / Story",  "1080×1920", "9:16", "60 seconds", "1 GB",  ""],
-        ["Spotlight",     "1080×1920", "9:16", "60 seconds", "1 GB",  "Vertical video discovery"],
-        ["Snap Ad",       "1080×1920", "9:16", "3–180 seconds", "1 GB", "H.264 / MOV or MP4"]
+        [
+          "Snap / Story",
+          "1080×1920",
+          "9:16",
+          "60 seconds",
+          "1 GB",
+          ""
+        ],
+        [
+          "Spotlight",
+          "1080×1920",
+          "9:16",
+          "60 seconds",
+          "1 GB",
+          "Vertical video discovery"
+        ],
+        [
+          "Snap Ad",
+          "1080×1920",
+          "9:16",
+          "3–180 seconds",
+          "1 GB",
+          "H.264 / MOV or MP4"
+        ]
       ]
     },
     {
       "type": "image",
-      "url": "",
+      "url": "/images/social-media-video-specs-2.png",
       "alt": "Video codec and bitrate settings for social media export",
       "caption": "H.264 MP4 is the universal codec — accepted by every major platform without transcoding issues"
     },
@@ -168,16 +387,70 @@
     },
     {
       "type": "table",
-      "headers": ["Platform", "Best Resolution", "Best Aspect Ratio", "Max Duration", "Max File Size"],
+      "headers": [
+        "Platform",
+        "Best Resolution",
+        "Best Aspect Ratio",
+        "Max Duration",
+        "Max File Size"
+      ],
       "rows": [
-        ["YouTube",    "3840×2160 (4K)", "16:9",  "12 hours",    "256 GB"],
-        ["TikTok",     "1080×1920",      "9:16",  "10 minutes",  "4 GB"],
-        ["Instagram Reels", "1080×1920", "9:16",  "15 minutes",  "4 GB"],
-        ["Instagram Feed",  "1080×1080", "1:1",   "60 minutes",  "4 GB"],
-        ["Facebook",   "1920×1080",      "16:9",  "240 minutes", "10 GB"],
-        ["X (Twitter)","1920×1200",      "16:9",  "2m 20s",      "512 MB"],
-        ["LinkedIn",   "1920×1080",      "1:1",   "10 minutes",  "5 GB"],
-        ["Snapchat",   "1080×1920",      "9:16",  "60 seconds",  "1 GB"]
+        [
+          "YouTube",
+          "3840×2160 (4K)",
+          "16:9",
+          "12 hours",
+          "256 GB"
+        ],
+        [
+          "TikTok",
+          "1080×1920",
+          "9:16",
+          "10 minutes",
+          "4 GB"
+        ],
+        [
+          "Instagram Reels",
+          "1080×1920",
+          "9:16",
+          "15 minutes",
+          "4 GB"
+        ],
+        [
+          "Instagram Feed",
+          "1080×1080",
+          "1:1",
+          "60 minutes",
+          "4 GB"
+        ],
+        [
+          "Facebook",
+          "1920×1080",
+          "16:9",
+          "240 minutes",
+          "10 GB"
+        ],
+        [
+          "X (Twitter)",
+          "1920×1200",
+          "16:9",
+          "2m 20s",
+          "512 MB"
+        ],
+        [
+          "LinkedIn",
+          "1920×1080",
+          "1:1",
+          "10 minutes",
+          "5 GB"
+        ],
+        [
+          "Snapchat",
+          "1080×1920",
+          "9:16",
+          "60 seconds",
+          "1 GB"
+        ]
       ]
     },
     {

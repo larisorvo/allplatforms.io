@@ -6,17 +6,26 @@
   "lastUpdated": "2026-05-08",
   "readTime": "9 min read",
   "category": "Guide",
-  "relatedPlatforms": ["facebook", "instagram", "x", "linkedin", "youtube", "tiktok", "pinterest", "snapchat"],
+  "relatedPlatforms": [
+    "facebook",
+    "instagram",
+    "x",
+    "linkedin",
+    "youtube",
+    "tiktok",
+    "pinterest",
+    "snapchat"
+  ],
   "sections": [
+    {
+      "type": "image",
+      "url": "/images/social-media-image-sizes-1.png",
+      "alt": "Side-by-side comparison of the four core social media aspect ratios",
+      "caption": "The same visual asset at 9:16, 4:5, 1:1, and 16:9 — the four formats that cover every major platform"
+    },
     {
       "type": "paragraph",
       "content": "Getting image sizes right is one of the most overlooked parts of social media work. Use the wrong dimensions and your cover photo gets cropped, your ad looks blurry, or your story disappears into letterboxing. This guide covers every major platform — verified against official documentation and updated for 2026."
-    },
-    {
-      "type": "image",
-      "url": "",
-      "alt": "Side-by-side comparison of the four core social media aspect ratios",
-      "caption": "The same visual asset at 9:16, 4:5, 1:1, and 16:9 — the four formats that cover every major platform"
     },
     {
       "type": "h2",
@@ -41,14 +50,49 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Profile Photo", "170×170 px", "1:1", "Displays as circle on mobile"],
-        ["Cover Photo", "851×315 px", "2.7:1", "Minimum 400×150 px"],
-        ["Shared Image", "1200×630 px", "1.91:1", "Most common post format"],
-        ["Story", "1080×1920 px", "9:16", "Full-screen vertical"],
-        ["Event Cover", "1920×1005 px", "1.91:1", "Cropped to 470×174 in feed"],
-        ["Group Cover", "1640×856 px", "1.91:1", ""]
+        [
+          "Profile Photo",
+          "170×170 px",
+          "1:1",
+          "Displays as circle on mobile"
+        ],
+        [
+          "Cover Photo",
+          "851×315 px",
+          "2.7:1",
+          "Minimum 400×150 px"
+        ],
+        [
+          "Shared Image",
+          "1200×630 px",
+          "1.91:1",
+          "Most common post format"
+        ],
+        [
+          "Story",
+          "1080×1920 px",
+          "9:16",
+          "Full-screen vertical"
+        ],
+        [
+          "Event Cover",
+          "1920×1005 px",
+          "1.91:1",
+          "Cropped to 470×174 in feed"
+        ],
+        [
+          "Group Cover",
+          "1640×856 px",
+          "1.91:1",
+          ""
+        ]
       ]
     },
     {
@@ -61,14 +105,49 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Profile Photo", "320×320 px", "1:1", "Displays as 110×110 circle"],
-        ["Square Post", "1080×1080 px", "1:1", "Classic feed format"],
-        ["Portrait Post", "1080×1350 px", "4:5", "Maximum vertical feed space"],
-        ["Landscape Post", "1080×566 px", "1.91:1", "Minimum ratio allowed"],
-        ["Story / Reels Cover", "1080×1920 px", "9:16", "Safe zone: 1080×1420 px"],
-        ["Carousel Card", "1080×1080 px", "1:1", "All cards must match ratio"]
+        [
+          "Profile Photo",
+          "320×320 px",
+          "1:1",
+          "Displays as 110×110 circle"
+        ],
+        [
+          "Square Post",
+          "1080×1080 px",
+          "1:1",
+          "Classic feed format"
+        ],
+        [
+          "Portrait Post",
+          "1080×1350 px",
+          "4:5",
+          "Maximum vertical feed space"
+        ],
+        [
+          "Landscape Post",
+          "1080×566 px",
+          "1.91:1",
+          "Minimum ratio allowed"
+        ],
+        [
+          "Story / Reels Cover",
+          "1080×1920 px",
+          "9:16",
+          "Safe zone: 1080×1420 px"
+        ],
+        [
+          "Carousel Card",
+          "1080×1080 px",
+          "1:1",
+          "All cards must match ratio"
+        ]
       ]
     },
     {
@@ -86,14 +165,49 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Profile Photo", "400×400 px", "1:1", "Displays as 200×200 circle"],
-        ["Header / Banner", "1500×500 px", "3:1", ""],
-        ["Single in-stream image", "1600×900 px", "16:9", "Cropped in feed, full on expand"],
-        ["2 images (side by side)", "700×800 px each", "7:8", ""],
-        ["3 images", "700×800 + 1200×686", "Mixed", "Left image is taller"],
-        ["4 images (grid)", "1200×675 px each", "16:9", ""]
+        [
+          "Profile Photo",
+          "400×400 px",
+          "1:1",
+          "Displays as 200×200 circle"
+        ],
+        [
+          "Header / Banner",
+          "1500×500 px",
+          "3:1",
+          ""
+        ],
+        [
+          "Single in-stream image",
+          "1600×900 px",
+          "16:9",
+          "Cropped in feed, full on expand"
+        ],
+        [
+          "2 images (side by side)",
+          "700×800 px each",
+          "7:8",
+          ""
+        ],
+        [
+          "3 images",
+          "700×800 + 1200×686",
+          "Mixed",
+          "Left image is taller"
+        ],
+        [
+          "4 images (grid)",
+          "1200×675 px each",
+          "16:9",
+          ""
+        ]
       ]
     },
     {
@@ -106,15 +220,55 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Profile Photo", "400×400 px minimum", "1:1", "Max 8 MB"],
-        ["Profile Banner", "1584×396 px", "4:1", "Mobile crops vertically"],
-        ["Post Image", "1200×627 px", "1.91:1", "Most common feed format"],
-        ["Portrait Post", "1080×1350 px", "4:5", "Max vertical for feed"],
-        ["Company Logo", "300×300 px", "1:1", ""],
-        ["Company Page Banner", "1128×191 px", "5.91:1", ""],
-        ["Article Cover Image", "1920×1080 px", "16:9", ""]
+        [
+          "Profile Photo",
+          "400×400 px minimum",
+          "1:1",
+          "Max 8 MB"
+        ],
+        [
+          "Profile Banner",
+          "1584×396 px",
+          "4:1",
+          "Mobile crops vertically"
+        ],
+        [
+          "Post Image",
+          "1200×627 px",
+          "1.91:1",
+          "Most common feed format"
+        ],
+        [
+          "Portrait Post",
+          "1080×1350 px",
+          "4:5",
+          "Max vertical for feed"
+        ],
+        [
+          "Company Logo",
+          "300×300 px",
+          "1:1",
+          ""
+        ],
+        [
+          "Company Page Banner",
+          "1128×191 px",
+          "5.91:1",
+          ""
+        ],
+        [
+          "Article Cover Image",
+          "1920×1080 px",
+          "16:9",
+          ""
+        ]
       ]
     },
     {
@@ -127,13 +281,43 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Channel Art / Banner", "2560×1440 px", "16:9", "Safe zone: 1546×423 px center"],
-        ["Profile Photo", "800×800 px", "1:1", "Displays as circle"],
-        ["Video Thumbnail", "1280×720 px", "16:9", "Max 2 MB, JPG / PNG / GIF"],
-        ["End Screen", "1280×720 px", "16:9", ""],
-        ["Community Post Image", "1280×720 px", "16:9", ""]
+        [
+          "Channel Art / Banner",
+          "2560×1440 px",
+          "16:9",
+          "Safe zone: 1546×423 px center"
+        ],
+        [
+          "Profile Photo",
+          "800×800 px",
+          "1:1",
+          "Displays as circle"
+        ],
+        [
+          "Video Thumbnail",
+          "1280×720 px",
+          "16:9",
+          "Max 2 MB, JPG / PNG / GIF"
+        ],
+        [
+          "End Screen",
+          "1280×720 px",
+          "16:9",
+          ""
+        ],
+        [
+          "Community Post Image",
+          "1280×720 px",
+          "16:9",
+          ""
+        ]
       ]
     },
     {
@@ -142,12 +326,37 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Profile Photo", "200×200 px minimum", "1:1", "Displays as circle"],
-        ["Video / Cover Image", "1080×1920 px", "9:16", "Used as video thumbnail"],
-        ["Photo Post (portrait)", "1080×1920 px", "9:16", "Preferred"],
-        ["Photo Post (landscape)", "1920×1080 px", "16:9", "Horizontal option"]
+        [
+          "Profile Photo",
+          "200×200 px minimum",
+          "1:1",
+          "Displays as circle"
+        ],
+        [
+          "Video / Cover Image",
+          "1080×1920 px",
+          "9:16",
+          "Used as video thumbnail"
+        ],
+        [
+          "Photo Post (portrait)",
+          "1080×1920 px",
+          "9:16",
+          "Preferred"
+        ],
+        [
+          "Photo Post (landscape)",
+          "1920×1080 px",
+          "16:9",
+          "Horizontal option"
+        ]
       ]
     },
     {
@@ -160,13 +369,43 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Standard Pin", "1000×1500 px", "2:3", "Best performing ratio"],
-        ["Square Pin", "1000×1000 px", "1:1", ""],
-        ["Long Pin", "1000×2100 px", "1:2.1", "Maximum before feed cutoff"],
-        ["Profile Photo", "165×165 px", "1:1", ""],
-        ["Board Cover", "222×150 px", "3:2", ""]
+        [
+          "Standard Pin",
+          "1000×1500 px",
+          "2:3",
+          "Best performing ratio"
+        ],
+        [
+          "Square Pin",
+          "1000×1000 px",
+          "1:1",
+          ""
+        ],
+        [
+          "Long Pin",
+          "1000×2100 px",
+          "1:2.1",
+          "Maximum before feed cutoff"
+        ],
+        [
+          "Profile Photo",
+          "165×165 px",
+          "1:1",
+          ""
+        ],
+        [
+          "Board Cover",
+          "222×150 px",
+          "3:2",
+          ""
+        ]
       ]
     },
     {
@@ -175,16 +414,36 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Snap / Story", "1080×1920 px", "9:16", "Full-screen vertical"],
-        ["Profile Photo", "320×320 px", "1:1", ""],
-        ["Spotlight", "1080×1920 px", "9:16", "Keep UI safe zone in mind"]
+        [
+          "Snap / Story",
+          "1080×1920 px",
+          "9:16",
+          "Full-screen vertical"
+        ],
+        [
+          "Profile Photo",
+          "320×320 px",
+          "1:1",
+          ""
+        ],
+        [
+          "Spotlight",
+          "1080×1920 px",
+          "9:16",
+          "Keep UI safe zone in mind"
+        ]
       ]
     },
     {
       "type": "image",
-      "url": "",
+      "url": "/images/social-media-image-sizes-2.png",
       "alt": "Cheat sheet overview of profile photo and cover image dimensions across major social platforms",
       "caption": "Profile photos, cover images, and feed posts each follow different dimension rules per platform"
     },
@@ -194,16 +453,70 @@
     },
     {
       "type": "table",
-      "headers": ["Platform", "Profile Photo", "Cover / Banner", "Feed Post", "Story / Vertical"],
+      "headers": [
+        "Platform",
+        "Profile Photo",
+        "Cover / Banner",
+        "Feed Post",
+        "Story / Vertical"
+      ],
       "rows": [
-        ["Facebook",    "170×170",  "851×315",    "1200×630",   "1080×1920"],
-        ["Instagram",   "320×320",  "—",          "1080×1080",  "1080×1920"],
-        ["X (Twitter)", "400×400",  "1500×500",   "1600×900",   "—"],
-        ["LinkedIn",    "400×400",  "1584×396",   "1200×627",   "—"],
-        ["YouTube",     "800×800",  "2560×1440",  "1280×720",   "—"],
-        ["TikTok",      "200×200",  "—",          "1080×1920",  "1080×1920"],
-        ["Pinterest",   "165×165",  "—",          "1000×1500",  "—"],
-        ["Snapchat",    "320×320",  "—",          "1080×1920",  "1080×1920"]
+        [
+          "Facebook",
+          "170×170",
+          "851×315",
+          "1200×630",
+          "1080×1920"
+        ],
+        [
+          "Instagram",
+          "320×320",
+          "—",
+          "1080×1080",
+          "1080×1920"
+        ],
+        [
+          "X (Twitter)",
+          "400×400",
+          "1500×500",
+          "1600×900",
+          "—"
+        ],
+        [
+          "LinkedIn",
+          "400×400",
+          "1584×396",
+          "1200×627",
+          "—"
+        ],
+        [
+          "YouTube",
+          "800×800",
+          "2560×1440",
+          "1280×720",
+          "—"
+        ],
+        [
+          "TikTok",
+          "200×200",
+          "—",
+          "1080×1920",
+          "1080×1920"
+        ],
+        [
+          "Pinterest",
+          "165×165",
+          "—",
+          "1000×1500",
+          "—"
+        ],
+        [
+          "Snapchat",
+          "320×320",
+          "—",
+          "1080×1920",
+          "1080×1920"
+        ]
       ]
     },
     {

@@ -6,17 +6,21 @@
   "lastUpdated": "2026-05-08",
   "readTime": "7 min read",
   "category": "Guide",
-  "relatedPlatforms": ["facebook", "instagram", "messenger"],
+  "relatedPlatforms": [
+    "facebook",
+    "instagram",
+    "messenger"
+  ],
   "sections": [
+    {
+      "type": "image",
+      "url": "/images/facebook-image-video-sizes-1.png",
+      "alt": "Facebook profile page with cover photo, profile picture, and feed post image areas highlighted",
+      "caption": "Facebook renders images differently across profiles, pages, groups, events, and ads — each placement has its own rules"
+    },
     {
       "type": "paragraph",
       "content": "Facebook is still the world's largest social platform with over 3 billion monthly users. It also has the most complex set of image and video specs — different rules apply to profiles, pages, groups, events, ads, and stories. This guide covers everything in one place."
-    },
-    {
-      "type": "image",
-      "url": "",
-      "alt": "Facebook profile page with cover photo, profile picture, and feed post image areas highlighted",
-      "caption": "Facebook renders images differently across profiles, pages, groups, events, and ads — each placement has its own rules"
     },
     {
       "type": "h2",
@@ -24,11 +28,31 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Profile Photo",          "170×170 px",    "1:1",    "Displays as circle; minimum 180×180"],
-        ["Cover Photo (personal)", "851×315 px",    "2.7:1",  "On mobile: 640×360; safe zone: center"],
-        ["Profile video",          "1080×1080 px",  "1:1",    "Replaces profile photo with looping video"]
+        [
+          "Profile Photo",
+          "170×170 px",
+          "1:1",
+          "Displays as circle; minimum 180×180"
+        ],
+        [
+          "Cover Photo (personal)",
+          "851×315 px",
+          "2.7:1",
+          "On mobile: 640×360; safe zone: center"
+        ],
+        [
+          "Profile video",
+          "1080×1080 px",
+          "1:1",
+          "Replaces profile photo with looping video"
+        ]
       ]
     },
     {
@@ -37,11 +61,31 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Page Profile Photo",     "170×170 px",    "1:1",    "Business logo; displays as circle"],
-        ["Page Cover Photo",       "851×315 px",    "2.7:1",  "Mobile: 640×360; keep CTA area safe"],
-        ["Page Cover Video",       "820×312 px",    "2.63:1", "20–90 second loop; no audio by default"]
+        [
+          "Page Profile Photo",
+          "170×170 px",
+          "1:1",
+          "Business logo; displays as circle"
+        ],
+        [
+          "Page Cover Photo",
+          "851×315 px",
+          "2.7:1",
+          "Mobile: 640×360; keep CTA area safe"
+        ],
+        [
+          "Page Cover Video",
+          "820×312 px",
+          "2.63:1",
+          "20–90 second loop; no audio by default"
+        ]
       ]
     },
     {
@@ -54,13 +98,43 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Shared / Feed Image",    "1200×630 px",   "1.91:1", "Most common format; sRGB color space"],
-        ["Square Post",            "1080×1080 px",  "1:1",    ""],
-        ["Portrait Post",          "1080×1350 px",  "4:5",    "Max portrait ratio allowed"],
-        ["Photo Album Cover",      "1200×630 px",   "1.91:1", "First photo in the album"],
-        ["Shared Link Preview",    "1200×630 px",   "1.91:1", "Pulled from Open Graph meta tags"]
+        [
+          "Shared / Feed Image",
+          "1200×630 px",
+          "1.91:1",
+          "Most common format; sRGB color space"
+        ],
+        [
+          "Square Post",
+          "1080×1080 px",
+          "1:1",
+          ""
+        ],
+        [
+          "Portrait Post",
+          "1080×1350 px",
+          "4:5",
+          "Max portrait ratio allowed"
+        ],
+        [
+          "Photo Album Cover",
+          "1200×630 px",
+          "1.91:1",
+          "First photo in the album"
+        ],
+        [
+          "Shared Link Preview",
+          "1200×630 px",
+          "1.91:1",
+          "Pulled from Open Graph meta tags"
+        ]
       ]
     },
     {
@@ -74,10 +148,25 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Story Image / Video",    "1080×1920 px",  "9:16",   "Safe zone: 1080×1420 center area"],
-        ["Story Overlay Text",     "—",             "—",      "Keep within top/bottom 250px safe margins"]
+        [
+          "Story Image / Video",
+          "1080×1920 px",
+          "9:16",
+          "Safe zone: 1080×1420 center area"
+        ],
+        [
+          "Story Overlay Text",
+          "—",
+          "—",
+          "Keep within top/bottom 250px safe margins"
+        ]
       ]
     },
     {
@@ -86,13 +175,55 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Codec"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Codec"
+      ],
       "rows": [
-        ["Feed Video",         "1920×1080",  "16:9 to 9:16", "240 minutes", "10 GB",  "H.264 / MP4"],
-        ["Facebook Reels",     "1080×1920",  "9:16",          "90 seconds",  "4 GB",   "H.264 / MP4"],
-        ["Facebook Stories",   "1080×1920",  "9:16",          "20 seconds",  "4 GB",   "H.264 / MP4"],
-        ["Facebook Live",      "1920×1080",  "16:9",          "8 hours",     "—",      "H.264 via RTMP"],
-        ["360 Video",          "5120×2560",  "2:1",           "60 minutes",  "10 GB",  "H.264 / MP4"]
+        [
+          "Feed Video",
+          "1920×1080",
+          "16:9 to 9:16",
+          "240 minutes",
+          "10 GB",
+          "H.264 / MP4"
+        ],
+        [
+          "Facebook Reels",
+          "1080×1920",
+          "9:16",
+          "90 seconds",
+          "4 GB",
+          "H.264 / MP4"
+        ],
+        [
+          "Facebook Stories",
+          "1080×1920",
+          "9:16",
+          "20 seconds",
+          "4 GB",
+          "H.264 / MP4"
+        ],
+        [
+          "Facebook Live",
+          "1920×1080",
+          "16:9",
+          "8 hours",
+          "—",
+          "H.264 via RTMP"
+        ],
+        [
+          "360 Video",
+          "5120×2560",
+          "2:1",
+          "60 minutes",
+          "10 GB",
+          "H.264 / MP4"
+        ]
       ]
     },
     {
@@ -101,16 +232,36 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Notes"
+      ],
       "rows": [
-        ["Group Cover Photo",  "1640×856 px",   "1.91:1", "Displays at 1640×856 on desktop"],
-        ["Event Cover Photo",  "1920×1005 px",  "1.91:1", "Cropped to 470×174 in timeline"],
-        ["Fundraiser Image",   "1200×630 px",   "1.91:1", ""]
+        [
+          "Group Cover Photo",
+          "1640×856 px",
+          "1.91:1",
+          "Displays at 1640×856 on desktop"
+        ],
+        [
+          "Event Cover Photo",
+          "1920×1005 px",
+          "1.91:1",
+          "Cropped to 470×174 in timeline"
+        ],
+        [
+          "Fundraiser Image",
+          "1200×630 px",
+          "1.91:1",
+          ""
+        ]
       ]
     },
     {
       "type": "image",
-      "url": "",
+      "url": "/images/facebook-image-video-sizes-2.png",
       "alt": "Facebook video formats shown across feed, Stories, and Reels placements",
       "caption": "Facebook supports the widest range of video aspect ratios of any platform, from 16:9 landscape to 9:16 vertical"
     },
@@ -124,14 +275,49 @@
     },
     {
       "type": "table",
-      "headers": ["Ad Type", "Recommended Size", "Aspect Ratio", "Max File Size"],
+      "headers": [
+        "Ad Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Max File Size"
+      ],
       "rows": [
-        ["Single Image Ad",     "1200×628 px",   "1.91:1", "30 MB"],
-        ["Single Image (square)","1080×1080 px", "1:1",    "30 MB"],
-        ["Carousel Card",       "1080×1080 px",  "1:1",    "30 MB per card"],
-        ["Stories Ad",          "1080×1920 px",  "9:16",   "30 MB"],
-        ["Reels Ad",            "1080×1920 px",  "9:16",   "4 GB video"],
-        ["Right Column Ad",     "1200×628 px",   "1.91:1", "30 MB"]
+        [
+          "Single Image Ad",
+          "1200×628 px",
+          "1.91:1",
+          "30 MB"
+        ],
+        [
+          "Single Image (square)",
+          "1080×1080 px",
+          "1:1",
+          "30 MB"
+        ],
+        [
+          "Carousel Card",
+          "1080×1080 px",
+          "1:1",
+          "30 MB per card"
+        ],
+        [
+          "Stories Ad",
+          "1080×1920 px",
+          "9:16",
+          "30 MB"
+        ],
+        [
+          "Reels Ad",
+          "1080×1920 px",
+          "9:16",
+          "4 GB video"
+        ],
+        [
+          "Right Column Ad",
+          "1200×628 px",
+          "1.91:1",
+          "30 MB"
+        ]
       ]
     },
     {

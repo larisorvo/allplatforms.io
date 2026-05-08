@@ -6,17 +6,21 @@
   "lastUpdated": "2026-05-08",
   "readTime": "5 min read",
   "category": "Guide",
-  "relatedPlatforms": ["linkedin", "x", "facebook"],
+  "relatedPlatforms": [
+    "linkedin",
+    "x",
+    "facebook"
+  ],
   "sections": [
+    {
+      "type": "image",
+      "url": "/images/linkedin-image-video-specs-1.png",
+      "alt": "LinkedIn profile page showing the profile photo, banner, and post image layout",
+      "caption": "LinkedIn's 4:1 banner ratio is one of the widest of any social platform — keep key content in the center third"
+    },
     {
       "type": "paragraph",
       "content": "LinkedIn is the leading professional social network, and getting your visuals right here matters — whether you're managing a personal brand, a company page, or running B2B ad campaigns. This guide covers every image and video spec you need, from profile photos to sponsored content."
-    },
-    {
-      "type": "image",
-      "url": "",
-      "alt": "LinkedIn profile page showing the profile photo, banner, and post image layout",
-      "caption": "LinkedIn's 4:1 banner ratio is one of the widest of any social platform — keep key content in the center third"
     },
     {
       "type": "h2",
@@ -24,13 +28,49 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Max File Size", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Max File Size",
+        "Notes"
+      ],
       "rows": [
-        ["Profile Photo",          "400×400 px",    "1:1",    "8 MB",   "Displays as circle; JPG or PNG"],
-        ["Profile Background Banner", "1584×396 px","4:1",    "8 MB",   "Mobile may crop top/bottom"],
-        ["Post Image",             "1200×627 px",   "1.91:1", "5 MB",   "Most common feed format"],
-        ["Portrait Post",          "1080×1350 px",  "4:5",    "5 MB",   "Max vertical space in feed"],
-        ["Document / PDF cover",   "1080×1080 px",  "1:1",    "100 MB", "First slide shown in feed"]
+        [
+          "Profile Photo",
+          "400×400 px",
+          "1:1",
+          "8 MB",
+          "Displays as circle; JPG or PNG"
+        ],
+        [
+          "Profile Background Banner",
+          "1584×396 px",
+          "4:1",
+          "8 MB",
+          "Mobile may crop top/bottom"
+        ],
+        [
+          "Post Image",
+          "1200×627 px",
+          "1.91:1",
+          "5 MB",
+          "Most common feed format"
+        ],
+        [
+          "Portrait Post",
+          "1080×1350 px",
+          "4:5",
+          "5 MB",
+          "Max vertical space in feed"
+        ],
+        [
+          "Document / PDF cover",
+          "1080×1080 px",
+          "1:1",
+          "100 MB",
+          "First slide shown in feed"
+        ]
       ]
     },
     {
@@ -39,13 +79,49 @@
     },
     {
       "type": "table",
-      "headers": ["Image Type", "Recommended Size", "Aspect Ratio", "Max File Size", "Notes"],
+      "headers": [
+        "Image Type",
+        "Recommended Size",
+        "Aspect Ratio",
+        "Max File Size",
+        "Notes"
+      ],
       "rows": [
-        ["Company Logo",           "300×300 px",    "1:1",    "4 MB",   "Displays as square with rounded corners"],
-        ["Company Page Banner",    "1128×191 px",   "5.91:1", "8 MB",   "Very wide; keep text centered"],
-        ["Life Tab Background",    "1128×376 px",   "3:1",    "4 MB",   ""],
-        ["Showcase Page Logo",     "100×60 px",     "5:3",    "2 MB",   ""],
-        ["Sponsored Content Image","1200×627 px",   "1.91:1", "5 MB",   "Standard ad image"]
+        [
+          "Company Logo",
+          "300×300 px",
+          "1:1",
+          "4 MB",
+          "Displays as square with rounded corners"
+        ],
+        [
+          "Company Page Banner",
+          "1128×191 px",
+          "5.91:1",
+          "8 MB",
+          "Very wide; keep text centered"
+        ],
+        [
+          "Life Tab Background",
+          "1128×376 px",
+          "3:1",
+          "4 MB",
+          ""
+        ],
+        [
+          "Showcase Page Logo",
+          "100×60 px",
+          "5:3",
+          "2 MB",
+          ""
+        ],
+        [
+          "Sponsored Content Image",
+          "1200×627 px",
+          "1.91:1",
+          "5 MB",
+          "Standard ad image"
+        ]
       ]
     },
     {
@@ -58,12 +134,47 @@
     },
     {
       "type": "table",
-      "headers": ["Video Type", "Resolution", "Aspect Ratio", "Max Duration", "Max File Size", "Codec"],
+      "headers": [
+        "Video Type",
+        "Resolution",
+        "Aspect Ratio",
+        "Max Duration",
+        "Max File Size",
+        "Codec"
+      ],
       "rows": [
-        ["Feed Post Video",     "256×144 to 4096×2304", "Any between 1:2.4–2.4:1", "10 minutes", "5 GB",   "H.264 / MP4"],
-        ["LinkedIn Live",       "720p minimum",          "16:9",                   "4 hours",    "—",      "H.264 via RTMP"],
-        ["Sponsored Video Ad",  "1920×1080 or 1080×1080","16:9 or 1:1",           "30 minutes", "200 MB", "H.264 / MP4"],
-        ["Company Page Video",  "Same as feed post",     "Same as feed post",      "10 minutes", "5 GB",   "H.264 / MP4"]
+        [
+          "Feed Post Video",
+          "256×144 to 4096×2304",
+          "Any between 1:2.4–2.4:1",
+          "10 minutes",
+          "5 GB",
+          "H.264 / MP4"
+        ],
+        [
+          "LinkedIn Live",
+          "720p minimum",
+          "16:9",
+          "4 hours",
+          "—",
+          "H.264 via RTMP"
+        ],
+        [
+          "Sponsored Video Ad",
+          "1920×1080 or 1080×1080",
+          "16:9 or 1:1",
+          "30 minutes",
+          "200 MB",
+          "H.264 / MP4"
+        ],
+        [
+          "Company Page Video",
+          "Same as feed post",
+          "Same as feed post",
+          "10 minutes",
+          "5 GB",
+          "H.264 / MP4"
+        ]
       ]
     },
     {
@@ -72,12 +183,32 @@
     },
     {
       "type": "table",
-      "headers": ["Content Type", "Recommended Size", "Notes"],
+      "headers": [
+        "Content Type",
+        "Recommended Size",
+        "Notes"
+      ],
       "rows": [
-        ["Article Cover Image",    "1920×1080 px",  "Displayed as hero image at top of article"],
-        ["Article Inline Image",   "1200×627 px",   "Standard width within article body"],
-        ["Document (PDF/PPT)",     "1080×1080 px per slide", "Max 300 pages / 100 MB"],
-        ["Newsletter Cover",       "1920×1080 px",  "Banner shown in newsletter header"]
+        [
+          "Article Cover Image",
+          "1920×1080 px",
+          "Displayed as hero image at top of article"
+        ],
+        [
+          "Article Inline Image",
+          "1200×627 px",
+          "Standard width within article body"
+        ],
+        [
+          "Document (PDF/PPT)",
+          "1080×1080 px per slide",
+          "Max 300 pages / 100 MB"
+        ],
+        [
+          "Newsletter Cover",
+          "1920×1080 px",
+          "Banner shown in newsletter header"
+        ]
       ]
     },
     {
@@ -100,7 +231,7 @@
     },
     {
       "type": "image",
-      "url": "",
+      "url": "/images/linkedin-image-video-specs-2.png",
       "alt": "LinkedIn document carousel post showing multiple slides in the feed",
       "caption": "Document posts (PDF carousels) are one of LinkedIn's highest-performing content formats"
     },
@@ -110,13 +241,43 @@
     },
     {
       "type": "table",
-      "headers": ["Ad Type", "Image Size", "Aspect Ratio", "Max File Size"],
+      "headers": [
+        "Ad Type",
+        "Image Size",
+        "Aspect Ratio",
+        "Max File Size"
+      ],
       "rows": [
-        ["Single Image Ad",       "1200×627 px",    "1.91:1", "5 MB"],
-        ["Single Image Ad (square)", "1200×1200 px","1:1",    "5 MB"],
-        ["Carousel Ad card",      "1080×1080 px",   "1:1",    "10 MB per card"],
-        ["Message Ad banner",     "300×250 px",     "6:5",    "2 MB"],
-        ["Spotlight Ad logo",     "100×100 px",     "1:1",    "2 MB"]
+        [
+          "Single Image Ad",
+          "1200×627 px",
+          "1.91:1",
+          "5 MB"
+        ],
+        [
+          "Single Image Ad (square)",
+          "1200×1200 px",
+          "1:1",
+          "5 MB"
+        ],
+        [
+          "Carousel Ad card",
+          "1080×1080 px",
+          "1:1",
+          "10 MB per card"
+        ],
+        [
+          "Message Ad banner",
+          "300×250 px",
+          "6:5",
+          "2 MB"
+        ],
+        [
+          "Spotlight Ad logo",
+          "100×100 px",
+          "1:1",
+          "2 MB"
+        ]
       ]
     },
     {

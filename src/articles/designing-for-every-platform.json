@@ -6,17 +6,26 @@
   "lastUpdated": "2026-05-08",
   "readTime": "11 min read",
   "category": "Strategy",
-  "relatedPlatforms": ["instagram", "tiktok", "facebook", "linkedin", "youtube", "pinterest", "x", "snapchat"],
+  "relatedPlatforms": [
+    "instagram",
+    "tiktok",
+    "facebook",
+    "linkedin",
+    "youtube",
+    "pinterest",
+    "x",
+    "snapchat"
+  ],
   "sections": [
-    {
-      "type": "paragraph",
-      "content": "Every platform wants a different version of your creative. Instagram wants 4:5 portrait. LinkedIn wants 1.91:1 landscape. TikTok wants 9:16 vertical. YouTube wants 16:9. Pinterest wants 2:3. If you design separately for each, you're multiplying your production effort by five — and still probably getting something wrong. This guide is about a different approach: design once, intelligently, so that a single asset can be adapted to every format without losing what makes it work."
-    },
     {
       "type": "image",
       "url": "/images/designing-for-every-platform-1.png",
       "alt": "A single creative asset shown simultaneously in 9:16, 4:5, 1:1, and 16:9 formats across different platforms",
       "caption": "Platform-agnostic design means building one asset that survives every crop — not redesigning for each platform separately"
+    },
+    {
+      "type": "paragraph",
+      "content": "Every platform wants a different version of your creative. Instagram wants 4:5 portrait. LinkedIn wants 1.91:1 landscape. TikTok wants 9:16 vertical. YouTube wants 16:9. Pinterest wants 2:3. If you design separately for each, you're multiplying your production effort by five — and still probably getting something wrong. This guide is about a different approach: design once, intelligently, so that a single asset can be adapted to every format without losing what makes it work."
     },
     {
       "type": "h2",
@@ -36,12 +45,32 @@
     },
     {
       "type": "table",
-      "headers": ["Ratio", "Shape", "Primary Platforms & Uses"],
+      "headers": [
+        "Ratio",
+        "Shape",
+        "Primary Platforms & Uses"
+      ],
       "rows": [
-        ["9:16 (0.56:1)", "Tall vertical", "TikTok feed, Instagram Reels/Stories, Snapchat, Facebook Stories — full-screen mobile content"],
-        ["4:5 (0.8:1)",   "Portrait",      "Instagram feed, Facebook feed, LinkedIn feed — maximum vertical space without going full-screen"],
-        ["1:1 (square)",  "Square",        "Instagram feed (classic), Facebook posts, Pinterest — universal safe format"],
-        ["16:9 (1.78:1)", "Landscape",     "YouTube thumbnails, LinkedIn articles, X/Twitter posts, Facebook video — wide-screen horizontal"]
+        [
+          "9:16 (0.56:1)",
+          "Tall vertical",
+          "TikTok feed, Instagram Reels/Stories, Snapchat, Facebook Stories — full-screen mobile content"
+        ],
+        [
+          "4:5 (0.8:1)",
+          "Portrait",
+          "Instagram feed, Facebook feed, LinkedIn feed — maximum vertical space without going full-screen"
+        ],
+        [
+          "1:1 (square)",
+          "Square",
+          "Instagram feed (classic), Facebook posts, Pinterest — universal safe format"
+        ],
+        [
+          "16:9 (1.78:1)",
+          "Landscape",
+          "YouTube thumbnails, LinkedIn articles, X/Twitter posts, Facebook video — wide-screen horizontal"
+        ]
       ]
     },
     {
@@ -67,12 +96,37 @@
     },
     {
       "type": "table",
-      "headers": ["Output Format", "Canvas Size", "Safe Zone (center area)", "Avoid these edges"],
+      "headers": [
+        "Output Format",
+        "Canvas Size",
+        "Safe Zone (center area)",
+        "Avoid these edges"
+      ],
       "rows": [
-        ["9:16 Full vertical",  "1080×1920", "1080×1420 (center)", "Top 250px, bottom 250px"],
-        ["4:5 Portrait",        "1080×1350", "1040×1260 (center)", "20px all sides"],
-        ["1:1 Square",          "1080×1080", "1040×1040 (center)", "20px all sides"],
-        ["16:9 Landscape",      "1920×1080", "1800×960 (center)",  "60px all sides"]
+        [
+          "9:16 Full vertical",
+          "1080×1920",
+          "1080×1420 (center)",
+          "Top 250px, bottom 250px"
+        ],
+        [
+          "4:5 Portrait",
+          "1080×1350",
+          "1040×1260 (center)",
+          "20px all sides"
+        ],
+        [
+          "1:1 Square",
+          "1080×1080",
+          "1040×1040 (center)",
+          "20px all sides"
+        ],
+        [
+          "16:9 Landscape",
+          "1920×1080",
+          "1800×960 (center)",
+          "60px all sides"
+        ]
       ]
     },
     {
@@ -150,14 +204,49 @@
     },
     {
       "type": "table",
-      "headers": ["Content Type", "Recommended Format", "Recommended Settings", "Why"],
+      "headers": [
+        "Content Type",
+        "Recommended Format",
+        "Recommended Settings",
+        "Why"
+      ],
       "rows": [
-        ["Graphics with text",   "PNG",           "24-bit, sRGB",               "Lossless — text stays sharp after platform recompression"],
-        ["Photography",          "JPG",           "85–95% quality, sRGB",       "Smaller file, minimal visible difference at high quality"],
-        ["Images with transparency","PNG",        "24-bit with alpha",           "JPG doesn't support transparency"],
-        ["Animation / motion",   "MP4 (H.264)",   "High bitrate, AAC audio",    "Universal codec, accepted everywhere"],
-        ["Short looping content","MP4 or GIF",    "MP4 preferred (smaller)",    "GIF is large and limited to 256 colors; MP4 is superior"],
-        ["High-res exports",     "PNG or JPG 95%","Maximum quality",            "Platform will downsample — start at the highest quality you can"]
+        [
+          "Graphics with text",
+          "PNG",
+          "24-bit, sRGB",
+          "Lossless — text stays sharp after platform recompression"
+        ],
+        [
+          "Photography",
+          "JPG",
+          "85–95% quality, sRGB",
+          "Smaller file, minimal visible difference at high quality"
+        ],
+        [
+          "Images with transparency",
+          "PNG",
+          "24-bit with alpha",
+          "JPG doesn't support transparency"
+        ],
+        [
+          "Animation / motion",
+          "MP4 (H.264)",
+          "High bitrate, AAC audio",
+          "Universal codec, accepted everywhere"
+        ],
+        [
+          "Short looping content",
+          "MP4 or GIF",
+          "MP4 preferred (smaller)",
+          "GIF is large and limited to 256 colors; MP4 is superior"
+        ],
+        [
+          "High-res exports",
+          "PNG or JPG 95%",
+          "Maximum quality",
+          "Platform will downsample — start at the highest quality you can"
+        ]
       ]
     },
     {
