@@ -2,8 +2,8 @@
   "slug": "designing-for-every-platform",
   "title": "Designing for Every Platform: A Framework for Universal Social Media Creatives",
   "description": "How to design images and video assets that work across Facebook, Instagram, TikTok, LinkedIn and more — a practical system for safe zones, composition, typography, and export workflows.",
-  "publishDate": "2025-05-08",
-  "lastUpdated": "2025-05-08",
+  "publishDate": "2026-05-08",
+  "lastUpdated": "2026-05-08",
   "readTime": "11 min read",
   "category": "Strategy",
   "relatedPlatforms": ["instagram", "tiktok", "facebook", "linkedin", "youtube", "pinterest", "x", "snapchat"],
@@ -13,18 +13,18 @@
       "content": "Every platform wants a different version of your creative. Instagram wants 4:5 portrait. LinkedIn wants 1.91:1 landscape. TikTok wants 9:16 vertical. YouTube wants 16:9. Pinterest wants 2:3. If you design separately for each, you're multiplying your production effort by five — and still probably getting something wrong. This guide is about a different approach: design once, intelligently, so that a single asset can be adapted to every format without losing what makes it work."
     },
     {
+      "type": "image",
+      "url": "/images/designing-for-every-platform-1.png",
+      "alt": "A single creative asset shown simultaneously in 9:16, 4:5, 1:1, and 16:9 formats across different platforms",
+      "caption": "Platform-agnostic design means building one asset that survives every crop — not redesigning for each platform separately"
+    },
+    {
       "type": "h2",
       "content": "The Problem with Platform-First Thinking"
     },
     {
       "type": "paragraph",
       "content": "The natural instinct is to start with the platform. \"I'm making an Instagram post, so I'll design at 1080×1080.\" Then when you need the same asset for LinkedIn, you resize it and something gets cropped off. Then for TikTok Stories you pillarbox it. Then for Facebook you squeeze it. By the end, you have five mediocre versions instead of one great one. Platform-first thinking creates reactive, fragmented creative work. The better approach is platform-agnostic design: build a master asset with all formats in mind, then adapt rather than redesign."
-    },
-    {
-      "type": "image",
-      "url": "/images/designing-for-every-platform-1.png",
-      "alt": "A single creative asset shown simultaneously in 9:16, 4:5, 1:1, and 16:9 formats across different platforms",
-      "caption": "Platform-agnostic design means building one asset that survives every crop — not redesigning for each platform separately"
     },
     {
       "type": "h2",
