@@ -135,11 +135,7 @@
       max-width: 1280px;
       margin: 0 auto;
       padding: 72px 24px 48px;
-      display: flex;
-      align-items: flex-start;
-      gap: 64px;
     }
-    .hero-content { flex: 1; min-width: 0; }
     .hero-eyebrow {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -174,19 +170,26 @@
     .hero-sub {
       font-size: 1.05rem;
       color: var(--muted);
+      max-width: 520px;
       line-height: 1.65;
     }
 
-    /* HERO BLOG SIDEBAR */
-    .hero-blog {
-      width: 260px;
+    /* BLOG SIDEBAR (next to platform grid) */
+    .grid-with-sidebar {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+    .grid-main { flex: 1; min-width: 0; }
+    .blog-aside {
+      width: 244px;
       flex-shrink: 0;
-      padding-top: 4px;
+      position: sticky;
+      top: 72px;
+      padding-top: 2px;
     }
-    @media (max-width: 860px) {
-      .hero { flex-direction: column; gap: 32px; }
-      .hero-blog { width: 100%; }
-    }
+    @media (max-width: 1080px) { .blog-aside { display: none; } }
+
     .hero-blog-label {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -510,7 +513,6 @@
     .hero-eyebrow { animation: fadeUp 0.5s ease both; }
     h1            { animation: fadeUp 0.5s 0.08s ease both; }
     .hero-sub     { animation: fadeUp 0.5s 0.16s ease both; }
-    .hero-blog    { animation: fadeUp 0.5s 0.2s ease both; }
     .grid-wrap    { animation: fadeUp 0.5s 0.24s ease both; }
   </style>
 </head>
@@ -542,36 +544,38 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Social Media Specs</div>
-      <h1>Every platform.<br><em>Every spec.</em></h1>
-      <p class="hero-sub">Image sizes, video requirements, character limits, and ad specs for every major platform — verified against official documentation.</p>
-    </div>
-    <div class="hero-blog">{{FEATURED_ARTICLES}}</div>
+    <div class="hero-eyebrow">Social Media Specs</div>
+    <h1>Every platform.<br><em>Every spec.</em></h1>
+    <p class="hero-sub">Image sizes, video requirements, character limits, and ad specs for every major platform — verified against official documentation.</p>
   </div>
 
   <!-- Platform grid -->
   <div class="grid-wrap">
-    <div class="controls-bar">
-      <div id="type-filter" class="cat-filter"></div>
-      <div class="sort-wrap">
-        <span class="sort-label">Sort by</span>
-        <select class="sort-select" id="sort-select" onchange="sortCards(this.value)">
-          <option value="popularity">Most popular</option>
-          <option value="az">Alphabetical A–Z</option>
-          <option value="updated">Recently updated</option>
-          <option value="newest">Newest platform</option>
-          <option value="marketing">Most used by marketers</option>
-          <option value="specs">Most complete specs</option>
-        </select>
+    <div class="grid-with-sidebar">
+      <div class="grid-main">
+        <div class="controls-bar">
+          <div id="type-filter" class="cat-filter"></div>
+          <div class="sort-wrap">
+            <span class="sort-label">Sort by</span>
+            <select class="sort-select" id="sort-select" onchange="sortCards(this.value)">
+              <option value="popularity">Most popular</option>
+              <option value="az">Alphabetical A–Z</option>
+              <option value="updated">Recently updated</option>
+              <option value="newest">Newest platform</option>
+              <option value="marketing">Most used by marketers</option>
+              <option value="specs">Most complete specs</option>
+            </select>
+          </div>
+        </div>
+        <p class="grid-label" id="grid-label">{{PLATFORM_COUNT}} platforms</p>
+        <div id="platform-grid">
+          {{PLATFORM_CARDS}}
+        </div>
+        <div id="show-all-wrap">
+          <button id="show-all-btn" onclick="showAll()"></button>
+        </div>
       </div>
-    </div>
-    <p class="grid-label" id="grid-label">{{PLATFORM_COUNT}} platforms</p>
-    <div id="platform-grid">
-      {{PLATFORM_CARDS}}
-    </div>
-    <div id="show-all-wrap">
-      <button id="show-all-btn" onclick="showAll()"></button>
+      <aside class="blog-aside">{{FEATURED_ARTICLES}}</aside>
     </div>
   </div>
 

@@ -135,11 +135,7 @@
       max-width: 1280px;
       margin: 0 auto;
       padding: 72px 24px 48px;
-      display: flex;
-      align-items: flex-start;
-      gap: 64px;
     }
-    .hero-content { flex: 1; min-width: 0; }
     .hero-eyebrow {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -174,19 +170,26 @@
     .hero-sub {
       font-size: 1.05rem;
       color: var(--muted);
+      max-width: 520px;
       line-height: 1.65;
     }
 
-    /* HERO BLOG SIDEBAR */
-    .hero-blog {
-      width: 260px;
+    /* BLOG SIDEBAR (next to platform grid) */
+    .grid-with-sidebar {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+    .grid-main { flex: 1; min-width: 0; }
+    .blog-aside {
+      width: 244px;
       flex-shrink: 0;
-      padding-top: 4px;
+      position: sticky;
+      top: 72px;
+      padding-top: 2px;
     }
-    @media (max-width: 860px) {
-      .hero { flex-direction: column; gap: 32px; }
-      .hero-blog { width: 100%; }
-    }
+    @media (max-width: 1080px) { .blog-aside { display: none; } }
+
     .hero-blog-label {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -510,7 +513,6 @@
     .hero-eyebrow { animation: fadeUp 0.5s ease both; }
     h1            { animation: fadeUp 0.5s 0.08s ease both; }
     .hero-sub     { animation: fadeUp 0.5s 0.16s ease both; }
-    .hero-blog    { animation: fadeUp 0.5s 0.2s ease both; }
     .grid-wrap    { animation: fadeUp 0.5s 0.24s ease both; }
   </style>
 </head>
@@ -542,55 +544,32 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Social Media Specs</div>
-      <h1>Every platform.<br><em>Every spec.</em></h1>
-      <p class="hero-sub">Image sizes, video requirements, character limits, and ad specs for every major platform — verified against official documentation.</p>
-    </div>
-    <div class="hero-blog"><p class="hero-blog-label">From the blog</p>
-<div class="hero-blog-list"><a href="/blog/designing-for-every-platform" class="hero-blog-item">
-  <div class="hero-blog-meta">
-    <span class="hero-blog-cat">Strategy</span>
-    <span class="hero-blog-time">11 min read</span>
-  </div>
-  <span class="hero-blog-title">Designing for Every Platform: A Framework for Universal Social Media Creatives</span>
-</a>
-<a href="/blog/facebook-image-video-sizes-2025" class="hero-blog-item">
-  <div class="hero-blog-meta">
-    <span class="hero-blog-cat">Guide</span>
-    <span class="hero-blog-time">7 min read</span>
-  </div>
-  <span class="hero-blog-title">Facebook Image &amp; Video Sizes: Complete Guide for 2025</span>
-</a>
-<a href="/blog/instagram-vs-tiktok-specs" class="hero-blog-item">
-  <div class="hero-blog-meta">
-    <span class="hero-blog-cat">Comparison</span>
-    <span class="hero-blog-time">6 min read</span>
-  </div>
-  <span class="hero-blog-title">Instagram vs TikTok: Full Spec Comparison for 2025</span>
-</a></div>
-<a href="/blog" class="hero-blog-all">View all articles →</a></div>
+    <div class="hero-eyebrow">Social Media Specs</div>
+    <h1>Every platform.<br><em>Every spec.</em></h1>
+    <p class="hero-sub">Image sizes, video requirements, character limits, and ad specs for every major platform — verified against official documentation.</p>
   </div>
 
   <!-- Platform grid -->
   <div class="grid-wrap">
-    <div class="controls-bar">
-      <div id="type-filter" class="cat-filter"></div>
-      <div class="sort-wrap">
-        <span class="sort-label">Sort by</span>
-        <select class="sort-select" id="sort-select" onchange="sortCards(this.value)">
-          <option value="popularity">Most popular</option>
-          <option value="az">Alphabetical A–Z</option>
-          <option value="updated">Recently updated</option>
-          <option value="newest">Newest platform</option>
-          <option value="marketing">Most used by marketers</option>
-          <option value="specs">Most complete specs</option>
-        </select>
-      </div>
-    </div>
-    <p class="grid-label" id="grid-label">42 platforms</p>
-    <div id="platform-grid">
-      <a href="/500px" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="500px" data-color="#0099E5" data-category="Image" data-type="Image" data-name="500px" data-popularity="39" data-marketing-rank="39" data-launch-year="2009" data-spec-count="15" data-updated="2026-05-08">
+    <div class="grid-with-sidebar">
+      <div class="grid-main">
+        <div class="controls-bar">
+          <div id="type-filter" class="cat-filter"></div>
+          <div class="sort-wrap">
+            <span class="sort-label">Sort by</span>
+            <select class="sort-select" id="sort-select" onchange="sortCards(this.value)">
+              <option value="popularity">Most popular</option>
+              <option value="az">Alphabetical A–Z</option>
+              <option value="updated">Recently updated</option>
+              <option value="newest">Newest platform</option>
+              <option value="marketing">Most used by marketers</option>
+              <option value="specs">Most complete specs</option>
+            </select>
+          </div>
+        </div>
+        <p class="grid-label" id="grid-label">42 platforms</p>
+        <div id="platform-grid">
+          <a href="/500px" class="block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group" data-platform="500px" data-color="#0099E5" data-category="Image" data-type="Image" data-name="500px" data-popularity="39" data-marketing-rank="39" data-launch-year="2009" data-spec-count="15" data-updated="2026-05-08">
   <div class="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-700" style="background:linear-gradient(135deg,#0099E518,transparent);">
     <div style="width:36px;height:36px;border-radius:8px;background:#0099E5;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.15);"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="none" stroke="#ffffff" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" fill="#ffffff"/><circle cx="12" cy="12" r="2" fill="none" stroke="#0099E5" stroke-width="1.5"/></svg></div>
     <div>
@@ -1136,9 +1115,34 @@
     <ul class="text-xs text-gray-400 dark:text-gray-500 space-y-0.5"><li>→ Image Specs: 1280 × 720 px</li><li>→ Video Specs</li><li>→ Text &amp; Character Limits: 100 characters</li></ul>
   </div>
 </a>
-    </div>
-    <div id="show-all-wrap">
-      <button id="show-all-btn" onclick="showAll()"></button>
+        </div>
+        <div id="show-all-wrap">
+          <button id="show-all-btn" onclick="showAll()"></button>
+        </div>
+      </div>
+      <aside class="blog-aside"><p class="hero-blog-label">From the blog</p>
+<div class="hero-blog-list"><a href="/blog/designing-for-every-platform" class="hero-blog-item">
+  <div class="hero-blog-meta">
+    <span class="hero-blog-cat">Strategy</span>
+    <span class="hero-blog-time">11 min read</span>
+  </div>
+  <span class="hero-blog-title">Designing for Every Platform: A Framework for Universal Social Media Creatives</span>
+</a>
+<a href="/blog/facebook-image-video-sizes-2025" class="hero-blog-item">
+  <div class="hero-blog-meta">
+    <span class="hero-blog-cat">Guide</span>
+    <span class="hero-blog-time">7 min read</span>
+  </div>
+  <span class="hero-blog-title">Facebook Image &amp; Video Sizes: Complete Guide for 2025</span>
+</a>
+<a href="/blog/instagram-vs-tiktok-specs" class="hero-blog-item">
+  <div class="hero-blog-meta">
+    <span class="hero-blog-cat">Comparison</span>
+    <span class="hero-blog-time">6 min read</span>
+  </div>
+  <span class="hero-blog-title">Instagram vs TikTok: Full Spec Comparison for 2025</span>
+</a></div>
+<a href="/blog" class="hero-blog-all">View all articles →</a></aside>
     </div>
   </div>
 
