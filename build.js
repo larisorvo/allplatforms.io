@@ -245,7 +245,27 @@ function buildPlatformPage(platform, template, allPlatforms, logos) {
     .replace(/\{\{LAST_UPDATED\}\}/g,        () => platform.lastUpdated);
 }
 
-function buildHomePage(allPlatforms, template, logos) {
+function buildFeaturedArticles(articles) {
+  if (!articles || articles.length === 0) return '';
+  const featured = articles.slice(0, 3);
+  const items = featured.map(a => `<a href="/blog/${a.slug}" class="blog-strip-item">
+  <div class="blog-strip-item-top">
+    <span class="blog-strip-cat">${escapeHtml(a.category || 'Guide')}</span>
+    <span class="blog-strip-read">${escapeHtml(a.readTime || '5 min read')}</span>
+  </div>
+  <span class="blog-strip-title">${escapeHtml(a.title)}</span>
+  <span class="blog-strip-arrow">Read →</span>
+</a>`).join('\n');
+  return `<div class="blog-strip">
+  <div class="blog-strip-header">
+    <span class="blog-strip-label">From the blog</span>
+    <a href="/blog" class="blog-strip-all">View all articles →</a>
+  </div>
+  <div class="blog-strip-list">${items}</div>
+</div>`;
+}
+
+function buildHomePage(allPlatforms, template, logos, articles) {
   const cards = allPlatforms.map(p => {
     const sorted = [...p.specs].sort((a, b) => a.priority - b.priority);
     const teasers = sorted.slice(0, 3).map(section => {
@@ -282,11 +302,14 @@ function buildHomePage(allPlatforms, template, logos) {
   const metaDesc  = 'Complete technical specifications for every major social platform — image sizes, video requirements, character limits, and ad specs, all in one place. Verified against official documentation.';
   const platformCount = String(allPlatforms.length);
 
+  const featuredArticles = buildFeaturedArticles(articles || []);
+
   return template
-    .replace(/\{\{META_TITLE\}\}/g,       () => metaTitle)
-    .replace(/\{\{META_DESCRIPTION\}\}/g, () => metaDesc)
-    .replace(/\{\{PLATFORM_CARDS\}\}/g,   () => cards)
-    .replace(/\{\{PLATFORM_COUNT\}\}/g,   () => platformCount);
+    .replace(/\{\{META_TITLE\}\}/g,         () => metaTitle)
+    .replace(/\{\{META_DESCRIPTION\}\}/g,   () => metaDesc)
+    .replace(/\{\{PLATFORM_CARDS\}\}/g,     () => cards)
+    .replace(/\{\{PLATFORM_COUNT\}\}/g,     () => platformCount)
+    .replace(/\{\{FEATURED_ARTICLES\}\}/g,  () => featuredArticles);
 }
 
 // ── Article helpers ────────────────────────────────────────────────────────
@@ -464,7 +487,7 @@ function main() {
     console.log(`  ✓ /${platform.slug}/index.html`);
   }
 
-  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), buildHomePage(allPlatforms, indexTemplate, logos), 'utf8');
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), buildHomePage(allPlatforms, indexTemplate, logos, articles), 'utf8');
   console.log('  ✓ /index.html');
 
   if (articles.length > 0) {
