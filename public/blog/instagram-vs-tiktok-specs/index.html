@@ -624,6 +624,8 @@
       transition: color 0.15s;
     }
     .footer-email:hover { color: var(--accent); }
+    .footer-link { font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color 0.15s; }
+    .footer-link:hover { color: var(--accent); }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(12px); }
@@ -721,6 +723,7 @@
     <div class="footer-inner">
       <span class="footer-logo">allplatforms<span>.io</span></span>
       <p class="footer-note">Spec data verified against official platform documentation. Updated regularly.</p>
+      <a href="https://eurovahti.fi" class="footer-link" target="_blank" rel="noopener">eurovahti.fi</a>
       <span id="contact-link"></span>
     </div>
   </footer>
