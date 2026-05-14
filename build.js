@@ -480,12 +480,12 @@ function buildBlogIndexPage(articles, template) {
 function buildSitemap(allPlatforms, articles) {
   const urls = [
     `  <url><loc>${BASE_URL}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
-    `  <url><loc>${BASE_URL}/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`,
+    `  <url><loc>${BASE_URL}/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`,
     ...allPlatforms.map(p =>
-      `  <url><loc>${BASE_URL}/${p.slug}</loc><lastmod>${p.lastUpdated}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`
+      `  <url><loc>${BASE_URL}/${p.slug}/</loc><lastmod>${p.lastUpdated}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`
     ),
     ...articles.map(a =>
-      `  <url><loc>${BASE_URL}/blog/${a.slug}</loc><lastmod>${a.lastUpdated}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+      `  <url><loc>${BASE_URL}/blog/${a.slug}/</loc><lastmod>${a.lastUpdated}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
     ),
   ].join('\n');
 
